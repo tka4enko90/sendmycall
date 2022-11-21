@@ -1,0 +1,129 @@
+// GRID
+$grid-breakpoints: (
+        xs: 0,
+        xsm: 340,
+        sm: 576px,
+        md: 767px,
+        lg: 980px,
+        xl: 1024px,
+        xxl: 1200px,
+        max: 1440px,
+);
+$container-max-widths-xxl: 1240px;
+
+$container-max-widths: (
+        xxl: $container-max-widths-xxl
+);
+
+$grid-gutter-width: 40px;
+
+// FONTS
+
+
+$font-size-base: 16px;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: $font-size-base;
+$font-size-lg: 24px;
+$font-size-xl: 32px;
+$font-size-root : null;
+$line-height: 1.4;
+
+$font-family-sans-serif: 'Lato', sans-serif;
+$font-family-base:        $font-family-sans-serif;
+
+//$headings-font-family: 'Vidaloka', serif;
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$black: 900;
+
+//COLORS
+$white: #fff;
+$black: #000;
+$gray_dark: #565E5E;
+$gray: #F7F7F7;
+$gray_888: #888888;
+$primary-color: #F3733D;
+$secondary-color: #132717;
+$body-color: #393939;
+$text-color: $body-color;
+$brand-bg: #f5f5f7;
+$bg-muted: #F3F3F0;
+//$primary-hover:   $secondary;
+$headings-color : #565E5E;
+//$headings-background : $secondary;
+
+$body-bg: #fff;
+//$link-hover-color: #548bd3;
+$gray_light: #F3F3F0;
+//BASE
+$transition: 0.35s;
+$border-radius: 8px;
+$border-color: $gray_light;
+
+//form
+$input-height: 40px;
+$input-padding-y: 10px;
+$input-padding-x: 16px;
+$input-font-size: $font-size-sm;
+$input-line-height: 1;
+$input-color: $secondary;
+$input-placeholder-color: $input-focus-color;
+//$input-bg : $gray_bg;
+$input-border-width: 1px;
+//$input-border-color: $gray_light;
+$input-border-radius: 4px;
+
+
+//$input-focus-bg: $gray_light;
+//border-color: $input-focus-border-color;
+
+//navbar
+$navbar-padding-y: 0;
+$navbar-padding-x: 40px;
+$bronze: #f8cdbd;
+$violet: #9d64c3;
+$green: #6cd73a;
+$blue: #2196f3;
+$yellow: #ffc107;
+$theme-colors: map-merge(
+                (
+                        "bronze": $bronze,
+                        "green": $green,
+                        "violet": $violet,
+                ),
+                $theme-colors
+);
+
+//modal
+// $modal-md: 588px;
+// $modal-inner-padding: 40px;
+// $modal-content-border-radius: 8px;
+$label-margin-bottom: 0.5rem !default;
+
+$input-font-family: $font-family-base;
+$input-font-weight: $regular;
+$input-line-height: 1.2;
+
+$input-bg:  $white;
+$input-disabled-bg: $gray-200 !default;
+
+$input-color: $text-color;
+$input-border-color: #BBBEBE;
+$input-box-shadow: none;
+
+$input-border-radius: 4px;
+
+$input-focus-bg: transparent!important;
+$input-focus-color: #888888;
+$input-focus-border-color: $input-focus-color;
+$input-focus-color: $input-color !default;
+$input-focus-width: $input-btn-focus-width !default;
+$input-focus-box-shadow: none;
+
+$input-plaintext-color: $gray_dark !default;
+$input-focus-border-color: $input-bg;

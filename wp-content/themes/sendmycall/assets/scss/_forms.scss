@@ -1,0 +1,317 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+@-webkit-keyframes autofill {
+  0%, 100% {
+    color: $input-color;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+form {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="name"],
+  input[type="log"],
+  textarea {
+    display: block;
+    width: 100%;
+    height: $input-height;
+    padding: $input-padding-y $input-padding-x;
+    font-family: $input-font-family;
+    @include font-size($input-font-size);
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    background: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    outline: none;
+    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+    @include border-radius($input-border-radius, 0);
+    @include box-shadow($input-box-shadow);
+    @include transition($input-transition);
+
+    // Unstyle the caret on `<select>`s in IE10+.
+    &::-ms-expand {
+      border: 0;
+    }
+    // Placeholder
+    &::placeholder {
+      color: $input-placeholder-color;
+      // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+      opacity: 1;
+    }
+
+    // Remove select outline from select box in FF
+    &:-moz-focusring {
+      color: $input-placeholder-color;
+    }
+    &.wpcf7-not-valid {
+      border-color: red;
+    }
+  }
+  .row {
+    display: flex;
+    margin: 0 -8px;
+    flex-wrap: wrap;
+    .col {
+      flex: 1 1 50%;
+      padding: 0 8px;
+      position: relative;
+      margin-bottom: 16px;
+      @include media-breakpoint-down(md) {
+        //flex: 1 1 100%;
+      }
+      @media (max-width: 320px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .wpcf7-list-item {
+    margin: 0;
+  }
+  textarea {
+    height: 100px;
+    @include media-breakpoint-down(md) {
+      height: 50px;
+    }
+  }
+
+  label {
+    font-size: 12px;
+    color: $input-focus-color;
+    line-height: 16px;
+    background-color: $white;
+  }
+  .select-wrap {
+    position: relative;
+    &:after {
+      content: "";
+      width: 18px;
+      height: 18px;
+      background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.9104 6.96748L9.00035 9.87748L6.09035 6.96748C5.79785 6.67498 5.32535 6.67498 5.03285 6.96748C4.74035 7.25998 4.74035 7.73248 5.03285 8.02498L8.47535 11.4675C8.76785 11.76 9.24035 11.76 9.53285 11.4675L12.9754 8.02498C13.2679 7.73248 13.2679 7.25998 12.9754 6.96748C12.6829 6.68248 12.2029 6.67498 11.9104 6.96748V6.96748Z' fill='%23F3733D'/%3E%3C/svg%3E%0A");
+      display: inline-block;
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+  select {
+    appearance: none;
+    background-color: transparent;
+    border-color: $input-border-color;
+    border-radius: 4px;
+    padding: 8px 25px 8px 10px;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    cursor: inherit;
+    outline: none;
+    line-height: inherit;
+    color: $gray_dark;
+    font-size: $font-size-sm;
+    height: 40px;
+    @include media-breakpoint-down(md) {
+      padding: 8px 25px 8px 10px;
+    }
+    &::-ms-expand {
+      display: none;
+    }
+
+  }
+  input[type='checkbox'],
+  input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    & + label,
+    & + span {
+      position: relative;
+      padding-left: 25px;
+      &:after,
+      &:before {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 0;
+        top: 0;
+        background-size: 100%;
+        border-radius: 2px;
+      }
+
+      &:after {
+        content: '';
+        border: 2px solid $input-border-color;
+        background-repeat: no-repeat;
+      }
+
+      &:before {
+        content: '';
+        display: none;
+        background-repeat: no-repeat;
+        z-index: 1;
+        width: 12px;
+        height: 12px;
+        left: 3px;
+        top: 3px;
+      }
+    }
+
+    &:checked + label,
+    &:checked  + span {
+      &:after {
+        border-color: #565E5E;
+        background-color: #565E5E;
+      }
+
+      &:before {
+        background-image: url("data:image/svg+xml,%3C!-- Generated by IcoMoon.io --%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctitle%3Echeckmark%3C/title%3E%3Cpath fill='%23fff' d='M0 11l2-2 5 5 11-11 2 2-13 13z'%3E%3C/path%3E%3C/svg%3E%0A");
+        display: block;
+      }
+    }
+  }
+
+  input[type='radio'] {
+    & + label,
+    & + span {
+
+      &:after,
+      &:before {
+        position: absolute;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        padding: 4px;
+      }
+
+      &:before {
+        width: 10px;
+        height: 10px;
+        left: 4px;
+        top: 4px;
+        background-color: #565E5E;
+        background-image: none;
+      }
+    }
+
+    &:checked + label,
+    &:checked + span {
+      &:after {
+        border-color: #565E5E;
+        background-color: transparent;
+      }
+
+      &:before {
+        background-image: none;
+        display: block;
+      }
+    }
+  }
+
+  .form-item-wrap {
+    position: relative;
+    margin-bottom: 16px;
+    @media (max-width: 320px) {
+      margin-bottom: 10px;
+    }
+    a {
+      color: $primary-color;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    label {
+      background-color: $white;
+      flex: 1 1 100%;
+      @include input-label;
+    }
+    @include input-label-active;
+    .form-item-checkbox {
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+      label {
+        position: static;
+        @include media-breakpoint-down(md) {
+          font-size: 11px;
+        }
+        @media (max-width: 320px) {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+  //theme my login styles
+
+
+  .form-subscribe {
+    &-wrap {
+      display: flex;
+      position: relative;
+      flex-wrap: wrap;
+      label {
+        background-color: transparent;
+        flex: 1 1 100%;
+        @include input-label;
+      }
+      input {
+        flex: 1;
+        border: none;
+      }
+      @include input-label-active;
+      .btn-default {
+        background-color: $gray_dark;
+        color: $white;
+        font-size: 14px;
+        margin-left: 4px;
+        flex: 0;
+        &:hover {
+          background-color: rgba($gray_dark, .8);
+        }
+      }
+    }
+  }
+
+  .wpcf7-not-valid-tip {
+    position: absolute;
+    left: 5px;
+    bottom: -20px;
+    font-size: 8px;
+  }
+  .wpcf7-form-control-wrap {
+    display: flex;
+  }
+  .wpcf7-response-output {
+    border: none!important;
+    color: $primary-color;
+  }
+  .wpcf7-checkbox,
+  .wpcf7-acceptance {
+    + .wpcf7-not-valid-tip {
+      bottom: -14px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@mixin list-default() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@mixin object-fit($fit) {
+  width: 100%;
+  height: 100%;
+  object-fit: #{$fit};
+  font-family: 'object-fit:#{$fit}';
+}
+
+@mixin input-label() {
+  margin: 0 !important;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  transition: top .1s ease;
+  z-index: 1;
+}
+
+@mixin input-label-active(){
+  &.active {
+    label {
+      top: -8px;
+    }
+  }
+}

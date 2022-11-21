@@ -1,0 +1,44 @@
+{
+  "name": "habbio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7",
+    "babel-loader": "8.2.2",
+    "babel-plugin-module-resolver": "4.0.0",
+    "bootstrap": "5.0.2",
+    "browser-sync": "2.26.13",
+    "del": "6.0.0",
+    "gulp": "4.0.2",
+    "gulp-autoprefixer": "7.0.1",
+    "gulp-imagemin": "7.1.0",
+    "gulp-minify": "3.1.0",
+    "gulp-newer": "1.4.0",
+    "gulp-rename": "2.0.0",
+    "gulp-rsync": "0.0.9",
+    "gulp-sass": "4.1.0",
+    "jquery-sticky": "1.0.4",
+    "objectFitPolyfill": "2.3.5",
+    "slick": "1.12.2",
+    "slick-carousel": "1.8.1",
+    "webpack": "5.9.0",
+    "webpack-stream": "6.1.1"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "4.0.0-alpha.4",
+    "@popperjs/core": "2.9.3",
+    "blowup": "1.0.2",
+    "flatpickr": "4.6.9",
+    "hc-sticky": "2.2.7",
+    "magnify": "2.3.3",
+    "swiper": "6.8.0",
+    "tippy.js": "6.3.1"
+  }
+}
