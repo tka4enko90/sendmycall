@@ -1,130 +1,166 @@
 .footer {
-  background-color: $bg-muted;
-  padding: 56px 0 40px 0;
+  background-color: $white;
+  //padding: 56px 0 40px 0;
   font-size: $font-size-sm;
-  @include media-breakpoint-down(md) {
-    padding: 40px 0 40px 0;
-  }
+  //@include media-breakpoint-down(md) {
+  //  padding: 40px 0 40px 0;
+  //}
   .logo {
-    width: 98px;
-    margin-bottom: 24px;
+    width: 175px;
+    height: 40px;
+    margin-bottom: 40px;
   }
-  &-wrap {
+  &-row {
     display: flex;
-    justify-content: space-between;
-    @include media-breakpoint-down(md) {
-      flex-direction: column-reverse;
-    }
-  }
-  &-info {
-    flex: 1 1 33.3%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    @include media-breakpoint-down(xxl) {
-      flex: 1 1 20%;
-    }
-    @include media-breakpoint-down(md) {
-      flex: 1 1 100%;
-    }
   }
   &-col {
+    flex: 1 1 20%;
+    padding: 0 15px;
+    &-title {
+      margin-top: 0;
+    }
+  }
+  &-logo {
+    display: block;
+    margin-bottom: 40px;
+  }
+  &-social {
     display: flex;
-    justify-content: flex-end;
-    @include media-breakpoint-down(xxl) {
-      flex: 1 1 70%;
-    }
-    @include media-breakpoint-down(lg) {
-      flex: 1 1 80%;
-    }
-    @include media-breakpoint-down(md) {
-      flex: 1 1 100%;
-      justify-content: space-between;
-      margin-bottom: 40px;
-    }
-    @include media-breakpoint-down(sm) {
-      justify-content: flex-start;
-    }
-    @include media-breakpoint-down(sm) {
-      flex-direction: column;
+    justify-content: space-between;
+    &-item {
+      //margin-right: 24px;
+      //&:last-child {
+      //  margin-right: 0;
+      //}
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
-  &-nav {
+  &-copyright {
+    border-top: 1px solid $border-color;
     display: flex;
-    flex-wrap: wrap;
-    @include media-breakpoint-down(sm) {
-      margin-bottom: 40px;
-    }
-    //@include media-breakpoint-down(xsm) {
-    //  flex-direction: column;
-    //}
-    &-wrap {
-      margin-right: 100px;
-      @include media-breakpoint-down(xxl) {
-        margin-right: 50px;
-      }
-      @include media-breakpoint-down(lg) {
-        margin-right: 30px;
-      }
-      @include media-breakpoint-down(sm) {
-        margin-right: 0;
-      }
-    }
-    &-menu {
-      padding: 0;
-      list-style: none;
-      &:not(:last-child) {
-        margin: 0 58px 0 0;
-        @include media-breakpoint-down(xl) {
-          margin-right: 30px;
-        }
-        @include media-breakpoint-down(lg) {
-          margin-right: 20px;
-        }
-        @include media-breakpoint-down(sm) {
-          margin-right: 32px;
-        }
-      }
-      li {
-        &:not(:last-child) {
-          margin-bottom: 16px;
-        }
-        a {
-          color: $gray_dark;
-          font-size: $font-size-sm;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 14px;
   }
-  &-sign-up-label {
-    margin-bottom: 16px;
-  }
-  &-title {
-    flex: 1 1 100%;
-    margin-bottom: 24px;
-    line-height: 1;
-  }
-  &-keep-up {
-    flex: 1;
-  }
-  &-design-by {
-    span {
-      color: $primary-color;
-    }
-  }
-  .ajax-loader {
-    display: none;
-  }
-  .wpcf7-form-control-wrap {
-    flex: 1;
-  }
-  .social {
-    margin-top: 48px;
-    @include media-breakpoint-down(md) {
-      margin-top: 30px;
-    }
-  }
+  //&-wrap {
+  //  display: flex;
+  //  justify-content: space-between;
+  //  @include media-breakpoint-down(md) {
+  //    flex-direction: column-reverse;
+  //  }
+  //}
+  //&-info {
+  //  flex: 1 1 33.3%;
+  //  display: flex;
+  //  flex-direction: column;
+  //  justify-content: space-between;
+  //  @include media-breakpoint-down(xxl) {
+  //    flex: 1 1 20%;
+  //  }
+  //  @include media-breakpoint-down(md) {
+  //    flex: 1 1 100%;
+  //  }
+  //}
+  //&-col {
+  //  display: flex;
+  //  justify-content: flex-end;
+  //  @include media-breakpoint-down(xxl) {
+  //    flex: 1 1 70%;
+  //  }
+  //  @include media-breakpoint-down(lg) {
+  //    flex: 1 1 80%;
+  //  }
+  //  @include media-breakpoint-down(md) {
+  //    flex: 1 1 100%;
+  //    justify-content: space-between;
+  //    margin-bottom: 40px;
+  //  }
+  //  @include media-breakpoint-down(sm) {
+  //    justify-content: flex-start;
+  //  }
+  //  @include media-breakpoint-down(sm) {
+  //    flex-direction: column;
+  //  }
+  //}
+  //&-nav {
+  //  display: flex;
+  //  flex-wrap: wrap;
+  //  @include media-breakpoint-down(sm) {
+  //    margin-bottom: 40px;
+  //  }
+  //  //@include media-breakpoint-down(xsm) {
+  //  //  flex-direction: column;
+  //  //}
+  //  &-wrap {
+  //    margin-right: 100px;
+  //    @include media-breakpoint-down(xxl) {
+  //      margin-right: 50px;
+  //    }
+  //    @include media-breakpoint-down(lg) {
+  //      margin-right: 30px;
+  //    }
+  //    @include media-breakpoint-down(sm) {
+  //      margin-right: 0;
+  //    }
+  //  }
+  //  &-menu {
+  //    padding: 0;
+  //    list-style: none;
+  //    &:not(:last-child) {
+  //      margin: 0 58px 0 0;
+  //      @include media-breakpoint-down(xl) {
+  //        margin-right: 30px;
+  //      }
+  //      @include media-breakpoint-down(lg) {
+  //        margin-right: 20px;
+  //      }
+  //      @include media-breakpoint-down(sm) {
+  //        margin-right: 32px;
+  //      }
+  //    }
+  //    li {
+  //      &:not(:last-child) {
+  //        margin-bottom: 16px;
+  //      }
+  //      a {
+  //        color: $gray_dark;
+  //        font-size: $font-size-sm;
+  //        &:hover {
+  //          text-decoration: underline;
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+  //&-sign-up-label {
+  //  margin-bottom: 16px;
+  //}
+  //&-title {
+  //  flex: 1 1 100%;
+  //  margin-bottom: 24px;
+  //  line-height: 1;
+  //}
+  //&-keep-up {
+  //  flex: 1;
+  //}
+  //&-design-by {
+  //  span {
+  //    color: $primary-color;
+  //  }
+  //}
+  //.ajax-loader {
+  //  display: none;
+  //}
+  //.wpcf7-form-control-wrap {
+  //  flex: 1;
+  //}
+  //.social {
+  //  margin-top: 48px;
+  //  @include media-breakpoint-down(md) {
+  //    margin-top: 30px;
+  //  }
+  //}
 }

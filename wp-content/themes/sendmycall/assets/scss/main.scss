@@ -1,3 +1,4 @@
+@import "vars";
 @import "normalize";
 @import "grid";
 @import "typography";
@@ -5,19 +6,19 @@
 @import "section";
 @import "buttons";
 @import "forms";
-//@import "modal";
 @import "header";
 @import "footer";
 @import "social";
-@import "spacer";
+@import "fonts";
 
 * {
   box-sizing: border-box;
 }
 body {
   -webkit-font-smoothing: antialiased;
-  color: $gray_dark;
-  font-family: $font-family-base;
+  background-color: $white;
+  color: $text_color;
+  font-family: $font-family-syne-regular;
   @include font-size($font-size-base);
   @include media-breakpoint-down(md) {
     font-size: $font-size-sm;
@@ -59,123 +60,4 @@ body {
   &.container-sm {
     max-width: 720px;
   }
-}
-
-p {
-  a {
-    color: $primary-color;
-  }
-}
-
-.wp-block-group {
-  p {
-    line-height: 24px;
-  }
-}
-
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
-}
-
-.main {
-  .woocommerce-info,
-  .woocommerce-error {
-    background: none;
-    border: none;
-    color: red;
-    margin: 15px auto;
-    max-width: 1200px;
-    // padding: 2em;
-    padding: 0;
-    text-align: center;
-    width: 100%;
-
-    @include media-breakpoint-up(xl) {
-      margin: 30px auto;
-    }
-
-    &:before {
-      display: none;
-    }
-  }
-
-  .woocommerce-error {
-    border-color: darken(red, 20%);
-  }
-
-  .woocommerce-message {
-    align-items: center;
-    // background-color: $color-grey;
-    border: none;
-    color: $gray_dark;
-    display: flex;
-    flex-direction: column;
-    margin: 15px auto;
-    max-width: 1200px;
-    // padding: 2em;
-    // width: 90%;
-
-    background: none;
-    padding: 0;
-    width: 100%;
-
-    @media (min-width:768px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    &:before {
-      display: none;
-    }
-
-    &:after {
-      display: none;
-    }
-
-    .button,
-    .restore-item {
-      @extend .btn;
-
-      margin-top: 15px;
-      order: 1;
-
-      @media (min-width:768px) {
-        margin-top: 0;
-      }
-    }
-  }
-  .woocommerce-info {
-    display: flex;
-    flex-direction: column;
-    a {
-      margin-bottom: 16px;
-    }
-  }
-}
-body .woocommerce-store-notice {
-  background: $gray_light;
-  position: fixed;
-}
-
-.tag {
-  background-color: #3B3A3C;
-  z-index: 1;
-  color: $white;
-  border-radius: 20px;
-  padding: 0 20px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  line-height: 1.8;
-  text-align: center;
 }

@@ -1,4 +1,22 @@
+body {
+  margin: 0;
+}
 img {
   max-width: 100%;
   height: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+  &:hover {
+    color: $primary-color;
+    transition: color $transition;
+  }
 }
