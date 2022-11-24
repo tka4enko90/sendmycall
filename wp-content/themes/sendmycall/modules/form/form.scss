@@ -1,0 +1,37 @@
+@import "../../assets/scss/vars";
+
+.section {
+  &-form {
+    background-color: $icon-color;
+    padding: 120px 0;
+    &-holder{
+      width: 822px;
+      margin: 0 auto;
+    }
+    input, textarea, select {
+      width: 100%;
+      border-radius: 8px;
+      padding: 12px 16px;
+      background-color: $white;
+      border: none;
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    label {
+      color: $white;
+      font-size: 14px;
+      line-height: 24px;
+      font-family: $font-family-dm-sans-medium;
+    }
+    &-input {
+      &-holder {
+        display: flex;
+        justify-content: space-between;
+      }
+      &-col {
+        width: 49%;
+      }
+    }
+  }
+}

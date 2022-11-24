@@ -1,5 +1,5 @@
 {
-  "name": "habbio",
+  "name": "sendmycall",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -37,6 +37,7 @@
     "blowup": "1.0.2",
     "flatpickr": "4.6.9",
     "hc-sticky": "2.2.7",
+    "jquery": "^3.6.1",
     "magnify": "2.3.3",
     "swiper": "6.8.0",
     "tippy.js": "6.3.1"

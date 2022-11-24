@@ -7,7 +7,7 @@
   "cacheBusting": "[name]",
   "webserver" : {
     "proxy" : {
-      "target": "http://senmycall.lvh.me/",
+      "target": "http://sendmycall.lvh.me/",
        "ws": true
     }
   }
