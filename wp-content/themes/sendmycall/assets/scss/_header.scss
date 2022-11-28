@@ -1,22 +1,24 @@
-@import "navbar";
+@import "../../assets/scss/vars";
 
 .header {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 11;
   font-family: $font-family-dm-sans-regular;
   background-color: $bg-light-grey;
   a {
     text-decoration: none;
     color: $text-color;
+    transition: color $transition;
+    path {
+      transition: all $transition;
+    }
     &:hover {
       color: $primary-color;
-      transition: color $transition;
       path {
         fill: $primary-color;
-        transition: all $transition;
       }
     }
     svg {
@@ -27,12 +29,12 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       display: flex;
     }
   }
   .main-nav {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       display: none;
     }
     li {
@@ -73,6 +75,7 @@
     min-width: 126px;
     min-height: 48px;
     line-height: 48px;
+    font-size: $font-size-base;
     @include media-breakpoint-down(md) {
       display: none;
     }
@@ -84,8 +87,11 @@
     justify-content: center;
     align-items: center;
     min-height: 32px;
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       display: none;
+    }
+    a {
+      font-size: $font-size-sm;
     }
     &__row {
       display: flex;
@@ -133,7 +139,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 17px 0;
-      @include media-breakpoint-down(md) {
+      .btn {
+        @include media-breakpoint-between(md,lg) {
+          position: absolute;
+          right: 20px;
+        }
+      }
+      @include media-breakpoint-down(lg) {
         justify-content: center;
       }
     }
@@ -170,7 +182,7 @@
       transition: all .16s;
       background-color: $white;
       overflow: auto;
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         display: none;
       }
 
@@ -187,7 +199,7 @@
       }
 
       .main-nav {
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(lg) {
           display: block;
         }
       }
@@ -211,7 +223,7 @@
   margin-right: 16px;
   display: none;
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     display: block;
     position: absolute;
     left: 20px;

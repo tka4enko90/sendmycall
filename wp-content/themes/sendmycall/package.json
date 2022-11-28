@@ -34,12 +34,15 @@
   "dependencies": {
     "@fancyapps/ui": "4.0.0-alpha.4",
     "@popperjs/core": "2.9.3",
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@splidejs/splide-extension-intersection": "^0.2.0",
     "blowup": "1.0.2",
     "flatpickr": "4.6.9",
     "hc-sticky": "2.2.7",
     "jquery": "^3.6.1",
     "magnify": "2.3.3",
-    "swiper": "6.8.0",
+    "swiper": "^6.8.0",
     "tippy.js": "6.3.1"
   }
 }

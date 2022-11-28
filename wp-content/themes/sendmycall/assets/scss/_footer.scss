@@ -1,10 +1,11 @@
 .footer {
+  font-family: $font-family-dm-sans-regular;
   background-color: $white;
   //padding: 56px 0 40px 0;
   font-size: $font-size-sm;
-  //@include media-breakpoint-down(md) {
-  //  padding: 40px 0 40px 0;
-  //}
+  @include media-breakpoint-down(md) {
+    padding: 40px 0 0 0;
+  }
   .logo {
     width: 175px;
     height: 40px;
@@ -12,6 +13,7 @@
   }
   &-row {
     display: flex;
+    flex-wrap: wrap;
     @include media-breakpoint-down(md) {
       flex-direction: column;
       margin-bottom: 32px;
@@ -21,8 +23,16 @@
     }
   }
   &-col {
-    flex: 1 1 20%;
+    flex: 1 1 15%;
     padding: 0 15px;
+    @include media-breakpoint-up(md) {
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
     @include media-breakpoint-down(md) {
       padding: 0;
       margin-bottom: 24px;
@@ -35,6 +45,7 @@
       margin-bottom: 16px;
       font-family: $font-family-dm-sans-regular;
       font-weight: 400;
+      font-size: $font-size-sm;
       @include media-breakpoint-down(md) {
         padding: 8px 0;
         margin-bottom: 0;
@@ -144,14 +155,28 @@
   }
   &-contact {
     &-link {
+      path {
+        transition: all $transition;
+      }
       &:hover {
         path {
           fill: $primary-color;
-          transition: all $transition;
         }
       }
       svg {
         margin-right: 4px;
+      }
+    }
+  }
+  &-back-top {
+    a {
+      path {
+        transition: all $transition;
+      }
+      &:hover {
+        path {
+          fill: $primary-color;
+        }
       }
     }
   }

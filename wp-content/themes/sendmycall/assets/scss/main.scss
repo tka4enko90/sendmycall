@@ -18,7 +18,8 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: $white;
   color: $text_color;
-  font-family: $font-family-syne-regular;
+  font-family: $font-family-dm-sans-regular;
+  letter-spacing: -0.02em;
   @include font-size($font-size-base);
   @include media-breakpoint-down(md) {
     font-size: $font-size-sm;
@@ -29,10 +30,30 @@ body {
       overflow: hidden;
     }
   }
-
   &.cart-aside-active {
     overflow-y: scroll;
   }
+}
+
+::-webkit-input-placeholder {
+  font-family: $font-family-dm-sans-regular;
+  font-size: $font-size-base;
+  color: $text-color;
+}
+:-moz-placeholder {
+  font-family: $font-family-dm-sans-regular;
+  font-size: $font-size-base;
+  color: $text-color;
+}
+::-moz-placeholder {
+  font-family: $font-family-dm-sans-regular;
+  font-size: $font-size-base;
+  color: $text-color;
+}
+:-ms-input-placeholder {
+  font-family: $font-family-dm-sans-regular;
+  font-size: $font-size-base;
+  color: $text-color;
 }
 
 .wrapper {
@@ -43,7 +64,7 @@ body {
   .main {
     flex: 1;
     margin-top: 116px;
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       margin-top: 80px;
     }
   }

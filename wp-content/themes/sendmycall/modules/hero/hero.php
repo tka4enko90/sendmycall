@@ -8,7 +8,7 @@ $hero = get_sub_field( 'hero' );
 ?>
 <?php
 if ( ! empty( $hero ) ) : ?>
-    <section class="section-hero">
+    <section class="section section-hero">
         <?php
         if ( ! empty( $hero['background_image'] ) ) {
             echo wp_get_attachment_image( $hero['background_image']['ID'], 'full_width', false, array( 'class' => 'section-bg', 'data-no-lazy' => 1  ) );
@@ -20,7 +20,7 @@ if ( ! empty( $hero ) ) : ?>
                     <div class="section-hero-col">
                         <div class="section-hero-block">
                             <?php if ( ! empty( $hero['title'] ) ) : ?>
-                                <h1 class="hero-title"><?php echo $hero['title']; ?></h1>
+                                <?php echo wp_kses_post( $hero['title'] ); ?>
                             <?php endif; ?>
                             <?php if ( $hero['link_button_buy_now'] ) : ?>
                                 <a href="<?php echo esc_url( $hero['link_button_buy_now']['url'] ); ?>" class="btn btn-primary"><?php echo $hero['link_button_buy_now']['title']; ?></a>

@@ -1,7 +1,5 @@
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
 @import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
 
 .section {
   &-bg {
@@ -15,12 +13,59 @@
   }
   &-hero {
     position: relative;
-    padding: 124px 0 60px;
+    padding: 135px 0 135px;
     background-color: $white;
     text-align: center;
+    @include media-breakpoint-down(md) {
+      padding: 80px 0 70px;
+    }
+    &-block {
+      max-width: 612px;
+      text-align: left;
+      @include media-breakpoint-down(md) {
+        text-align: center;
+      }
+    }
+    &-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
     &-content {
       position: relative;
       z-index: 1;
+    }
+    &-image {
+      position: relative;
+      width: 602px;
+      height: 380px;
+      margin-top: 122px;
+      @include media-breakpoint-down(md) {
+        margin-top: 72px;
+        max-width: 648px;
+      }
+      @include media-breakpoint-down(sm) {
+        max-width: 348px;
+        height: 206px;
+      }
+      &-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      &-single {
+        position: absolute;
+        width: 79%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        @include media-breakpoint-down(sm) {
+          width: 74%;
+        }
+      }
     }
   }
 }
