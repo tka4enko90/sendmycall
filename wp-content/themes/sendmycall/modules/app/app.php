@@ -28,16 +28,26 @@ if ( ! empty( $app ) ) : ?>
                     <?php if ( ! empty( $app['left_column_text'] ) ) : ?>
                         <?php foreach ( $app['left_column_text'] as $app_item ) : ?>
                             <div class="section-app-text-block">
-                                <?php echo wp_kses_post( $app_item['title'] ); ?>
-                                <?php echo wp_kses_post( $app_item['description'] ); ?>
+                                <?php
+                                if ( ! empty( $app_item['title'] && $app_item['description'] ) ) {
+                                    echo wp_kses_post( $app_item['title'] );
+                                    echo wp_kses_post( $app_item['description'] );
+                                }
+                                ?>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
                 <div class="section-app-col">
-                    <?php if ( $app['video_file'] ) : ?>
+                    <?php if ( $app['video_file'] && $app['background_image'] ) : ?>
                         <div class="section-app-video">
-                            <?php echo wp_get_attachment_image( $app['background_image']['id'], array( 'class' => 'app-bg-img', 'data-no-lazy' => 1  ) ); ?>
+                            <?php
+                            if (($app['background_image']['mime_type'] == 'image/png') || ($app['background_image']['mime_type'] == 'image/jpeg')) {
+                                echo wp_get_attachment_image($app['background_image']['id'], $size = 'tabs_img' );
+                            } else {
+                                echo file_get_contents($app['background_image']['url']);
+                            }
+                            ?>
                             <video width="233" height="483" autoplay loop muted>
                                 <source src="<?php echo $app['video_file']; ?>" type="video/mp4">
                             </video>
@@ -48,8 +58,12 @@ if ( ! empty( $app ) ) : ?>
                     <?php if ( ! empty( $app['right_column_text'] ) ) : ?>
                         <?php foreach ( $app['right_column_text'] as $app_item ) : ?>
                             <div class="section-app-text-block">
-                                <?php echo wp_kses_post( $app_item['title'] ); ?>
-                                <?php echo wp_kses_post( $app_item['description'] ); ?>
+                                <?php
+                                if ( ! empty( $app_item['title'] && $app_item['description'] ) ) {
+                                    echo wp_kses_post( $app_item['title'] );
+                                    echo wp_kses_post( $app_item['description'] );
+                                }
+                                ?>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>

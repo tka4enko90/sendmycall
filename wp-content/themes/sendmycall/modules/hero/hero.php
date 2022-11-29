@@ -34,12 +34,12 @@ if ( ! empty( $hero ) ) : ?>
                         <div class="section-hero-image">
                             <?php
                             if ( ! empty( $hero['hero_image'] ) ) {
-                                echo wp_get_attachment_image( $hero['hero_image']['ID'], 'full_width', false, array( 'class' => 'section-hero-image-single', 'data-no-lazy' => 1  ) );
+                                echo wp_get_attachment_image( $hero['hero_image']['ID'], 'video_img', false, array( 'class' => 'section-hero-image-single', 'data-no-lazy' => 1  ) );
                             }
                             ?>
                             <?php
                             if ( ! empty( $hero['hero_image_bg'] ) ) {
-                                echo wp_get_attachment_image( $hero['hero_image_bg']['ID'], 'full_width', false, array( 'class' => 'section-hero-image-bg', 'data-no-lazy' => 1  ) );
+                                echo wp_get_attachment_image( $hero['hero_image_bg']['ID'], 'video_img', false, array( 'class' => 'section-hero-image-bg', 'data-no-lazy' => 1  ) );
                             }
                             ?>
                         </div>

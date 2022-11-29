@@ -83,7 +83,13 @@ $email = get_field( 'top_bar_email', 'options' );
                     </div>
                     <?php if ( !empty( $logo ) ): ?>
                         <a class="header-logo" href="<?php echo esc_attr( get_home_url() ); ?>">
-                            <?php echo file_get_contents( $logo['url'] ); ?>
+                            <?php
+                            if ( ($logo['mime_type'] == 'image/png') || ($logo['mime_type'] == 'image/jpeg') ) {
+                                echo wp_get_attachment_image( $logo['ID'] );
+                            } else {
+                                echo file_get_contents( $logo['url'] );
+                            }
+                            ?>
                         </a>
                     <?php endif; ?>
                     <?php
@@ -95,7 +101,7 @@ $email = get_field( 'top_bar_email', 'options' );
                         )
                     );
                     ?>
-                    <button class="btn btn-primary">Buy now</button>
+                    <a href="#" class="btn btn-primary">Buy now</a>
                 </div>
             </div>
         </div>
@@ -157,7 +163,7 @@ $email = get_field( 'top_bar_email', 'options' );
                         </div>
                     <?php endif; ?>
                 </div>
-                <button class="btn btn-primary">Buy now</button>
+                <a href="#" class="btn btn-primary">Buy now</a>
             </div>
         </div>
 	</header>

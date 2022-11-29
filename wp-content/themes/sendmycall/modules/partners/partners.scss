@@ -17,7 +17,7 @@
         padding: 0 20px;
         a {
           &:hover {
-            img {
+            img, svg {
               &:last-child {
                 display: block;
               }
@@ -27,7 +27,7 @@
             }
           }
         }
-        img {
+        img, svg {
           height: 56px;
           &:last-child {
             display: none;

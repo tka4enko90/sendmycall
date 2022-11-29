@@ -2,7 +2,9 @@
 if ( function_exists( 'wp_enqueue_style' ) ) {
     wp_enqueue_style( 'form-css', get_template_directory_uri() . '/dist/css/modules/form/form.css', '', '', 'all' );
 }
-
+if ( function_exists( 'wp_enqueue_script' ) ) {
+    wp_enqueue_script( 'form-js', get_template_directory_uri() . '/dist/js/form.min.js');
+}
 $form = get_sub_field( 'form' );
 
 ?>

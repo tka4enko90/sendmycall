@@ -22,14 +22,16 @@
     &-img {
       //display: block;
       margin: 0 auto;
-      width: 824px;
-      height: 380px;
+      height: 170px;
+      width: 305px;
       position: relative;
-      @include media-breakpoint-down(md) {
-        width: 100%;
+      @include media-breakpoint-up(sm) {
+        height: 220px;
+        width: 405px;
       }
-      @include media-breakpoint-down(sm) {
-        height: 274px;
+      @include media-breakpoint-up(xl) {
+        width: 685px;
+        height: 380px;
       }
       img {
         width: 100%;
@@ -39,17 +41,32 @@
       }
       video {
         position: absolute;
-        left: 45%;
+        left: 44%;
         top: 44%;
         transform: translate(-51%, -52%);
-        width: 466px;
-        height: 261px;
         z-index: 1;
+        height: 117px;
+        width: 280px;
+        @include media-breakpoint-up(sm) {
+          height: 170px;
+          width: 305px;
+        }
+        @include media-breakpoint-up(md) {
+          height: 155px;
+          width: 247px;
+        }
+        @include media-breakpoint-up(xl) {
+          left: 44%;
+          top: 44%;
+          transform: translate(-51%, -52%);
+          width: 466px;
+          height: 261px;
+        }
       }
     }
     &-btn {
       position: absolute;
-      left: 45%;
+      left: 43%;
       top: 41%;
       transform: translate(-50%, -50%);
       z-index: 3;
@@ -80,9 +97,12 @@
 .video {
   &-popup {
     border-radius: 20px;
-    width: 95%;
+    width: 85%;
     max-height: 720px;
     max-width: 1200px;
+    @include media-breakpoint-up(xl) {
+      width: 95%;
+    }
     &-holder {
       video {
         width: 100%;

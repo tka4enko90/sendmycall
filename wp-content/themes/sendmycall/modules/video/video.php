@@ -29,7 +29,7 @@ if ( ! empty( $video ) ) : ?>
             <div class="section-video-img">
                 <?php
                 if ( $video['img_bg_video'] ) {
-                    echo wp_get_attachment_image($video['img_bg_video']['id']);
+                    echo wp_get_attachment_image($video['img_bg_video']['id'], $size = 'video_img');
                 }  ?>
                 <?php if ( $video['video_file'] ) : ?>
                     <video width="480" height="220" autoplay loop muted>

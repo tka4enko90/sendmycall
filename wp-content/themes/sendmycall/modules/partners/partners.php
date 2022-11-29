@@ -44,8 +44,6 @@ if ( ! empty( $partners ) ) : ?>
                                         if ( ! empty( $partners_item['img_partner'] ) ) {
                                             echo wp_get_attachment_image($partners_item['img_partner']['id']);
                                         }
-                                    ?>
-                                    <?php
                                         if ( ! empty( $partners_item['hover_img_partner'] ) ) {
                                             echo wp_get_attachment_image($partners_item['hover_img_partner']['id']);
                                         }

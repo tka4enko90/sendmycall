@@ -11,6 +11,9 @@
     ],
     "tabs": [
       "./modules/tabs/tabs.js"
+    ],
+    "form": [
+      "./modules/form/form.js"
     ]
   },
   "cacheBusting": "[name]",

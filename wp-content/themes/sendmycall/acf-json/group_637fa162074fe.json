@@ -51,7 +51,7 @@
                                         "id": ""
                                     },
                                     "return_format": "array",
-                                    "preview_size": "medium",
+                                    "preview_size": "full_bg_img",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -124,7 +124,7 @@
                                         "id": ""
                                     },
                                     "return_format": "array",
-                                    "preview_size": "medium",
+                                    "preview_size": "video_img",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -148,7 +148,7 @@
                                         "id": ""
                                     },
                                     "return_format": "array",
-                                    "preview_size": "medium",
+                                    "preview_size": "video_img",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -792,7 +792,7 @@
                                         "id": ""
                                     },
                                     "return_format": "array",
-                                    "preview_size": "large",
+                                    "preview_size": "tabs_img",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -906,7 +906,7 @@
                                         "id": ""
                                     },
                                     "return_format": "array",
-                                    "preview_size": "medium",
+                                    "preview_size": "large",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -1014,7 +1014,7 @@
                                                 "id": ""
                                             },
                                             "return_format": "array",
-                                            "preview_size": "medium",
+                                            "preview_size": "tabs_img",
                                             "library": "all",
                                             "min_width": "",
                                             "min_height": "",
@@ -1203,5 +1203,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669665943
+    "modified": 1669750049
 }

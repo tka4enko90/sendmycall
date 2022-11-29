@@ -53,26 +53,6 @@ jQuery( document ).ready(function($) {
         init: function(){
             var self = this;
             self.settings.button.on( 'click', function(e) { self.toggleMenu( null, self, e ) } );
-            self.settings.toggleLinks.on(
-                'click',
-                function(e) {
-                    e.preventDefault();
-
-                    var $link = e.target.tagName === 'a' ? $( e.target ) : $( e.target ).closest( 'a' );
-
-                    if ( !$link.hasClass('is-active') ) {
-                        self.settings.toggleLinks.not($link).removeClass('is-active');
-                        self.settings.toggleLinks.not($link).closest( '.menu-item' ).find( '.sub-menu' ).stop().slideUp();
-                    }
-
-                    self.toggleDropdown( e, self );
-                }
-            );
-
-            $( window ).on(
-                'load resize scroll',
-                self.setMenuWrapHeight.bind( self )
-            );
 
             $( document ).on(
                 'click',

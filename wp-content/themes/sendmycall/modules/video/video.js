@@ -7,6 +7,7 @@ jQuery( document ).ready(function($) {
     $('body').on('click', '.section-video-btn', function(){
         overlay.show();
         video_popup.show();
+        video.get(0).play();
     });
 
     btn_close.click(function() {

@@ -98,37 +98,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @splidejs/splide */ "./node_modules/@splidejs/splide/dist/js/splide.esm.js");
 /* harmony import */ var _splidejs_splide_extension_auto_scroll_dist_js_splide_extension_auto_scroll_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.min */ "./node_modules/@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.min.js");
 /* harmony import */ var _splidejs_splide_extension_auto_scroll_dist_js_splide_extension_auto_scroll_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_splidejs_splide_extension_auto_scroll_dist_js_splide_extension_auto_scroll_min__WEBPACK_IMPORTED_MODULE_1__);
-// const partnersSlider = new Swiper('.section-partners-slider', {
-//     direction: 'horizontal',
-//     loop: true,
-//     slidesPerView: 10,
-//     spaceBetween: 10,
-// });
 
-
-
-// new Splide( '.splide' ).mount();
 
 new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__["default"]('.section-partners-slider', {
   type: 'loop',
   perPage: 9,
   arrows: false,
   pagination: false,
-  // padding: { left: 40, right: 40 },
   autoplay: "pause",
-  // intersection: {
-  //     inView: {
-  //         autoplay: true,
-  //     },
-  //     outView: {
-  //         autoplay: false,
-  //     },
-  // },
   autoScroll: {
     speed: 1
   },
   breakpoints: {
-    575: {
+    768: {
       perPage: 2
     }
   }

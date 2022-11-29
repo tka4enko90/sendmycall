@@ -162,6 +162,9 @@
     }
   }
   &-contact {
+    @include media-breakpoint-down(md) {
+      padding: 12px 0;
+    }
     &-link {
       path {
         transition: all $transition;

@@ -328,9 +328,47 @@
             "maxlength": ""
         },
         {
+            "key": "field_638664a810458",
+            "label": "Contact us text 2",
+            "name": "contact_us_text_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6385fcaf9ff05",
             "label": "Contact us number 3",
             "name": "contact_us_number_3",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_638664d510459",
+            "label": "Contact us text 3",
+            "name": "contact_us_text_3",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -384,5 +422,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669725395
+    "modified": 1669752040
 }

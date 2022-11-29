@@ -87,6 +87,11 @@
     min-height: 48px;
     line-height: 48px;
     font-size: $font-size-base;
+    color: $white;
+    padding: 0;
+    &:hover {
+      color: $white;
+    }
     @include media-breakpoint-down(md) {
       display: none;
     }
