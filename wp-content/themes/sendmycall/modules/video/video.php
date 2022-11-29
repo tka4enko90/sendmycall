@@ -57,7 +57,7 @@ if ( ! empty( $video ) ) : ?>
     <div class="video-popup modal">
         <div class="video-popup-holder">
             <?php if ( $video['video_file'] ) : ?>
-                <video width="480" height="220" controls>
+                <video id="video" width="480" height="220" controls>
                     <source src="<?php echo $video['video_file']; ?>" type="video/mp4">
                 </video>
             <?php endif; ?>

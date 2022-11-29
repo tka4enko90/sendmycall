@@ -131,7 +131,15 @@
       &:last-child {
         margin-right: 0;
       }
-      img {
+      &:hover {
+        path {
+          fill: $primary-color;
+        }
+      }
+      path {
+        transition: all $transition;
+      }
+      svg {
         width: 20px;
         height: 20px;
       }

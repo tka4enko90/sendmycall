@@ -8,6 +8,9 @@
   z-index: 11;
   font-family: $font-family-dm-sans-regular;
   background-color: $bg-light-grey;
+  &.is-active {
+    background-color: $white;
+  }
   a {
     text-decoration: none;
     color: $text-color;
@@ -15,7 +18,7 @@
     path {
       transition: all $transition;
     }
-    &:hover {
+    &:hover:not(.header-logo) {
       color: $primary-color;
       path {
         fill: $primary-color;
@@ -46,10 +49,18 @@
   }
   &-logo {
     height: 46px;
-    img {
+    &:hover {
+      path {
+        &:not(:nth-child(1)) {
+          fill: $primary-color;
+        }
+      }
+    }
+    svg {
       width: 203px;
       height: 46px;
     }
+    
   }
   .cart-aside-active & {
     overflow-y: scroll;

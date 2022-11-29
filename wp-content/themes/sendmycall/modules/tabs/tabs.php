@@ -17,20 +17,16 @@ if ( ! empty( $tabs ) ) : ?>
                 <?php if ( ! empty( $tabs['tabs_info'] ) ) : ?>
                     <ul class="section-tabs-caption">
                         <?php
-                        $count = 0;
-                        foreach ( $tabs['tabs_info'] as $tabs_item ) :
-                            $count++; ?>
-                            <li class="<?php if ($count == 1) { echo 'active'; } ?>">
+                        foreach ( $tabs['tabs_info'] as $key => $tabs_item ) : ?>
+                            <li class="<?php if ($key == 0) { echo 'active'; } ?>">
                                 <?php echo wp_get_attachment_image( $tabs_item['tab_img']['id'] ); ?>
                                 <span><?php echo wp_kses_post( $tabs_item['tab_name'] ); ?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>
                     <?php
-                    $count = 0;
-                    foreach ( $tabs['tabs_info'] as $tabs_item ) :
-                        $count++; ?>
-                            <div class="section-tabs-content <?php if ($count == 1) {echo 'active';} ?>">
+                    foreach ( $tabs['tabs_info'] as $key => $tabs_item ) : ?>
+                            <div class="section-tabs-content <?php if ($key == 0) {echo 'active';} ?>">
                                 <div class="section-tabs-content-col">
                                     <?php echo wp_kses_post( $tabs_item['tab_content'] ); ?>
                                     <?php if ( $tabs_item['tab_content_btn'] ) : ?>

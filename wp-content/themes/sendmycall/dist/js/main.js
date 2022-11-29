@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 jQuery(document).ready(function ($) {
   /**
-   * back to top btn
+   * Back to top btn
    */
 
   var btn = jQuery('#back-to-top');
@@ -112,14 +112,14 @@ jQuery(document).ready(function ($) {
   });
 
   /**
-   * burger
+   * Burger
    */
 
   var mobileMenu = {
     settings: {
       button: $('.mobile-menu-button'),
       menuWrap: $('.header-mobile-nav'),
-      toggleLinks: $('.mobile-menu .menu-item-has-children > a')
+      header: $('.header')
     },
     show: function show() {
       // this.toggleMenu( true, this );
@@ -130,6 +130,7 @@ jQuery(document).ready(function ($) {
     toggleMenu: function toggleMenu(state, self, e) {
       self.settings.button.toggleClass('is-active', state);
       self.settings.menuWrap.toggleClass('is-active', state);
+      self.settings.header.toggleClass('is-active', state);
       if (this.settings.button.hasClass('is-active')) {
         this.onShow();
       } else {
@@ -182,7 +183,7 @@ jQuery(document).ready(function ($) {
   mobileMenu.init();
 
   /**
-   * accordeon footer
+   * Accordeon footer
    */
 
   if (window.outerWidth < 768) {
