@@ -1,5 +1,5 @@
 @import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
+//@import "../../node_modules/bootstrap/scss/variables";
 @import "vars";
 @import "../../node_modules/bootstrap/scss/mixins";
 
@@ -13,19 +13,23 @@ button {
 .btn {
     display: inline-block;
     text-decoration: none;
-    font-size: $font-size-sm;
-    line-height: 1;
     text-align: center;
-    font-weight: bold;
     white-space: nowrap;
     background: $white;
-    color: $gray_dark;
-    border-radius: 4px;
-    padding: 12px 22px;
+    color: $text-color;
+    border-radius: 100px;
+    cursor: pointer;
+    //padding: 12px 32px;
     border: 1px solid transparent;
     transition: color $transition, background $transition, border $transition, box-shadow $transition;
-    @include media-breakpoint-down(xsm) {
-        padding: 12px 12px;
+    min-width: 188px;
+    min-height: 54px;
+    line-height: 54px;
+    font-size: $font-size-md;
+    letter-spacing: -0.02em;
+    font-family: $font-family-dm-sans-medium;
+    @include media-breakpoint-down(md) {
+        min-width: 164px;
     }
     &:hover, &:focus {
         text-decoration: none;
@@ -45,46 +49,40 @@ button {
         background-color: $primary-color;
         border-color: $primary-color;
         &:hover, &:focus {
-            color: $primary-color;
-            background-color: transparent;
-            border-color: $primary-color;
+            color: $white;
+            background-color: $primary-color-dark-blue;
+            border-color: $primary-color-dark-blue;
             text-decoration: none;
         }
     }
 
-    &-secondary {
-        background-color: $secondary-color;
-        color: $white;
-        border-color: $secondary-color;
-        &:hover, &:focus {
-            color: $secondary-color;
-            border-color: 1px solid $secondary-color;
-            background-color: transparent;
-        }
-    }
+    //&-secondary {
+    //    background-color: $secondary-color;
+    //    color: $white;
+    //    border-color: $secondary-color;
+    //    &:hover, &:focus {
+    //        color: $secondary-color;
+    //        border-color: 1px solid $secondary-color;
+    //        background-color: transparent;
+    //    }
+    //}
 
     &-default {
-        background-color: $gray_light;
-        color: $gray_dark;
-        border-color: $gray_light;
+        background-color: transparent;
+        color: $primary-color;
+        border-color: $primary-color;
         &:hover, &:focus {
-            color: $gray_dark;
-            border-color: 1px solid $gray_dark;
-            background-color: transparent;
+            color: $white;
+            border-color: 1px solid $primary-color;
+            background-color: $primary-color;
         }
     }
 
-    &-disabled {
-        background-color: white;
-        border-color: #BBBEBE;
-        color: $gray_888;
-        pointer-events: none;
-    }
-    &-tooltip-info {
-        svg {
-            width: 14px;
-            height: 14px;
-            fill: #BBBEBE;
-        }
-    }
+    //&-disabled {
+    //    background-color: white;
+    //    border-color: #BBBEBE;
+    //    color: $gray_888;
+    //    pointer-events: none;
+    //}
+
 }

@@ -1,0 +1,15 @@
+{
+    "name": "markupus/sendmycall",
+    "autoload": {
+        "psr-4": {
+            "SendMyCall\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexander Tkachenko",
+            "email": "sasha@markupus.tech"
+        }
+    ],
+    "require": {}
+}

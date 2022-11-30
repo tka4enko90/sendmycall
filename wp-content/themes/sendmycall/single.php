@@ -3,21 +3,33 @@
  * @package WordPress
  * @subpackage sendmycall
  */
-if ( function_exists( 'wp_enqueue_style' ) ) {
-	wp_enqueue_style( 'woocommerce-theme-css', get_template_directory_uri() . '/dist/css/woocommerce-theme.css', '', '', 'all' );
-	wp_enqueue_style( 'single-post-css', get_template_directory_uri() . '/dist/css/single-post.css', '', '', 'all' );
-}
 get_header();
 
 ?>
-<?php do_action( 'woocommerce_before_main_content' ); ?>
+
 <main class="main">
-	<?php
-//	get_template_part( 'template-parts/blocks/newsletter_section/newsletter_section' );
-	?>
+    <div class="container">
+        <?php
+        if ( have_rows( 'modules', get_the_ID() ) ) :
+            while ( have_rows( 'modules', get_the_ID() ) ) :
+                the_row();
+                $layout   = get_row_layout();
+                $template = get_template_directory() . '/modules/' . $layout . '/' . $layout . '.php';
+
+                if ( file_exists( $template ) ) :
+                    get_template_part( 'modules/' . $layout . '/' . $layout );
+                endif;
+
+            endwhile;
+        else :
+            while ( have_posts() ) :
+                the_post();
+                the_content();
+            endwhile;
+        endif;
+        ?>
+    </div>
 </main>
-
-
 
 <?php
 get_footer();

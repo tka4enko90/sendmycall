@@ -1,8 +1,6 @@
 <?php
 $include_folders = array(
     'functions/',
-    'functions/post_types/',
-    'functions/acf/',
 );
 
 foreach ( $include_folders as $inc_folder ) {

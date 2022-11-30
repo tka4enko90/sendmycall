@@ -83,7 +83,7 @@ function styles_modules() {
 	return src( 'modules/**/*.scss' )
 	.pipe( sass( { outputStyle: 'compressed' } ) )
 	.pipe( autoprefixer( { overrideBrowserslist: ['last 10 versions'], grid: true } ) )
-	.pipe( dest( 'dist/css/' ) )
+	.pipe( dest( 'dist/css/modules/' ) )
 	.pipe( browserSync.stream() )
 }
 
@@ -128,10 +128,10 @@ function deploy() {
 function startwatch() {
 	watch( ['assets/scss/**/*','assets/scss/**/*.scss'], { usePolling: true }, styles );
 	watch( ['assets/scss/cards/*.scss','assets/scss/**/*.scss'], { usePolling: false }, styles );
-	// watch( 'modules/**/*.scss', { usePolling: false }, styles_modules );
-	// watch( 'template-parts/**/*.scss', { usePolling: false }, styles_blocks );
-	// watch( ['modules/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts_modules );
-	// watch( ['assets/**/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts );
+	watch( 'modules/**/*.scss', { usePolling: false }, styles_modules );
+	watch( 'template-parts/**/*.scss', { usePolling: false }, styles_blocks );
+	watch( ['modules/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts_modules );
+	watch( ['assets/**/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts );
 	watch( 'assets/img/src/**/*.{jpg,jpeg,png,webp,svg,gif}', { usePolling: true }, images );
 	watch(` * */*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload);
 }
