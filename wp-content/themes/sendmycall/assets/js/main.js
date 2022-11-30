@@ -82,7 +82,9 @@ jQuery( document ).ready(function($) {
     /**
      * Accordeon footer
      */
-
+    $('.acc-head > a').on('click', function(e) {
+        e.preventDefault();
+    });
     if(window.outerWidth < 768) {
         $('.footer-row .footer-col:nth-child(1) .acc-head > a').addClass('active');
         $('.footer-row .footer-col:nth-child(1) .acc-content .sub-menu').slideDown();
