@@ -57,49 +57,59 @@
         @include media-breakpoint-down(md) {
           position: relative;
           cursor: pointer;
+          padding: 0;
         }
-        &:before,
-        &:after {
-          @include media-breakpoint-down(md) {
-            content: '';
-            position: absolute;
-            top: 50%;
-            background-color: $icon-color;
-            transition: all .3s;
+        &>a {
+          position: relative;
+          &:before,
+          &:after {
+            @include media-breakpoint-down(md) {
+              content: '';
+              position: absolute;
+              top: 50%;
+              background-color: $icon-color;
+              transition: all .3s;
+            }
           }
-        }
-        &:before {
-          right: 6px;
-          width: 1.5px;
-          height: 13.5px;
-          margin-top: -7px;
-        }
-        &:after {
-          right: 0;
-          width: 13.5px;
-          height: 1.5px;
-          margin-top: -1px;
-        }
-        &.active::before {
-          transform: scale(0);
-        }
-        &.active::before,
-        &.active::after {
-          background-color: $primary-color;
+          &:before {
+            right: 6px;
+            width: 1.5px;
+            height: 13.5px;
+            margin-top: -7px;
+          }
+          &:after {
+            right: 0;
+            width: 13.5px;
+            height: 1.5px;
+            margin-top: -1px;
+          }
+          &.active::before {
+            transform: scale(0);
+          }
+          &.active::before,
+          &.active::after {
+            background-color: $primary-color;
+          }
         }
       }
       &-content {
-        @include media-breakpoint-down(md) {
-          display: none;
+        .sub-menu {
+          @include media-breakpoint-down(md) {
+            display: none;
+          }
         }
         li {
           @include media-breakpoint-down(md) {
             padding: 12px 0;
           }
+          &.acc-head{
+            @include media-breakpoint-down(md) {
+              padding: 0;
+            }
+          }
         }
         a {
           margin-bottom: 8px;
-          //display: block;
           display: flex;
           align-items: center;
           font-family: $font-family-dm-sans-regular;
@@ -189,6 +199,55 @@
           fill: $primary-color;
         }
       }
+    }
+  }
+}
+
+.tel-icon {
+  a {
+    position: relative;
+    padding-left: 16px;
+    &:hover {
+      &:before {
+        background-image: url('../../assets/img/tel_hover.svg');
+      }
+    }
+    &:before {
+      content: '';
+      background-image: url('../../assets/img/tel.svg');
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-image $transition;
+    }
+  }
+}
+
+
+.email-icon {
+  a {
+    position: relative;
+    padding-left: 20px;
+    &:hover {
+      &:before {
+        background-image: url('../../assets/img/mail_hover.svg');
+      }
+    }
+    &:before {
+      content: '';
+      background-image: url('../../assets/img/mail.svg');
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-image $transition;
     }
   }
 }

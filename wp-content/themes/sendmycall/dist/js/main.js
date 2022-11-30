@@ -177,16 +177,17 @@ jQuery(document).ready(function ($) {
    */
 
   if (window.outerWidth < 768) {
-    $('.footer-row .footer-col:nth-child(1) .acc-head').addClass('active');
-    $('.footer-row .footer-col:nth-child(1) .acc-content').slideDown();
-    $('.acc-head').on('click', function () {
+    $('.footer-row .footer-col:nth-child(1) .acc-head > a').addClass('active');
+    $('.footer-row .footer-col:nth-child(1) .acc-content .sub-menu').slideDown();
+    $('.acc-head > a').on('click', function (e) {
+      e.preventDefault();
       if ($(this).hasClass('active')) {
-        $(this).siblings('.acc-content').slideUp();
+        $(this).siblings('.acc-content .sub-menu').slideUp();
         $(this).removeClass('active');
       } else {
-        $('.acc-content').slideUp();
-        $('.acc-head').removeClass('active');
-        $(this).siblings('.acc-content').slideToggle();
+        $('.acc-content .sub-menu').slideUp();
+        $(this).removeClass('active');
+        $(this).siblings('.acc-content .sub-menu').slideToggle();
         $(this).toggleClass('active');
       }
     });
