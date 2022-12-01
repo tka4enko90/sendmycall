@@ -18,11 +18,32 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        @include media-breakpoint-between (sm,md){
+          justify-content: center;
+        }
       }
       &-col {
         width: 50%;
         @include media-breakpoint-down(md) {
           width: 100%;
+        }
+        @include media-breakpoint-down(sm) {
+          &:last-child {
+            img {
+              margin: 0 auto;
+              display: block;
+              width: 343px;
+              height: 240px;
+            }
+          }
+        }
+        @include media-breakpoint-between (sm,md){
+          &:last-child {
+            img {
+              margin: 0 auto;
+              display: block;
+            }
+          }
         }
         &:first-child {
           max-width: 506px;
@@ -30,6 +51,7 @@
       }
       h2 {
         color: $white;
+        margin-bottom: 16px;
         @include media-breakpoint-down(md) {
           font-size: 32px;
           line-height: 34px;
@@ -47,7 +69,17 @@
         line-height: 26px;
         letter-spacing: -0.02em;
         color: $text-color-light-grey;
-        margin-bottom: 40px;
+        strong {
+          color: $white;
+          font-weight: 500;
+        }
+        a {
+          color: $primary-color;
+          text-decoration: underline;
+          &:hover {
+            text-decoration: none;
+          }
+        }
         @include media-breakpoint-down(md) {
           font-size: 16px;
           line-height: 24px;
@@ -62,6 +94,9 @@
       @include media-breakpoint-down(md) {
         margin-bottom: 32px;
       }
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 16px;
+      }
       li {
         border: 1px solid #DBE5EE;
         border-radius: 16px;
@@ -72,10 +107,14 @@
         padding: 16px;
         height: 88px;
         transition: border-color $transition;
-        @include media-breakpoint-down(md) {
+        margin-bottom: 16px;
+        @include media-breakpoint-down(sm) {
           height: 72px;
-          max-width: unset;
+          max-width: 100%;
           margin-bottom: 16px;
+        }
+        @include media-breakpoint-between (sm,md){
+
         }
         &:hover {
           border-color: #45A1F0;
@@ -92,11 +131,18 @@
           width: 56px;
           height: 56px;
           margin-right: 16px;
+          @include media-breakpoint-down(md) {
+            width: 40px;
+            height: 40px;
+          }
         }
         span {
           font-size: 20px;
           font-family: $font-family-syne-semi-bold;
           color: $white;
+          @include media-breakpoint-down(md) {
+            font-size: 16px;
+          }
         }
       }
     }

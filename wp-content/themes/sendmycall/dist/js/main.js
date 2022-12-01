@@ -179,8 +179,8 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
   });
   if (window.outerWidth < 768) {
-    $('.footer-row .footer-col:nth-child(1) .acc-head > a').addClass('active');
-    $('.footer-row .footer-col:nth-child(1) .acc-content .sub-menu').slideDown();
+    $('.footer-col:nth-child(1) .acc-head > a').addClass('active');
+    $('.footer-col:nth-child(1) .acc-content .sub-menu').slideDown();
     $('.acc-head > a').on('click', function (e) {
       e.preventDefault();
       if ($(this).hasClass('active')) {
@@ -188,12 +188,25 @@ jQuery(document).ready(function ($) {
         $(this).removeClass('active');
       } else {
         $('.acc-content .sub-menu').slideUp();
-        $(this).removeClass('active');
+        $('.acc-head > a').removeClass('active');
         $(this).siblings('.acc-content .sub-menu').slideToggle();
         $(this).toggleClass('active');
       }
     });
   }
+
+  /**
+   * Add class active to header on scroll
+   */
+  $(function () {
+    $(window).on("scroll", function () {
+      if ($(window).scrollTop() > 50) {
+        $(".header").addClass("active");
+      } else {
+        $(".header").removeClass("active");
+      }
+    });
+  });
 });
 
 /***/ }),

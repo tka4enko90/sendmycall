@@ -11,6 +11,9 @@
       h1 {
         margin-bottom: 40px;
         letter-spacing: -0.03em;
+        @include media-breakpoint-down(sm) {
+          margin-bottom: 32px;
+        }
       }
       .btn-primary {
         margin-right: 24px;

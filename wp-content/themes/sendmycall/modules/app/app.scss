@@ -5,10 +5,16 @@
   &-app {
     &-block {
       max-width: 824px;
-      margin: 0 auto 48px;
+      margin: 0 auto 68px;
       text-align: center;
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 24px;
+      }
       h1 {
         margin-bottom: 40px;
+        @include media-breakpoint-down(sm) {
+          margin-bottom: 32px;
+        }
       }
       .btn-primary {
         margin-right: 24px;
@@ -33,6 +39,10 @@
       @include media-breakpoint-down(md) {
         margin: 0;
       }
+      @include media-breakpoint-down(sm) {
+        width: 143px;
+        height: 289px;
+      }
       img {
         position: absolute;
         left: 0;
@@ -49,11 +59,23 @@
         left: 13px;
         top: 40px;
         z-index: 2;
+        @include media-breakpoint-down(sm) {
+          width: 143px;
+          height: 289px;
+        }
       }
     }
     &-text-block {
+      h4 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 16px;
+      }
       @include media-breakpoint-down(md) {
         display: none;
+      }
+      &:first-child {
+        margin-bottom: 80px;
       }
     }
   }
