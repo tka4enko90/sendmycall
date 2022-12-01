@@ -23,7 +23,7 @@ $email = get_field( 'top_bar_email', 'options' );
 <div class="wrapper">
 	<header class="header">
         <div class="header-top-bar">
-            <div class="container">
+            <div class="container container-large">
                 <div class="header-top-bar__row">
                     <div class="header-top-bar__col">
                         <?php
@@ -71,7 +71,7 @@ $email = get_field( 'top_bar_email', 'options' );
         </div>
 
         <div class="header-main">
-            <div class="container">
+            <div class="container container-large">
                 <div class="header-main__row">
                     <div class="mobile-menu-button-wrap">
                         <ul class="mobile-menu-button">

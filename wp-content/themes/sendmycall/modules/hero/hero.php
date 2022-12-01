@@ -22,12 +22,14 @@ if ( ! empty( $hero ) ) : ?>
                             <?php if ( ! empty( $hero['title'] ) ) : ?>
                                 <?php echo wp_kses_post( $hero['title'] ); ?>
                             <?php endif; ?>
-                            <?php if ( $hero['link_button_buy_now'] ) : ?>
-                                <a href="<?php echo esc_url( $hero['link_button_buy_now']['url'] ); ?>" class="btn btn-primary"><?php echo $hero['link_button_buy_now']['title']; ?></a>
-                            <?php endif; ?>
-                            <?php if ( $hero['link_button_learn_more'] ) : ?>
-                                <a href="<?php echo esc_url( $hero['link_button_learn_more']['url'] ); ?>" class="btn btn-default"><?php echo $hero['link_button_learn_more']['title']; ?></a>
-                            <?php endif; ?>
+                            <div class="btn-holder">
+                                <?php if ( $hero['link_button_buy_now'] ) : ?>
+                                    <a href="<?php echo esc_url( $hero['link_button_buy_now']['url'] ); ?>" class="btn btn-primary"><?php echo $hero['link_button_buy_now']['title']; ?></a>
+                                <?php endif; ?>
+                                <?php if ( $hero['link_button_learn_more'] ) : ?>
+                                    <a href="<?php echo esc_url( $hero['link_button_learn_more']['url'] ); ?>" class="btn btn-default"><?php echo $hero['link_button_learn_more']['title']; ?></a>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                     <div class="section-hero-col">

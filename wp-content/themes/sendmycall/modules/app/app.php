@@ -14,7 +14,7 @@ if ( ! empty( $app ) ) : ?>
                 <?php if ( ! empty( $app['title'] ) ) : ?>
                     <?php echo wp_kses_post( $app['title'] ); ?>
                 <?php endif; ?>
-                <div class="section-app-buttons">
+                <div class="btn-holder">
                     <?php if ( $app['link_button_buy_now'] ) : ?>
                         <a href="<?php echo esc_url( $app['link_button_buy_now']['url'] ); ?>" class="btn btn-primary"><?php echo $app['link_button_buy_now']['title']; ?></a>
                     <?php endif; ?>

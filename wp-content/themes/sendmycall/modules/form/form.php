@@ -12,10 +12,13 @@ $form = get_sub_field( 'form' );
 if ( ! empty( $form ) ) : ?>
     <section class="section section-form">
         <div class="container">
+            <div class="section-form-title">
+                <?php
+                if ( ! empty( $form['form_title'] ) ) {
+                    echo wp_kses_post($form['form_title']);
+                }?>
+            </div>
             <?php
-            if ( ! empty( $form['form_title'] ) ) {
-                echo wp_kses_post($form['form_title']);
-            }
             if ( ! empty( $form['form_shortcode'] ) ) {
                 echo do_shortcode($form['form_shortcode']);
             }

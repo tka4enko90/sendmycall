@@ -117,9 +117,6 @@ jQuery(document).ready(function ($) {
     var $listItems = $list.children('li');
     $styledSelect.click(function (e) {
       e.stopPropagation();
-      $('div.styled-select.active').each(function () {
-        $(this).removeClass('active').next('ul.options').hide();
-      });
       $(this).toggleClass('active').next('ul.options').toggle();
     });
     $listItems.click(function (e) {
@@ -132,6 +129,19 @@ jQuery(document).ready(function ($) {
       $styledSelect.removeClass('active');
       $list.hide();
     });
+  });
+
+  /**
+   *  Btn remove text for input
+   */
+
+  $('input').on('blur', function () {
+    $(this).parent().siblings('.close').removeClass('focus');
+  }).on('focus', function () {
+    $(this).parent().siblings('.close').addClass('focus');
+  });
+  $('.close').click(function () {
+    $('input').val("");
   });
 });
 

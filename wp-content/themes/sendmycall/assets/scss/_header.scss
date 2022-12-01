@@ -208,12 +208,11 @@
           display: block;
         }
       }
-
       .btn {
         @include media-breakpoint-down(md) {
           display: block;
           width: 100%;
-          margin-bottom: 140px;
+          margin-bottom: 180px;
         }
       }
     }
