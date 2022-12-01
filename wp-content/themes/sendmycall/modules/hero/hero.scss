@@ -13,7 +13,7 @@
   }
   &-hero {
     position: relative;
-    padding: 135px 0 135px;
+    padding: 135px 0 267px;
     background-color: $white;
     text-align: center;
     @include media-breakpoint-down(md) {
@@ -22,8 +22,21 @@
     &-block {
       max-width: 612px;
       text-align: left;
-      @include media-breakpoint-down(md) {
-        text-align: center;
+
+      h1 {
+        margin-bottom: 40px;
+        @include media-breakpoint-down(md) {
+          text-align: center;
+        }
+        @include media-breakpoint-down(sm) {
+          margin-bottom: 32px;
+        }
+      }
+      .btn-primary {
+        margin-right: 24px;
+        @include media-breakpoint-down(md) {
+          margin-right: 16px;
+        }
       }
     }
     &-row {

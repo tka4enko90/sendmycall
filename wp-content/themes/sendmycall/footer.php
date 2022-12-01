@@ -19,7 +19,10 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
                             if (($logo['mime_type'] == 'image/png') || ($logo['mime_type'] == 'image/jpeg')) {
                                 echo wp_get_attachment_image($logo['ID']);
                             } else {
-                                echo file_get_contents($logo['url']);
+                                $parse_url = parse_url( $logo['url'] );
+                                $path_url = $parse_url['path'];
+                                $relative_url = ltrim($path_url, '/');
+                                echo file_get_contents( $relative_url );
                             }
                             ?>
                         </a>
@@ -32,9 +35,12 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
                                         <a target="_blank" href="<?php echo $social_item['social_link']?>" class="footer-social-item">
                                             <?php
                                             if (($social_item['social_icon']['mime_type'] == 'image/png') || ($social_item['social_icon']['mime_type'] == 'image/jpeg')) {
-                                                echo wp_get_attachment_image($social_item['social_icon']['ID']);
+                                                echo wp_get_attachment_image($social_item['social_icon']['ID'], );
                                             } else {
-                                                echo file_get_contents($social_item['social_icon']['url']);
+                                                $parse_url = parse_url( $social_item['social_icon']['url'] );
+                                                $path_url = $parse_url['path'];
+                                                $relative_url = ltrim($path_url, '/');
+                                                echo file_get_contents( $relative_url );
                                             }
                                             ?>
                                         </a>
@@ -94,13 +100,12 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
                 </div>
 
                 <div class="footer-col">
-                    <div class="acc-head">
-                        <?php if ( !empty( $menu_title_customer_review ) ): ?>
-                            <h4 class="footer-col-title"><?php echo $menu_title_customer_review; ?></h4>
-                        <?php endif; ?>
-                    </div>
                     <div class="acc-content">
-
+                        <div class="acc-head">
+                            <?php if ( !empty( $menu_title_customer_review ) ): ?>
+                                <a href="#" class="footer-col-title"><?php echo $menu_title_customer_review; ?></a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>

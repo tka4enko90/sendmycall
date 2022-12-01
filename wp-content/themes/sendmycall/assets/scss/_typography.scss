@@ -6,6 +6,7 @@ h1,
   letter-spacing: -0.02em;
   color: $heading-color;
   margin-top: 0;
+  font-weight: 600;
   @include media-breakpoint-down(md) {
     font-size: 36px;
     line-height: 40px;
@@ -20,6 +21,7 @@ h2,
   letter-spacing: -0.02em;
   color: $heading-color;
   margin-top: 0;
+  font-weight: 600;
   @include media-breakpoint-down(md) {
     font-size: 36px;
   }
@@ -32,6 +34,7 @@ h3,
   margin-top: 0;
   font-family: $font-family-syne-semi-bold;
   color: $heading-color;
+  font-weight: 600;
   @include media-breakpoint-down(md) {
     font-size: 20px;
   }
@@ -44,6 +47,7 @@ h4,
   margin-top: 0;
   font-family: $font-family-syne-semi-bold;
   color: $heading-color;
+  font-weight: 600;
 }
 
 .text-right {

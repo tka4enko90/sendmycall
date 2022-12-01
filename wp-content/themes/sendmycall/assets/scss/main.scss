@@ -5,7 +5,6 @@
 @import "mixins";
 @import "section";
 @import "buttons";
-@import "forms";
 @import "header";
 @import "footer";
 @import "social";
@@ -65,19 +64,16 @@ body {
     flex: 1;
     margin-top: 116px;
     @include media-breakpoint-down(lg) {
-      margin-top: 80px;
+      margin-top: 74px;
     }
   }
 }
 
-.visible-md {
-  display: none;
-  @include media-breakpoint-down(md) {
-    display: flex;
-  }
-}
-
 .container {
+  @include media-breakpoint-down(sm){
+    padding-left: 16px;
+    padding-right: 16px;
+  }
   &.container-fluid {
     max-width: 100%;
     padding: 0;

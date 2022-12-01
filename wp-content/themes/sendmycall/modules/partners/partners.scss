@@ -1,12 +1,15 @@
 @import "../../assets/scss/vars";
 @import "../../assets/scss/grid/mixins/breakpoints";
-@import '../../../../node_modules/@splidejs/splide/dist/css/splide.min.css';
+@import '../../../../dist/css/splide.min.css';
 .section {
   &-partners {
     &-info {
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
+      @include media-breakpoint-down(sm) {
+        text-align: left;
+      }
       h2 {
         color: $heading-color;
         margin-bottom: 16px;
@@ -37,6 +40,10 @@
     }
     &-slider {
       margin-top: 48px;
+    }
+    &-description {
+      font-size: 18px;
+      line-height: 26px;
     }
   }
 }
