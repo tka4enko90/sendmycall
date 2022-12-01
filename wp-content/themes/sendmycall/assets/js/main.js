@@ -85,7 +85,7 @@ jQuery( document ).ready(function($) {
     $('.acc-head > a').on('click', function(e) {
         e.preventDefault();
     });
-    if(window.outerWidth < 768) {
+    if(window.outerWidth < 1200) {
         $('.footer-col:nth-child(1) .acc-head > a').addClass('active');
         $('.footer-col:nth-child(1) .acc-content .sub-menu').slideDown();
         $('.acc-head > a').on('click', function(e) {

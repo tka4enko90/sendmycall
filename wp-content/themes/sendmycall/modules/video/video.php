@@ -17,7 +17,7 @@ if ( ! empty( $video ) ) : ?>
                 <?php if ( ! empty( $video['title'] ) ) : ?>
                     <?php echo wp_kses_post( $video['title'] ); ?>
                 <?php endif; ?>
-                <div class="section-app-buttons">
+                <div class="btn-holder">
                     <?php if ( $video['link_button_buy_now'] ) : ?>
                         <a href="<?php echo esc_url( $video['link_button_buy_now']['url'] ); ?>" class="btn btn-primary"><?php echo $video['link_button_buy_now']['title']; ?></a>
                     <?php endif; ?>
@@ -32,7 +32,7 @@ if ( ! empty( $video ) ) : ?>
                     echo wp_get_attachment_image($video['img_bg_video']['id'], $size = 'video_img');
                 }  ?>
                 <?php if ( $video['video_file'] ) : ?>
-                    <video width="480" height="220" autoplay loop muted>
+                    <video width="480" height="220" autoplay loop muted playsinline poster="">
                         <source src="<?php echo $video['video_file']; ?>" type="video/mp4">
                     </video>
                 <?php endif; ?>
@@ -57,7 +57,7 @@ if ( ! empty( $video ) ) : ?>
     <div class="video-popup modal">
         <div class="video-popup-holder">
             <?php if ( $video['video_file'] ) : ?>
-                <video id="video" width="480" height="220" controls>
+                <video id="video" width="480" height="220" controls playsinline poster="">
                     <source src="<?php echo $video['video_file']; ?>" type="video/mp4">
                 </video>
             <?php endif; ?>

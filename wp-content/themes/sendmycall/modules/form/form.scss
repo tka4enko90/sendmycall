@@ -17,6 +17,14 @@
         margin-bottom: 32px;
       }
     }
+    p {
+      color: $white;
+      text-align: center;
+    }
+    &-title {
+      max-width: 700px;
+      margin: 0 auto;
+    }
     &-holder{
       width: 100%;
       margin: 0 auto;
@@ -55,9 +63,13 @@
       &-col {
         width: 49%;
         margin-bottom: 24px;
+        position: relative;
         @include media-breakpoint-down(md) {
           width: 100%;
         }
+      }
+      &-textarea {
+        margin-bottom: 30px;
       }
       &-submit {
         display: flex;
@@ -108,10 +120,10 @@
     }
     .wpcf7-response-output {
       width: 100%;
-      margin: 0 auto!important;
+      margin: 5px auto 0 !important;
       max-width: 822px;
       color: $text-color-light-grey;
-      border-color: red;
+      border-color: $error-color!important;
     }
   }
 }
@@ -175,4 +187,25 @@
       color: $primary-color;
     }
   }
+}
+
+.close {
+  position: absolute;
+  top: 49%;
+  right: 5px;
+  transform: translate(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url('../../../../assets/img/close_icon.svg');
+  opacity: 0;
+  cursor: pointer;
+  &.focus {
+    opacity: 1;
+  }
+}
+
+.wpcf7-not-valid-tip {
+  position: absolute;
+  color: $error-color;
+  min-width: 300px;
 }

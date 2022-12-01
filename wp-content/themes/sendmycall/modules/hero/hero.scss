@@ -32,12 +32,6 @@
           margin-bottom: 32px;
         }
       }
-      .btn-primary {
-        margin-right: 24px;
-        @include media-breakpoint-down(md) {
-          margin-right: 16px;
-        }
-      }
     }
     &-row {
       display: flex;

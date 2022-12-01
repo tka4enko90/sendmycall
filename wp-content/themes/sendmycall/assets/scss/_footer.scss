@@ -1,10 +1,9 @@
 .footer {
   font-family: $font-family-dm-sans-regular;
   background-color: $white;
-  //padding: 56px 0 40px 0;
   font-size: $font-size-sm;
-  @include media-breakpoint-down(md) {
-    padding: 40px 0 0 0;
+  @include media-breakpoint-down(xxl) {
+    padding-top: 40px;
   }
   .logo {
     width: 175px;
@@ -14,18 +13,18 @@
   &-row {
     display: flex;
     flex-wrap: wrap;
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(xxl) {
       flex-direction: column;
       margin-bottom: 32px;
     }
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xxl) {
       padding: 64px 0 40px;
     }
   }
   &-col {
     flex: 1 1 15%;
     padding: 0 15px;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xxl) {
       &:first-child {
         padding-left: 0;
       }
@@ -33,7 +32,7 @@
         padding-right: 0;
       }
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(xxl) {
       padding: 0;
       margin-bottom: 24px;
       &:last-child {
@@ -46,7 +45,7 @@
       font-family: $font-family-dm-sans-regular;
       font-weight: 400;
       font-size: $font-size-sm;
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(xxl) {
         padding: 8px 0;
         margin-bottom: 0;
       }
@@ -54,7 +53,7 @@
     .acc {
       margin-bottom: 10px;
       &-head {
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(xxl) {
           position: relative;
           cursor: pointer;
           padding: 0;
@@ -63,7 +62,7 @@
           position: relative;
           &:before,
           &:after {
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-down(xxl) {
               content: '';
               position: absolute;
               top: 50%;
@@ -94,12 +93,12 @@
       }
       &-content {
         .sub-menu {
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(xxl) {
             display: none;
           }
         }
         li {
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(xxl) {
             padding: 12px 0;
           }
         }
@@ -107,17 +106,17 @@
           &>a {
             cursor: default;
             color: $text-color;
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(xxl) {
               margin-bottom: 16px;
             }
           }
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(xxl) {
             padding: 0;
           }
           #menu-footer-contact-us {
             .sub-menu {
               a {
-                @include media-breakpoint-up(md) {
+                @include media-breakpoint-up(xxl) {
                   margin-bottom: 16px;
                 }
               }
@@ -136,7 +135,7 @@
   &-logo {
     display: block;
     margin-bottom: 40px;
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(xxl) {
       text-align: center;
       margin-bottom: 32px;
     }
@@ -151,7 +150,7 @@
       }
     }
     svg, img {
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(xxl) {
         width: 175px;
         height: 40px;
       }
@@ -162,7 +161,7 @@
     width: 228px;
     text-align: center;
     &-holder {
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(xxl) {
         margin-bottom: 16px;
       }
     }
@@ -257,7 +256,6 @@
     }
   }
 }
-
 
 .email-icon {
   a {

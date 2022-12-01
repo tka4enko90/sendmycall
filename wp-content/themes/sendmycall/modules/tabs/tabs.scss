@@ -23,11 +23,11 @@
         }
       }
       &-col {
-        width: 50%;
+        width: 49%;
         @include media-breakpoint-down(md) {
           width: 100%;
         }
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(xsm) {
           &:last-child {
             img {
               margin: 0 auto;
@@ -137,7 +137,7 @@
         img {
           width: 56px;
           height: 56px;
-          margin-right: 16px;
+          margin-right: 14px;
           @include media-breakpoint-down(md) {
             width: 40px;
             height: 40px;
@@ -147,6 +147,11 @@
           font-size: 20px;
           font-family: $font-family-syne-semi-bold;
           color: $white;
+          max-width: 296px;
+          @include media-breakpoint-down(sm) {
+            max-width: 233px;
+            min-height: 24px;
+          }
           @include media-breakpoint-down(md) {
             font-size: 16px;
           }

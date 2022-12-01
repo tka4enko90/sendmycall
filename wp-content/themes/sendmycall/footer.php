@@ -10,7 +10,7 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
 
 ?>
     <footer class="footer">
-        <div class="container">
+        <div class="container container-large">
             <div class="footer-row">
                 <div class="footer-col">
                     <?php if ( !empty( $logo ) ): ?>

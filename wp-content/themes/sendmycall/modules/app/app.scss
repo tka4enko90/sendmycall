@@ -16,12 +16,6 @@
           margin-bottom: 32px;
         }
       }
-      .btn-primary {
-        margin-right: 24px;
-        @include media-breakpoint-down(md) {
-          margin-right: 0;
-        }
-      }
     }
     &-row {
       display: flex;
@@ -32,7 +26,7 @@
       position: relative;
       width: 233px;
       height: 483px;
-      margin: 20px 130px;
+      margin: 20px 110px;
       overflow: hidden;
       @include media-breakpoint-between(md,lg) {
         margin: 0 30px;

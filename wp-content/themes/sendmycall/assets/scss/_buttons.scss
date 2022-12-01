@@ -17,7 +17,6 @@ button {
     color: $text-color;
     border-radius: 100px;
     cursor: pointer;
-    //padding: 12px 32px;
     border: 1px solid transparent;
     transition: color $transition, background $transition, border $transition, box-shadow $transition;
     min-width: 188px;
@@ -54,17 +53,6 @@ button {
         }
     }
 
-    //&-secondary {
-    //    background-color: $secondary-color;
-    //    color: $white;
-    //    border-color: $secondary-color;
-    //    &:hover, &:focus {
-    //        color: $secondary-color;
-    //        border-color: 1px solid $secondary-color;
-    //        background-color: transparent;
-    //    }
-    //}
-
     &-default {
         background-color: transparent;
         color: $primary-color;
@@ -75,12 +63,30 @@ button {
             background-color: $primary-color;
         }
     }
+}
 
-    //&-disabled {
-    //    background-color: white;
-    //    border-color: #BBBEBE;
-    //    color: $gray_888;
-    //    pointer-events: none;
-    //}
-
+.btn-holder {
+    @include media-breakpoint-down(lg) {
+        text-align: center;
+    }
+    @include media-breakpoint-down(xsm) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    @include media-breakpoint-down(xs) {
+        flex-direction: column;
+    }
+    .btn-primary {
+        @include media-breakpoint-up(md) {
+            margin-right: 24px;
+        }
+        @include media-breakpoint-down(md) {
+            margin-right: 16px;
+        }
+        @include media-breakpoint-down(xs) {
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+    }
 }
