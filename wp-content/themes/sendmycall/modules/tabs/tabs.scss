@@ -108,6 +108,13 @@
         height: 88px;
         transition: border-color $transition;
         margin-bottom: 16px;
+        @include media-breakpoint-between(sm,xxl) {
+          margin-right: 24px;
+          flex: 1;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
         @include media-breakpoint-down(sm) {
           height: 72px;
           max-width: 100%;

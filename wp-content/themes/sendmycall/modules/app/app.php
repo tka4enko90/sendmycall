@@ -48,7 +48,7 @@ if ( ! empty( $app ) ) : ?>
                                 echo file_get_contents($app['background_image']['url']);
                             }
                             ?>
-                            <video width="233" height="483" autoplay loop muted>
+                            <video width="233" height="483" autoplay loop muted playsinline poster="">
                                 <source src="<?php echo $app['video_file']; ?>" type="video/mp4">
                             </video>
                         </div>

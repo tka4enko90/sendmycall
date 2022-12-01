@@ -17,11 +17,9 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
                         <a class="footer-logo" href="<?php echo esc_attr( get_home_url() ); ?>">
                             <?php
                             if (($logo['mime_type'] == 'image/png') || ($logo['mime_type'] == 'image/jpeg')) {
-                                echo wp_get_attachment_image($logo['ID']);
+                                echo wp_get_attachment_image( $logo['ID'], $size = "logo_img" );
                             } else {
-                                $parse_url = parse_url( $logo['url'] );
-                                $path_url = $parse_url['path'];
-                                $relative_url = ltrim($path_url, '/');
+                                $relative_url = wp_get_original_image_path($logo['ID']);
                                 echo file_get_contents( $relative_url );
                             }
                             ?>
@@ -35,11 +33,9 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
                                         <a target="_blank" href="<?php echo $social_item['social_link']?>" class="footer-social-item">
                                             <?php
                                             if (($social_item['social_icon']['mime_type'] == 'image/png') || ($social_item['social_icon']['mime_type'] == 'image/jpeg')) {
-                                                echo wp_get_attachment_image($social_item['social_icon']['ID'], );
+                                                echo wp_get_attachment_image($social_item['social_icon']['ID'], $size = "icon_img" );
                                             } else {
-                                                $parse_url = parse_url( $social_item['social_icon']['url'] );
-                                                $path_url = $parse_url['path'];
-                                                $relative_url = ltrim($path_url, '/');
+                                                $relative_url = wp_get_original_image_path($social_item['social_icon']['ID']);
                                                 echo file_get_contents( $relative_url );
                                             }
                                             ?>

@@ -106,9 +106,7 @@
         .acc-head{
           &>a {
             cursor: default;
-            &:hover {
-              color: $heading-color;
-            }
+            color: $text-color;
             @include media-breakpoint-up(md) {
               margin-bottom: 16px;
             }
@@ -116,12 +114,13 @@
           @include media-breakpoint-down(md) {
             padding: 0;
           }
-        }
-
-        #menu-footer-contact-us {
-          .sub-menu {
-            @include media-breakpoint-up(md) {
-              margin-bottom: 16px;
+          #menu-footer-contact-us {
+            .sub-menu {
+              a {
+                @include media-breakpoint-up(md) {
+                  margin-bottom: 16px;
+                }
+              }
             }
           }
         }
@@ -151,9 +150,11 @@
         }
       }
     }
-    img {
-      width: 177px;
-      height: 40px;
+    svg, img {
+      @include media-breakpoint-down(md) {
+        width: 175px;
+        height: 40px;
+      }
     }
   }
   &-social {

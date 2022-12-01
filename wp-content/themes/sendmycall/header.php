@@ -85,11 +85,9 @@ $email = get_field( 'top_bar_email', 'options' );
                         <a class="header-logo" href="<?php echo esc_attr( get_home_url() ); ?>">
                             <?php
                             if ( ($logo['mime_type'] == 'image/png') || ($logo['mime_type'] == 'image/jpeg') ) {
-                                echo wp_get_attachment_image( $logo['ID'] );
+                                echo wp_get_attachment_image( $logo['ID'], $size = "logo_img" );
                             } else {
-                                $parse_url = parse_url( $logo['url'] );
-                                $path_url = $parse_url['path'];
-                                $relative_url = ltrim($path_url, '/');
+                                $relative_url = wp_get_original_image_path($logo['ID']);
                                 echo file_get_contents( $relative_url );
                             }
                             ?>

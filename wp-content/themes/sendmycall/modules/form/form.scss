@@ -75,6 +75,7 @@
           transition: color $transition, background-color $transition;
           cursor: pointer;
           height: 64px;
+          -webkit-appearance: none;
           &:hover {
             color: $primary-color;
             background-color: $white;
