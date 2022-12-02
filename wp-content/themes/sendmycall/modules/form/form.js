@@ -56,7 +56,7 @@ jQuery( document ).ready(function($) {
     });
 
     $('.close').click(function() {
-        $('input').val("");
+        $(this).closest('.section-form-input-col').find('input').val("");
     });
 
 });
