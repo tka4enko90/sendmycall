@@ -99,6 +99,27 @@
             "append": ""
         },
         {
+            "key": "field_6389dda8428db",
+            "label": "Header buy now",
+            "name": "header_buy_now",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_637fb2c58fb33"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_637cfce3a04fc",
             "label": "Footer",
             "name": "",
@@ -232,5 +253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669802151
+    "modified": 1669979638
 }

@@ -8,6 +8,7 @@ $logo  = get_field( 'logo', 'options' );
 $tel_1 = get_field( 'top_bar_tel', 'options' );
 $tel_2 = get_field( 'top_bar_tel_2', 'options' );
 $email = get_field( 'top_bar_email', 'options' );
+$buy_now = get_field( 'header_buy_now', 'options' );
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
@@ -102,7 +103,13 @@ $email = get_field( 'top_bar_email', 'options' );
                         )
                     );
                     ?>
-                    <a href="#" class="btn btn-primary">Buy now</a>
+                    <?php if ( $buy_now['link_button_buy_now'] ) : ?>
+                        <a href="<?php echo esc_url( $buy_now['link_button_buy_now']['url'] ); ?>"
+                            <?php if( $buy_now['link_button_buy_now']['target'] ) : ?>
+                                target="<?php echo $buy_now['link_button_buy_now']['target']; ?>"
+                            <?php endif;?>
+                           class="btn btn-primary"><?php echo $buy_now['link_button_buy_now']['title']; ?></a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -168,7 +175,13 @@ $email = get_field( 'top_bar_email', 'options' );
                         </div>
                     <?php endif; ?>
                 </div>
-                <a href="#" class="btn btn-primary">Buy now</a>
+                <?php if ( $buy_now['link_button_buy_now'] ) : ?>
+                    <a href="<?php echo esc_url( $buy_now['link_button_buy_now']['url'] ); ?>"
+                        <?php if( $buy_now['link_button_buy_now']['target'] ) : ?>
+                            target="<?php echo $buy_now['link_button_buy_now']['target']; ?>"
+                        <?php endif;?>
+                       class="btn btn-primary"><?php echo $buy_now['link_button_buy_now']['title']; ?></a>
+                <?php endif; ?>
             </div>
         </div>
 	</header>

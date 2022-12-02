@@ -49,7 +49,7 @@ jQuery( document ).ready(function($) {
      *  Btn remove text for input
      */
 
-    $('input').on('blur', function(){
+    $('input, textarea').on('blur', function(){
         $(this).parent().siblings('.close').removeClass('focus');
     }).on('focus', function(){
         $(this).parent().siblings('.close').addClass('focus');
@@ -57,6 +57,7 @@ jQuery( document ).ready(function($) {
 
     $('.close').click(function() {
         $(this).closest('.section-form-input-col').find('input').val("");
+        $(this).closest('.section-form-input-textarea').find('textarea').val("");
     });
 
 });

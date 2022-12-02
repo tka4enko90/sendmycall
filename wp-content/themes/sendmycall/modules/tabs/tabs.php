@@ -32,7 +32,12 @@ if ( ! empty( $tabs ) ) : ?>
                             <div class="section-tabs-content-col">
                                 <?php echo wp_kses_post( $tabs_item['tab_content'] ); ?>
                                 <?php if ( ! empty($tabs_item['tab_content_btn'] ) ) : ?>
-                                    <a href="<?php echo esc_url( $tabs_item['tab_content_btn']['url'] ); ?>" class="btn <?php  if ($key == 0) { echo 'btn-primary'; } else {echo 'btn-default';} ?>"><?php echo $tabs_item['tab_content_btn']['title']; ?></a>
+                                    <a href="<?php echo esc_url( $tabs_item['tab_content_btn']['url'] ); ?>"
+                                        <?php if( $tabs_item['tab_content_btn']['target'] ) : ?>
+                                            target="<?php echo $tabs_item['tab_content_btn']['target']; ?>"
+                                        <?php endif;?>
+                                       class="btn <?php  if ($key == 0) { echo 'btn-primary'; } else {echo 'btn-default';} ?>">
+                                        <?php echo $tabs_item['tab_content_btn']['title']; ?></a>
                                 <?php endif; ?>
                             </div>
                             <div class="section-tabs-content-col">
