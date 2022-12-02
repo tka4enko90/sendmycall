@@ -24,10 +24,18 @@ if ( ! empty( $hero ) ) : ?>
                             <?php endif; ?>
                             <div class="btn-holder">
                                 <?php if ( $hero['link_button_buy_now'] ) : ?>
-                                    <a href="<?php echo esc_url( $hero['link_button_buy_now']['url'] ); ?>" class="btn btn-primary"><?php echo $hero['link_button_buy_now']['title']; ?></a>
+                                    <a href="<?php echo esc_url( $hero['link_button_buy_now']['url'] ); ?>"
+                                        <?php if( $hero['link_button_buy_now']['target'] ) : ?>
+                                            target="<?php echo $hero['link_button_buy_now']['target']; ?>"
+                                        <?php endif;?>
+                                       class="btn btn-primary"><?php echo $hero['link_button_buy_now']['title']; ?></a>
                                 <?php endif; ?>
                                 <?php if ( $hero['link_button_learn_more'] ) : ?>
-                                    <a href="<?php echo esc_url( $hero['link_button_learn_more']['url'] ); ?>" class="btn btn-default"><?php echo $hero['link_button_learn_more']['title']; ?></a>
+                                    <a href="<?php echo esc_url( $hero['link_button_learn_more']['url'] ); ?>"
+                                        <?php if( $hero['link_button_learn_more']['target'] ) : ?>
+                                            target="<?php echo $hero['link_button_learn_more']['target']; ?>"
+                                        <?php endif;?>
+                                       class="btn btn-default"><?php echo $hero['link_button_learn_more']['title']; ?></a>
                                 <?php endif; ?>
                             </div>
                         </div>
