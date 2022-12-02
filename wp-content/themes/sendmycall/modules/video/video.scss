@@ -7,8 +7,11 @@
     @include media-breakpoint-down(sm) {
       padding: 80px 0 70px;
     }
-    &-block {
+    &-holder {
       max-width: 824px;
+      margin: 0 auto;
+    }
+    &-block {
       margin: 0 auto 48px;
       text-align: center;
       h1 {
