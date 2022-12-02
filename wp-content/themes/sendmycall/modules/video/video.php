@@ -13,30 +13,31 @@ $video = get_sub_field( 'video' );
 if ( ! empty( $video ) ) : ?>
     <section class="section section-video">
         <div class="container">
-            <div class="section-video-block">
-                <?php if ( ! empty( $video['title'] ) ) : ?>
-                    <?php echo wp_kses_post( $video['title'] ); ?>
-                <?php endif; ?>
-                <div class="btn-holder">
-                    <?php if ( $video['link_button_buy_now'] ) : ?>
-                        <a href="<?php echo esc_url( $video['link_button_buy_now']['url'] ); ?>"
-                           <?php if($video['link_button_buy_now']['target']) : ?>
-                               target="<?php echo $video['link_button_buy_now']['target']; ?>"
-                           <?php endif;?>
-                           class="btn btn-primary"><?php echo $video['link_button_buy_now']['title']; ?>
-                        </a>
+            <div class="section-video-holder">
+                <div class="section-video-block">
+                    <?php if ( ! empty( $video['title'] ) ) : ?>
+                        <?php echo wp_kses_post( $video['title'] ); ?>
                     <?php endif; ?>
-                    <?php if ( $video['link_button_learn_more'] ) : ?>
-                        <a href="<?php echo esc_url( $video['link_button_learn_more']['url'] ); ?>"
-                            <?php if($video['link_button_learn_more']['target']) : ?>
-                                target="<?php echo $video['link_button_learn_more']['target']; ?>"
-                            <?php endif;?>
-                           class="btn btn-default"><?php echo $video['link_button_learn_more']['title']; ?>
-                        </a>
-                    <?php endif; ?>
+                    <div class="btn-holder">
+                        <?php if ( $video['link_button_buy_now'] ) : ?>
+                            <a href="<?php echo esc_url( $video['link_button_buy_now']['url'] ); ?>"
+                               <?php if($video['link_button_buy_now']['target']) : ?>
+                                   target="<?php echo $video['link_button_buy_now']['target']; ?>"
+                               <?php endif;?>
+                               class="btn btn-primary"><?php echo $video['link_button_buy_now']['title']; ?>
+                            </a>
+                        <?php endif; ?>
+                        <?php if ( $video['link_button_learn_more'] ) : ?>
+                            <a href="<?php echo esc_url( $video['link_button_learn_more']['url'] ); ?>"
+                                <?php if($video['link_button_learn_more']['target']) : ?>
+                                    target="<?php echo $video['link_button_learn_more']['target']; ?>"
+                                <?php endif;?>
+                               class="btn btn-default"><?php echo $video['link_button_learn_more']['title']; ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-            <div class="section-video-img">
+                <div class="section-video-img">
                 <?php
                 if ( $video['img_bg_video'] ) {
                     echo wp_get_attachment_image($video['img_bg_video']['id'], $size = 'video_img');
@@ -59,6 +60,7 @@ if ( ! empty( $video ) ) : ?>
                         </g>
                     </svg>
                 </div>
+            </div>
             </div>
         </div>
     </section>
