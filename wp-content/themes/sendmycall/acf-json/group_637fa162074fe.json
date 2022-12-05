@@ -801,6 +801,30 @@
                                     "max_height": "",
                                     "max_size": "",
                                     "mime_types": ""
+                                },
+                                {
+                                    "key": "field_638a207bdcdd6",
+                                    "label": "Video poster",
+                                    "name": "video_poster",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "tabs_img",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
                                 }
                             ]
                         }
@@ -932,6 +956,30 @@
                                     "return_format": "url",
                                     "library": "all",
                                     "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_638a1985e2d83",
+                                    "label": "Video poster",
+                                    "name": "video_poster",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "tabs_img",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
                                     "max_size": "",
                                     "mime_types": ""
                                 }
@@ -1092,14 +1140,14 @@
                 },
                 "layout_6385071959862": {
                     "key": "layout_6385071959862",
-                    "name": "virtual_numbers_toll_free",
-                    "label": "Virtual_numbers_toll_free",
+                    "name": "virtual_numbers",
+                    "label": "Virtual numbers",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_63850f6159863",
                             "label": "",
-                            "name": "virtual_numbers_toll_free",
+                            "name": "virtual_numbers",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1155,9 +1203,28 @@
                                     "delay": 0
                                 },
                                 {
+                                    "key": "field_638da2ff271ce",
+                                    "label": "Benefits title",
+                                    "name": "benefits_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
                                     "key": "field_638514732078a",
                                     "label": "Benefits of virtual PBX",
-                                    "name": "benefits_of_virtual_pbx",
+                                    "name": "benefits_content",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
@@ -1172,6 +1239,99 @@
                                     "toolbar": "full",
                                     "media_upload": 1,
                                     "delay": 0
+                                },
+                                {
+                                    "key": "field_638da91f5992f",
+                                    "label": "Benefits title icon",
+                                    "name": "benefits_title_icon",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "icon_title",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_638d042c0df94": {
+                    "key": "layout_638d042c0df94",
+                    "name": "toll_free",
+                    "label": "Toll free",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_638d043c0df95",
+                            "label": "",
+                            "name": "toll_free",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_638d044b0df96",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_63850f9e59864"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                },
+                                {
+                                    "key": "field_638d04ae0df97",
+                                    "label": "Content",
+                                    "name": "content",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_6385141e20789"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
                                 }
                             ]
                         }
@@ -1192,6 +1352,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "virtual_number"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1203,5 +1370,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669750049
+    "modified": 1670231913
 }
