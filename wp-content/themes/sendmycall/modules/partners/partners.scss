@@ -22,10 +22,15 @@
           &:hover {
             img, svg {
               &:last-child {
-                display: block;
+                //display: block;
+                opacity: 1;
+                visibility: visible;
               }
               &:first-child {
-                display: none;
+                //display: none;
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
               }
             }
           }
@@ -33,7 +38,8 @@
         img, svg {
           height: 56px;
           &:last-child {
-            display: none;
+            opacity: 0;
+            visibility: hidden;
           }
         }
       }

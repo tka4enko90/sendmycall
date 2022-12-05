@@ -38,29 +38,31 @@ if ( ! empty( $video ) ) : ?>
                     </div>
                 </div>
                 <div class="section-video-img">
-                <?php
-                if ( $video['img_bg_video'] ) {
-                    echo wp_get_attachment_image($video['img_bg_video']['id'], $size = 'video_img');
-                }  ?>
-                <?php if ( $video['video_file'] ) : ?>
-                    <video width="480" height="220" autoplay loop muted playsinline poster="">
-                        <source src="<?php echo $video['video_file']; ?>" type="video/mp4">
-                    </video>
-                <?php endif; ?>
+                    <?php
+                    if ( $video['img_bg_video'] ) {
+                        echo wp_get_attachment_image($video['img_bg_video']['id'], $size = 'video_img');
+                    }  ?>
+                    <?php if ( $video['video_file'] && $video['video_poster'] ) : ?>
+                        <video width="480" height="220"
+                               autoplay loop muted playsinline
+                               poster="<?php echo $video['video_poster']['url']; ?>">
+                            <source src="<?php echo $video['video_file']; ?>" type="video/mp4">
+                        </video>
+                    <?php endif; ?>
 
-                <div class="section-video-btn">
-                    <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="76" height="76" rx="38" fill="#09243D" fill-opacity="0.5"/>
-                        <path d="M33.3984 27.8666L51.1318 39.2666L33.3984 50.6666V27.8666Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <mask id="mask0_952_34242" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="28" y="26" width="25" height="25">
-                            <rect x="28.999" y="26.0021" width="24" height="24" fill="#C4C4C4"/>
-                        </mask>
-                        <g mask="url(#mask0_952_34242)">
-                            <path d="M37.499 44.1022V31.9022L47.074 38.0022L37.499 44.1022Z" fill="white"/>
-                        </g>
-                    </svg>
+                    <div class="section-video-btn">
+                        <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="76" height="76" rx="38" fill="#09243D" fill-opacity="0.5"/>
+                            <path d="M33.3984 27.8666L51.1318 39.2666L33.3984 50.6666V27.8666Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <mask id="mask0_952_34242" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="28" y="26" width="25" height="25">
+                                <rect x="28.999" y="26.0021" width="24" height="24" fill="#C4C4C4"/>
+                            </mask>
+                            <g mask="url(#mask0_952_34242)">
+                                <path d="M37.499 44.1022V31.9022L47.074 38.0022L37.499 44.1022Z" fill="white"/>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>
@@ -68,8 +70,8 @@ if ( ! empty( $video ) ) : ?>
     <div class="overlay"></div>
     <div class="video-popup modal">
         <div class="video-popup-holder">
-            <?php if ( $video['video_file'] ) : ?>
-                <video id="video" width="480" height="220" controls playsinline poster="">
+            <?php if ( $video['video_file'] && $video['video_poster'] ) : ?>
+                <video id="video" width="480" height="220" controls playsinline poster="<?php echo $video['video_poster']['url']; ?>">
                     <source src="<?php echo $video['video_file']; ?>" type="video/mp4">
                 </video>
             <?php endif; ?>

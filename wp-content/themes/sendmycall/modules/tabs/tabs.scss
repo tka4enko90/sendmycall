@@ -12,8 +12,13 @@
       margin: 0 auto;
     }
     &-content {
-      display: none;
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
       &.active {
+        position: static;
+        opacity: 1;
+        visibility: visible;
         display: flex;
         justify-content: space-between;
         align-items: center;

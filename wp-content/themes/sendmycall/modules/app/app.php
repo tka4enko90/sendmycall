@@ -47,16 +47,20 @@ if ( ! empty( $app ) ) : ?>
                     <?php endif; ?>
                 </div>
                 <div class="section-app-col">
-                    <?php if ( $app['video_file'] && $app['background_image'] ) : ?>
+                    <?php if ( $app['video_file'] && $app['background_image'] && $app['video_poster'] ) : ?>
                         <div class="section-app-video">
                             <?php
                             if (($app['background_image']['mime_type'] == 'image/png') || ($app['background_image']['mime_type'] == 'image/jpeg')) {
                                 echo wp_get_attachment_image($app['background_image']['id'], $size = 'tabs_img' );
                             } else {
-                                echo file_get_contents($app['background_image']['url']);
+                                $relative_url = wp_get_original_image_path($app['background_image']['id']);
+                                echo file_get_contents($relative_url);
                             }
                             ?>
-                            <video width="233" height="483" autoplay loop muted playsinline poster="">
+
+                            <video width="233" height="483"
+                                   autoplay loop muted playsinline
+                                   poster="<?php echo $app['video_poster']['url']; ?>">
                                 <source src="<?php echo $app['video_file']; ?>" type="video/mp4">
                             </video>
                         </div>
