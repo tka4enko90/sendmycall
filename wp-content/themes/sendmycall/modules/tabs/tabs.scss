@@ -102,6 +102,9 @@
       @include media-breakpoint-down(sm) {
         margin-bottom: 16px;
       }
+      @include media-breakpoint-between (md,xl){
+        justify-content: center;
+      }
       li {
         border: 1px solid #DBE5EE;
         border-radius: 16px;
@@ -113,9 +116,13 @@
         height: 88px;
         transition: border-color $transition;
         margin-bottom: 16px;
-        @include media-breakpoint-between(sm,xxl) {
-          margin-right: 24px;
+        @include media-breakpoint-between(md,xl) {
+          max-width: 350px;
+          margin: 12px;
+        }
+        @include media-breakpoint-up(xxl) {
           flex: 1;
+          margin-right: 24px;
           &:last-child {
             margin-right: 0;
           }
