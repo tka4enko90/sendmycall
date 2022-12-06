@@ -1,0 +1,56 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section{
+  &-virtual_numbers_toll_free_benefits {
+    &-text {
+      background-color: #F5F5F5;
+      padding: 35px 0;
+    }
+    &-list {
+
+    }
+    &-title {
+      background-size: 65px;
+      background-repeat: no-repeat;
+      padding: 25px 20px 25px 75px;
+    }
+    &-link {
+      p {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+    }
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      width: 100%;
+      @include media-breakpoint-up(sm) {
+        width: 50%;
+      }
+      @include media-breakpoint-up(xl) {
+        width: 25%;
+        margin-bottom: 25px;
+      }
+      li {
+        margin-bottom: 15px;
+        &::marker {
+          color: $primary-color;
+        }
+      }
+    }
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}

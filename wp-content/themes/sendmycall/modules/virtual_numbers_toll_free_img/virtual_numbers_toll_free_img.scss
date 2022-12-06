@@ -1,0 +1,13 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section {
+  &-virtual_numbers_toll_free_img {
+    &-image {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

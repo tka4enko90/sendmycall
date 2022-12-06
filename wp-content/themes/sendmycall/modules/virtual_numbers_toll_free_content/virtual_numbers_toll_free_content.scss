@@ -1,0 +1,27 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section{
+  &-virtual_numbers_toll_free_content {
+    padding-top: 70px;
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 25px;
+      li {
+        margin-bottom: 15px;
+        &::marker {
+          color: $primary-color;
+        }
+      }
+    }
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}
