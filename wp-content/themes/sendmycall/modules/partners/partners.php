@@ -1,6 +1,7 @@
 <?php
 if ( function_exists( 'wp_enqueue_style' ) ) {
     wp_enqueue_style( 'partners-css', get_template_directory_uri() . '/dist/css/modules/partners/partners.css', '', '', 'all' );
+    wp_enqueue_style( 'splide-css', get_template_directory_uri() . '/dist/css/splide.css', '', '', 'all' );
 }
 if ( function_exists( 'wp_enqueue_script' ) ) {
     wp_enqueue_script( 'partners-js', get_template_directory_uri() . '/dist/js/partners.min.js');
