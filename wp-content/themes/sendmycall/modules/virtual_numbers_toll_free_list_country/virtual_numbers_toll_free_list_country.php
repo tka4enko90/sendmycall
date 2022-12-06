@@ -7,7 +7,8 @@ $virtual_numbers_toll_free_list_country = get_sub_field( 'virtual_numbers_toll_f
 $args = array(
     'post_type'      => $virtual_numbers_toll_free_list_country['select_country'],
     'posts_per_page' => -1,
-    'order' => 'ASC',
+    'order'          => 'ASC',
+    'post_status'    => 'publish',
 );
 
 $posts = get_posts( $args );
@@ -32,8 +33,8 @@ if ( ! empty( $posts ) ) : ?>
                     }
                     ?>
                     <div class="section-virtual_numbers_toll_free_list_country-item">
-                        <a width="16px"  href="<?php echo get_permalink($post->id) ?>">
-                            <img class="lazy" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/flags/' . strtolower( $iso ).'.png' ); ?>" alt="Country flag <?php echo $post->post_title;?>" >
+                        <a href="<?php echo get_permalink($post->id) ?>">
+                            <img width="16px" height="16px" class="lazy" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/flags/' . strtolower( $iso ).'.png' ); ?>" alt="Country flag <?php echo $post->post_title;?>" >
                             <?php echo $post->post_title; ?> <?php if ($virtual_numbers_toll_free_list_country['select_country'] == 'toll_free') { echo '(' . implode(',', $toll_free_codes) . ')'; } ?>
                         </a>
                     </div>

@@ -9,10 +9,6 @@ if ( ! empty( $virtual_numbers_toll_free_content ) ) : ?>
         <div class="section-virtual_numbers_toll_free_content-text">
             <div class="container">
                 <?php
-                if ( ! empty( $virtual_numbers_toll_free_content['title'] ) ) : ?>
-                    <h2><?php echo wp_kses_post( $virtual_numbers_toll_free_content['title'] ); ?></h2>
-                <?php endif; ?>
-                <?php
                 if ( ! empty( $virtual_numbers_toll_free_content['content'] ) ) {
                     echo wp_kses_post( $virtual_numbers_toll_free_content['content'] );
                 }

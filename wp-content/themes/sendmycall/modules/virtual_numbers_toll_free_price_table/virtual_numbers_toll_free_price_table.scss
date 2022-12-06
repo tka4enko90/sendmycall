@@ -1,0 +1,41 @@
+@import "../../assets/scss/vars";
+
+.section {
+  &-virtual_numbers_toll_free_price_table {
+    table {
+      width: 100%;
+    }
+    tr {
+      border: none;
+      &:nth-child(odd) {
+        background-color: rgba(222,243,252,0.46);
+      }
+      td {
+          text-align: center;
+      }
+    }
+    td {
+      padding: 8px 15px;
+    }
+    th {
+      background: #45a1f0;
+      color: #ffffff;
+      padding: 15px;
+      //border-left: 1px solid $white;
+      &:last-child {
+        border-top-right-radius: 8px;
+      }
+      &:first-child {
+        border-top-left-radius: 8px;
+      }
+    }
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}

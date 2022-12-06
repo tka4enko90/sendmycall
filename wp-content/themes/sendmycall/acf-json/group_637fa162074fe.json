@@ -1138,207 +1138,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_6385071959862": {
-                    "key": "layout_6385071959862",
-                    "name": "virtual_numbers",
-                    "label": "Virtual numbers",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_63850f6159863",
-                            "label": "",
-                            "name": "virtual_numbers",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_63850f9e59864",
-                                    "label": "Image",
-                                    "name": "image",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "medium_large",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                },
-                                {
-                                    "key": "field_6385141e20789",
-                                    "label": "Content",
-                                    "name": "content",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
-                                },
-                                {
-                                    "key": "field_638da2ff271ce",
-                                    "label": "Benefits title",
-                                    "name": "benefits_title",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_638514732078a",
-                                    "label": "Benefits of virtual PBX",
-                                    "name": "benefits_content",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
-                                },
-                                {
-                                    "key": "field_638da91f5992f",
-                                    "label": "Benefits title icon",
-                                    "name": "benefits_title_icon",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "icon_title",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_638d042c0df94": {
-                    "key": "layout_638d042c0df94",
-                    "name": "toll_free",
-                    "label": "Toll free",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_638d043c0df95",
-                            "label": "",
-                            "name": "toll_free",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_638d044b0df96",
-                                    "label": "Image",
-                                    "name": "image",
-                                    "type": "clone",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "clone": [
-                                        "field_63850f9e59864"
-                                    ],
-                                    "display": "seamless",
-                                    "layout": "block",
-                                    "prefix_label": 0,
-                                    "prefix_name": 0
-                                },
-                                {
-                                    "key": "field_638d04ae0df97",
-                                    "label": "Content",
-                                    "name": "content",
-                                    "type": "clone",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "clone": [
-                                        "field_6385141e20789"
-                                    ],
-                                    "display": "seamless",
-                                    "layout": "block",
-                                    "prefix_label": 0,
-                                    "prefix_name": 0
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_638ddcbda22df": {
                     "key": "layout_638ddcbda22df",
                     "name": "virtual_numbers_toll_free_img",
@@ -1394,25 +1193,6 @@
                             },
                             "layout": "block",
                             "sub_fields": [
-                                {
-                                    "key": "field_638ddede10c42",
-                                    "label": "Title",
-                                    "name": "title",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
                                 {
                                     "key": "field_638ddf9010c43",
                                     "label": "Content",
@@ -1678,16 +1458,16 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_638ef02e713d6": {
-                    "key": "layout_638ef02e713d6",
-                    "name": "toll_free_code",
-                    "label": "Toll free code",
+                "layout_638f2c9e524f4": {
+                    "key": "layout_638f2c9e524f4",
+                    "name": "virtual_numbers_toll_free_price_table",
+                    "label": "Virtual numbers toll free price table",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_638ef03e713d7",
+                            "key": "field_638f2cb5524f5",
                             "label": "",
-                            "name": "toll_free_code",
+                            "name": "virtual_numbers_toll_free_price_table",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1700,10 +1480,10 @@
                             "layout": "block",
                             "sub_fields": [
                                 {
-                                    "key": "field_638ef1c834cec",
-                                    "label": "Code",
-                                    "name": "code",
-                                    "type": "text",
+                                    "key": "field_638f6d6cfa573",
+                                    "label": "Show table?",
+                                    "name": "show_table",
+                                    "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1712,16 +1492,67 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_638f342443448": {
+                    "key": "layout_638f342443448",
+                    "name": "virtual_numbers_toll_free_icon_title",
+                    "label": "Virtual numbers toll free icon title",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_638f343c43449",
+                            "label": "",
+                            "name": "virtual_numbers_toll_free_icon_title",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_638f344d4344a",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "icon_title",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
                                 },
                                 {
-                                    "key": "field_638efa216c63e",
-                                    "label": "test",
-                                    "name": "test",
+                                    "key": "field_638f34644344b",
+                                    "label": "Title",
+                                    "name": "title",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -1736,6 +1567,52 @@
                                     "prepend": "",
                                     "append": "",
                                     "maxlength": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_638f6ee1978ed": {
+                    "key": "layout_638f6ee1978ed",
+                    "name": "single_page_price_block",
+                    "label": "Single page price block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_638f6efb978ee",
+                            "label": "",
+                            "name": "single_page_price_block",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_638f6f03978ef",
+                                    "label": "Content",
+                                    "name": "content",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
                                 }
                             ]
                         }
@@ -1781,5 +1658,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670314541
+    "modified": 1670348804
 }
