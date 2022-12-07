@@ -1140,14 +1140,14 @@
                 },
                 "layout_638ddcbda22df": {
                     "key": "layout_638ddcbda22df",
-                    "name": "virtual_numbers_toll_free_img",
-                    "label": "Virtual numbers toll free img",
+                    "name": "virtual_numbers_bg_img",
+                    "label": "Virtual numbers bg img",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_638ddcd2a22e0",
                             "label": "",
-                            "name": "virtual_numbers_toll_free_img",
+                            "name": "virtual_numbers_bg_img",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -1174,14 +1174,14 @@
                 },
                 "layout_638ddeb610c40": {
                     "key": "layout_638ddeb610c40",
-                    "name": "virtual_numbers_toll_free_content",
-                    "label": "Virtual numbers toll free content",
+                    "name": "virtual_numbers_content",
+                    "label": "Virtual numbers content",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_638dded110c41",
                             "label": "",
-                            "name": "virtual_numbers_toll_free_content",
+                            "name": "virtual_numbers_content",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1220,14 +1220,14 @@
                 },
                 "layout_638de5f62c2a4": {
                     "key": "layout_638de5f62c2a4",
-                    "name": "virtual_numbers_toll_free_benefits",
-                    "label": "Virtual numbers toll free benefits",
+                    "name": "virtual_numbers_benefits",
+                    "label": "Virtual numbers benefits",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_638de6082c2a5",
                             "label": "",
-                            "name": "virtual_numbers_toll_free_benefits",
+                            "name": "virtual_numbers_benefits",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1328,14 +1328,14 @@
                 },
                 "layout_638def6174393": {
                     "key": "layout_638def6174393",
-                    "name": "virtual_numbers_toll_free_benefits_not_available",
-                    "label": "Virtual numbers toll free benefits not available",
+                    "name": "toll_free_forwarding_rates",
+                    "label": "Toll free forwarding rates",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_638def8074394",
                             "label": "",
-                            "name": "virtual_numbers_toll_free_benefits_not_available",
+                            "name": "toll_free_forwarding_rates",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1389,14 +1389,14 @@
                 },
                 "layout_638df6616539a": {
                     "key": "layout_638df6616539a",
-                    "name": "virtual_numbers_toll_free_list_country",
-                    "label": "Virtual numbers toll free list country",
+                    "name": "virtual_numbers_list_country",
+                    "label": "Virtual numbers list country",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_638df99e86465",
                             "label": "",
-                            "name": "virtual_numbers_toll_free_list_country",
+                            "name": "virtual_numbers_list_country",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1441,8 +1441,8 @@
                                         "id": ""
                                     },
                                     "choices": {
-                                        "toll_free": "toll_free",
-                                        "virtual_number": "virtual_number"
+                                        "toll_free": "Toll free",
+                                        "virtual_number": "Virtual number"
                                     },
                                     "default_value": false,
                                     "allow_null": 0,
@@ -1460,14 +1460,14 @@
                 },
                 "layout_638f2c9e524f4": {
                     "key": "layout_638f2c9e524f4",
-                    "name": "virtual_numbers_toll_free_price_table",
-                    "label": "Virtual numbers toll free price table",
+                    "name": "virtual_numbers_country_price_table",
+                    "label": "Virtual numbers country price table",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_638f2cb5524f5",
                             "label": "",
-                            "name": "virtual_numbers_toll_free_price_table",
+                            "name": "virtual_numbers_country_price_table",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1506,14 +1506,14 @@
                 },
                 "layout_638f342443448": {
                     "key": "layout_638f342443448",
-                    "name": "virtual_numbers_toll_free_icon_title",
-                    "label": "Virtual numbers toll free icon title",
+                    "name": "virtual_numbers_country_icon_title",
+                    "label": "Virtual numbers country icon title",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_638f343c43449",
                             "label": "",
-                            "name": "virtual_numbers_toll_free_icon_title",
+                            "name": "virtual_numbers_country_icon_title",
                             "type": "group",
                             "instructions": "",
                             "required": 0,
@@ -1573,52 +1573,6 @@
                     ],
                     "min": "",
                     "max": ""
-                },
-                "layout_638f6ee1978ed": {
-                    "key": "layout_638f6ee1978ed",
-                    "name": "single_page_price_block",
-                    "label": "Single page price block",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_638f6efb978ee",
-                            "label": "",
-                            "name": "single_page_price_block",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_638f6f03978ef",
-                                    "label": "Content",
-                                    "name": "content",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
                 }
             },
             "button_label": "Add Row",
@@ -1658,5 +1612,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670348804
+    "modified": 1670411749
 }

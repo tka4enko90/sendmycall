@@ -1,0 +1,18 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section{
+  &-toll_free_forwarding_rates {
+    .btn_holder {
+      text-align: center;
+    }
+    a:not(.btn) {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}
