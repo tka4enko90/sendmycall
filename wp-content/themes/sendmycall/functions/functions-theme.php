@@ -26,5 +26,11 @@ add_action('init', function () {
     add_rewrite_rule('virtual-number/?$','index.php?pagename=virtual-number', 'top');
 }, 1000);
 
-add_filter( 'acf-flexible-content-preview.images_path', 'assets/img' );
+/**
+ *  Changed images path acf-flexible-content-preview plugin
+ */
+
+add_filter( 'acf-flexible-content-preview.images_path', function () {
+    return 'assets/img/acf-preview';
+} );
 

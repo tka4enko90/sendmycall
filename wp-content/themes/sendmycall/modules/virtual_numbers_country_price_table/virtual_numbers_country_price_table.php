@@ -33,24 +33,29 @@ if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
                     <tbody>
                     <?php
                     $prefix_parent = get_field('prefix', $post->ID);
+                    $price_country      = get_field('price_options', $post->ID);
                     foreach( $children as $child ) {
                         $prefix = get_field('prefix', $child->ID);
-                        $price_options = get_field('price_options', $child->ID);
+                        $price_region = get_field('price_options', $child->ID);
                         ?>
                         <tr>
                             <td><?php echo $prefix_parent;?>-<?php echo $prefix;?></td>
                             <td><?php echo $child->post_title;?></td>
                             <td>
                                 <?php
-                                if ( $price_options['setup_price'] ) {
-                                    echo $price_options['setup_price'];
+                                if ( !empty( $price_region['setup_price'] ) ) {
+                                    echo $price_region['setup_price'];
+                                } else {
+                                    echo $price_country['setup_price'];
                                 }
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                if ( $price_options['monthly_price'] ) {
-                                    echo $price_options['monthly_price'];
+                                if ( !empty( $price_region['monthly_price'] ) ) {
+                                    echo $price_region['monthly_price'];
+                                } else {
+                                    echo $price_country['monthly_price'];
                                 }
                                 ?>
                             </td>

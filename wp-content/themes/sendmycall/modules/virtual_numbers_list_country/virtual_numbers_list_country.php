@@ -41,7 +41,6 @@ if ( ! empty( $posts ) ) : ?>
                     <?php
                 }
                 ?>
-                <?php wp_reset_postdata(); ?>
             </div>
         </div>
     </section>

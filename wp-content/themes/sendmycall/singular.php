@@ -7,16 +7,17 @@ if ( function_exists( 'wp_enqueue_style' ) ) {
     wp_enqueue_style( 'singular-css', get_template_directory_uri() . '/dist/css/singular.css', '', '', 'all' );
 }
 
+$parent_post        = get_post($post->post_parent);
+$parent_post_title  = $parent_post->post_title;
+$post_title         = $post->post_title;
+$prefix_child       = get_field('prefix', $post->ID);
+$prefix_parent      = get_field('prefix', $post->post_parent);
+$price_region       = get_field('price_options', $post->ID);
+$price_country      = get_field('price_options', $post->post_parent);
+$title              = get_field( 'virtual_number_single_page_title', 'options' );
+$btn_buy_link       = get_field( 'btn_buy_link', 'options' );
+
 get_header();
-$post_id = get_the_ID();
-$parent_post = get_post($post->post_parent);
-$parent_post_title = $parent_post->post_title;
-$post_title = $post->post_title;
-$prefix_child = get_field('prefix', $post_id);
-$prefix_parent = get_field('prefix', $post->post_parent);
-$price_options = get_field('price_options', $post_id);
-$title = get_field( 'virtual_number_single_page_title', 'options' );
-$btn_buy_link = get_field( 'btn_buy_link', 'options' );
 ?>
     <main class="main">
         <?php
@@ -63,12 +64,19 @@ $btn_buy_link = get_field( 'btn_buy_link', 'options' );
                                 <?php if ( !empty( $prefix_child && $prefix_parent ) ) : ?>
                                     <p>Prefix: <?php echo $prefix_parent;?>-<?php echo $prefix_child;?></p>
                                 <?php endif;?>
-                                <?php if ( !empty( $price_options['setup_price'] ) ) : ?>
-                                    <p>Setup price: <?php echo $price_options['setup_price'];?></p>
-                                <?php endif;?>
-                                <?php if ( !empty( $price_options['monthly_price'] ) ) : ?>
-                                    <p>Monthly price: <?php echo $price_options['monthly_price'];?></p>
-                                <?php endif;?>
+
+                                <?php if ( !empty( $price_region['setup_price'] ) ) : ?>
+                                    <p>Setup price: <?php echo $price_region['setup_price'];?></p>
+                                <?php else : ?>
+                                    <p>Setup price: <?php echo $price_country['setup_price'];?></p>
+                                <?php endif; ?>
+
+                                <?php if ( !empty( $price_region['monthly_price'] ) ) : ?>
+                                    <p>Setup price: <?php echo $price_region['monthly_price'];?></p>
+                                <?php else : ?>
+                                    <p>Monthly price: <?php echo $price_country['monthly_price'];?></p>
+                                <?php endif; ?>
+
                                 <?php if ( $btn_buy_link ) : ?>
                                     <a href="<?php echo esc_url( $btn_buy_link['url'] ); ?>"
                                         <?php if( $btn_buy_link['target'] ) : ?>
