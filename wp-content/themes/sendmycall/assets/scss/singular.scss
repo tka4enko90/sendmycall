@@ -1,0 +1,44 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section {
+  &-singular {
+    padding-top: 70px;
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    &-col {
+      width: 100%;
+      @include media-breakpoint-up(md) {
+        &:first-child {
+          width: 58%;
+        }
+        &:last-child {
+          width: 33%;
+        }
+      }
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+    &-holder {
+      background-color: #F5F5F5;
+      width: 100%;
+      padding: 30px 20px 20px;
+      border-radius: 5px;
+      &-title {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
