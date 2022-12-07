@@ -12,10 +12,11 @@ $post_id = get_the_ID();
 $parent_post = get_post($post->post_parent);
 $parent_post_title = $parent_post->post_title;
 $post_title = $post->post_title;
-$prefix_parent = get_field('prefix', $post_id);
-$prefix = get_field('prefix', $post->post_parent);
+$prefix_child = get_field('prefix', $post_id);
+$prefix_parent = get_field('prefix', $post->post_parent);
 $price_options = get_field('price_options', $post_id);
 $title = get_field( 'virtual_number_single_page_title', 'options' );
+$btn_buy_link = get_field( 'btn_buy_link', 'options' );
 ?>
     <main class="main">
         <?php
@@ -49,9 +50,7 @@ $title = get_field( 'virtual_number_single_page_title', 'options' );
                                     echo $parent_post_title?>
                                 </h2>
                             <?php endif; ?>
-                            <?php
-                                the_content();
-                            ?>
+                            <?php the_content(); ?>
                         </div>
                         <div class="section-singular-col">
                             <div class="section-singular-holder">
@@ -61,8 +60,8 @@ $title = get_field( 'virtual_number_single_page_title', 'options' );
                                         IN <?php echo $parent_post_title; ?>
                                     </h3>
                                 <?php endif;?>
-                                <?php if ( !empty( $prefix && $prefix_parent ) ) : ?>
-                                    <p>Prefix: <?php echo $prefix;?>-<?php echo $prefix_parent;?></p>
+                                <?php if ( !empty( $prefix_child && $prefix_parent ) ) : ?>
+                                    <p>Prefix: <?php echo $prefix_parent;?>-<?php echo $prefix_child;?></p>
                                 <?php endif;?>
                                 <?php if ( !empty( $price_options['setup_price'] ) ) : ?>
                                     <p>Setup price: <?php echo $price_options['setup_price'];?></p>
@@ -70,10 +69,16 @@ $title = get_field( 'virtual_number_single_page_title', 'options' );
                                 <?php if ( !empty( $price_options['monthly_price'] ) ) : ?>
                                     <p>Monthly price: <?php echo $price_options['monthly_price'];?></p>
                                 <?php endif;?>
-                                <a href="https://signup.sendmycall.com/" target="_blank" class="btn btn-primary">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/buy_icon.png' ?>" >
-                                    Buy Online Now
-                                </a>
+                                <?php if ( $btn_buy_link ) : ?>
+                                    <a href="<?php echo esc_url( $btn_buy_link['url'] ); ?>"
+                                        <?php if( $btn_buy_link['target'] ) : ?>
+                                            target="<?php echo $btn_buy_link['target']; ?>"
+                                        <?php endif;?>
+                                       class="btn btn-primary">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/buy_icon.png' ?>" >
+                                        <?php echo $btn_buy_link['title']; ?>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

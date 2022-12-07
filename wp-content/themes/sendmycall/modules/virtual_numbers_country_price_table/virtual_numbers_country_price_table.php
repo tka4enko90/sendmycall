@@ -4,8 +4,14 @@ if ( function_exists( 'wp_enqueue_style' ) ) {
 }
 $virtual_numbers_country_price_table = get_sub_field( 'virtual_numbers_country_price_table' );
 
+if ( get_post_type() == 'virtual_number' ) {
+    $post_type = 'virtual_number';
+} elseif ( get_post_type() == 'toll_free' ) {
+    $post_type = 'toll_free';
+}
+
 $args = array(
-    'post_type'   => get_post_type(),
+    'post_type'   => $post_type,
     'order'       => 'ASC',
     'post_parent' => $post->ID,
     'post_status' => 'publish',
