@@ -43,20 +43,12 @@ if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
                             <td><?php echo $child->post_title;?></td>
                             <td>
                                 <?php
-                                if ( !empty( $price_region['setup_price'] ) ) {
-                                    echo $price_region['setup_price'];
-                                } else {
-                                    echo $price_country['setup_price'];
-                                }
+                                echo $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                if ( !empty( $price_region['monthly_price'] ) ) {
-                                    echo $price_region['monthly_price'];
-                                } else {
-                                    echo $price_country['monthly_price'];
-                                }
+                                echo $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
                                 ?>
                             </td>
                             <td>Read more about

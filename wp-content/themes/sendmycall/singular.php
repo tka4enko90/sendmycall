@@ -65,16 +65,15 @@ get_header();
                                     <p>Prefix: <?php echo $prefix_parent;?>-<?php echo $prefix_child;?></p>
                                 <?php endif;?>
 
-                                <?php if ( !empty( $price_region['setup_price'] ) ) : ?>
-                                    <p>Setup price: <?php echo $price_region['setup_price'];?></p>
-                                <?php else : ?>
-                                    <p>Setup price: <?php echo $price_country['setup_price'];?></p>
+                                <?php
+                                $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
+                                $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
+                                if ( !empty( $setup_price ) ) : ?>
+                                    <p>Setup price: <?php echo $setup_price;?></p>
                                 <?php endif; ?>
 
-                                <?php if ( !empty( $price_region['monthly_price'] ) ) : ?>
-                                    <p>Setup price: <?php echo $price_region['monthly_price'];?></p>
-                                <?php else : ?>
-                                    <p>Monthly price: <?php echo $price_country['monthly_price'];?></p>
+                                <?php if ( !empty( $monthly_price ) ) : ?>
+                                    <p>Monthly price: <?php echo $monthly_price;?></p>
                                 <?php endif; ?>
 
                                 <?php if ( $btn_buy_link ) : ?>
