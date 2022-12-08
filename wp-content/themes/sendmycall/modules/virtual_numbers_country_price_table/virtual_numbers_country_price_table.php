@@ -20,7 +20,8 @@ $children = get_children($args);
 if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
     <section class="section-virtual_numbers_country_price_table">
         <div class="container">
-            <table>
+            <div class="section-virtual_numbers_country_price_table-holder">
+                <table>
                 <thead>
                 <tr>
                     <th>Prefix</th>
@@ -60,6 +61,7 @@ if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
 <?php endif; ?>

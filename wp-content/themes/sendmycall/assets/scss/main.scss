@@ -20,9 +20,6 @@ body {
   font-family: $font-family-dm-sans-regular;
   letter-spacing: -0.02em;
   @include font-size($font-size-base);
-  @include media-breakpoint-down(md) {
-    font-size: $font-size-sm;
-  }
   line-height: 24px;
   @include media-breakpoint-down(md) {
     &.overflow-hidden {
