@@ -43,10 +43,10 @@ if ( ! empty( $partners ) ) : ?>
                                    class="section-partners-item">
                                     <?php
                                         if ( ! empty( $partners_item['img_partner'] ) ) {
-                                            echo wp_get_attachment_image($partners_item['img_partner']['id']);
+                                            echo wp_get_attachment_image($partners_item['img_partner']['id'], "logo_img", false, array('class' => 'img_partner'));
                                         }
                                         if ( ! empty( $partners_item['hover_img_partner'] ) ) {
-                                            echo wp_get_attachment_image($partners_item['hover_img_partner']['id']);
+                                            echo wp_get_attachment_image($partners_item['hover_img_partner']['id'], "logo_img", false, array('class' => 'hover_img_partner'));
                                         }
                                     ?>
                                 </a>

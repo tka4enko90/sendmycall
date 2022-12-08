@@ -21,13 +21,13 @@
         a {
           &:hover {
             img, svg {
-              &:last-child {
+              &.hover_img_partner {
                 opacity: 1;
                 visibility: visible;
                 height: 56px;
                 position: static;
               }
-              &:first-child {
+              &.img_partner {
                 opacity: 0;
                 visibility: hidden;
                 position: absolute;
@@ -37,7 +37,7 @@
         }
         img, svg {
           height: 56px;
-          &:last-child {
+          &.hover_img_partner {
             opacity: 0;
             visibility: hidden;
             height: 0;
