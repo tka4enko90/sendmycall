@@ -4,7 +4,7 @@
 .section{
   &-virtual_numbers_benefits {
     &-text {
-      background-color: #F5F5F5;
+      background-color: $bg-light-grey;
       padding: 35px 0;
     }
     &-title {
@@ -47,6 +47,16 @@
       transition: color $transition;
       &:hover {
         color: $text-color;
+      }
+    }
+  }
+}
+
+.single {
+  .section {
+    &-virtual_numbers_benefits {
+      &-text {
+        background-color: transparent;
       }
     }
   }

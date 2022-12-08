@@ -74,5 +74,6 @@ wp-content/mysql.sql
 
 /wp-content/uploads
 /media
-
+wp-rocket-config
 .idea
+/db.php

@@ -26,5 +26,14 @@ add_action('init', function () {
     add_rewrite_rule('virtual-number/?$','index.php?pagename=virtual-number', 'top');
 }, 1000);
 
-add_filter( 'acf-flexible-content-preview.images_path', 'assets/img' );
+/**
+ *  Changed images url acf-flexible-content-preview plugin
+ */
 
+add_filter( 'acf-flexible-content-preview.images', function( $layouts_images ) {
+    $layouts_images_new = [];
+    foreach ($layouts_images as $key => $val ) {
+        $layouts_images_new[$key] = get_stylesheet_directory_uri() . '/modules/' . $key . '/preview.jpg';
+    }
+    return $layouts_images_new;
+} );

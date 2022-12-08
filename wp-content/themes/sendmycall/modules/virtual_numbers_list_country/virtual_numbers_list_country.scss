@@ -11,6 +11,9 @@
       flex-wrap: wrap;
       &.toll_free {
         max-height: 620px;
+        @include media-breakpoint-down(sm) {
+          max-height: 100%;
+        }
         @include media-breakpoint-between(sm,md) {
           max-height: 960px;
         }
@@ -24,7 +27,6 @@
     }
     &-item {
       padding: 7px;
-
       @include media-breakpoint-down(sm) {
         padding: 3px;
       }
@@ -38,7 +40,6 @@
         flex-wrap: wrap;
         align-items: center;
       }
-
       img {
         width: 16px;
         height: 16px;

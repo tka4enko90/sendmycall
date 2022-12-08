@@ -20,7 +20,8 @@ $children = get_children($args);
 if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
     <section class="section-virtual_numbers_country_price_table">
         <div class="container">
-            <table>
+            <div class="section-virtual_numbers_country_price_table-holder">
+                <table>
                 <thead>
                 <tr>
                     <th>Prefix</th>
@@ -33,25 +34,22 @@ if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
                     <tbody>
                     <?php
                     $prefix_parent = get_field('prefix', $post->ID);
+                    $price_country      = get_field('price_options', $post->ID);
                     foreach( $children as $child ) {
                         $prefix = get_field('prefix', $child->ID);
-                        $price_options = get_field('price_options', $child->ID);
+                        $price_region = get_field('price_options', $child->ID);
                         ?>
                         <tr>
                             <td><?php echo $prefix_parent;?>-<?php echo $prefix;?></td>
                             <td><?php echo $child->post_title;?></td>
                             <td>
                                 <?php
-                                if ( $price_options['setup_price'] ) {
-                                    echo $price_options['setup_price'];
-                                }
+                                echo $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                if ( $price_options['monthly_price'] ) {
-                                    echo $price_options['monthly_price'];
-                                }
+                                echo $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
                                 ?>
                             </td>
                             <td>Read more about
@@ -63,6 +61,7 @@ if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
 <?php endif; ?>

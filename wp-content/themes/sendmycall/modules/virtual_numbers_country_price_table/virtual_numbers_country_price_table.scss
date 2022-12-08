@@ -1,9 +1,16 @@
 @import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
 
 .section {
   &-virtual_numbers_country_price_table {
+    &-holder {
+      overflow: auto;
+    }
     table {
       width: 100%;
+      @include media-breakpoint-down(sm) {
+        min-width: 700px;
+      }
     }
     tr {
       border: none;
@@ -16,12 +23,20 @@
     }
     td {
       padding: 8px 15px;
+      @include media-breakpoint-between(sm,md) {
+        padding: 8px 10px;
+      }
+      @include media-breakpoint-down(sm) {
+        padding: 7px;
+      }
     }
     th {
-      background: #45a1f0;
+      background-color: $primary-color;
       color: #ffffff;
       padding: 15px;
-      //border-left: 1px solid $white;
+      @include media-breakpoint-down(sm) {
+        padding: 7px;
+      }
       &:last-child {
         border-top-right-radius: 8px;
       }
