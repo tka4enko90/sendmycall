@@ -1647,6 +1647,52 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6391f1a51fa1b": {
+                    "key": "layout_6391f1a51fa1b",
+                    "name": "table_toll_free_forwarding_rate",
+                    "label": "Table toll free forwarding rate",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6391f2c61fa1c",
+                            "label": "",
+                            "name": "table_toll_free_forwarding_rate",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6391f2d21fa1d",
+                                    "label": "Content",
+                                    "name": "content",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Row",
@@ -1686,5 +1732,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670436446
+    "modified": 1670509316
 }
