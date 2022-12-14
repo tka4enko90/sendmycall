@@ -3,6 +3,18 @@
 
 .section {
   &-table_toll_free_forwarding_rate {
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
+    select {
+      font-size: 14px;
+      font-family: $font-family-dm-sans-regular;
+    }
     margin-top: 70px;
     &-holder {
       overflow: auto;
