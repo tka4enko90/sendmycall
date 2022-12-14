@@ -16,14 +16,7 @@ $args = array(
 
 $posts = get_posts( $args );
 
-function child_row ( $post, $prefix_parent, $price_country, $country_name, $show_title,  $tolls_count ) {
-        $price_region       = get_field('price_options', $post->ID);
-        $prefix_child       = get_field('prefix', $post->ID);
-
-        $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
-        $toll_free_all = !empty($price_region['toll_free_all']) ? $price_region['toll_free_all'] : $price_country['toll_free_all'];
-        $toll_free_fixed = !empty($price_region['toll_free_fixed']) ? $price_region['toll_free_fixed'] : $price_country['toll_free_fixed'];
-        $toll_free_mobile = !empty($price_region['toll_free_mobile']) ? $price_region['toll_free_mobile'] : $price_country['toll_free_mobile'];
+function child_row (  $prefix_parent, $prefix_child, $country_name, $network, $price, $monthly_price, $show_title,  $tolls_count ) {
     ?>
     <tr class="<?php echo $country_name; ?>">
         <?php if ($show_title) : ?>
@@ -33,30 +26,10 @@ function child_row ( $post, $prefix_parent, $price_country, $country_name, $show
             <?php echo $prefix_parent . "-" . $prefix_child; ?>
         </td>
         <td>
-            <?php
-            if ( !empty($toll_free_all) ) {
-                echo 'All';
-            } elseif ( !empty($toll_free_fixed) ) {
-                echo 'Fixed';
-            } elseif ( !empty($toll_free_mobile) ) {
-                echo 'Mobile';
-            } else {
-                echo '';
-            }
-            ?>
+            <?php echo $network; ?>
         </td>
         <td>
-            <?php
-            if ( !empty($toll_free_all) ) {
-                echo $toll_free_all;
-            } elseif ( !empty($toll_free_fixed) ) {
-                echo $toll_free_fixed;
-            } elseif (!empty($toll_free_mobile) ) {
-                echo $toll_free_mobile;
-            } else {
-                echo '';
-            }
-            ?>
+            <?php echo $price; ?>
         </td>
     </tr>
     <?php
@@ -110,13 +83,49 @@ if ( ! empty( $table_toll_free_forwarding_rate ) ) : ?>
                                 }
                             }
 
-                            if (!empty($toll_free_child)) {
-                                child_row($toll_free_child[0], $prefix_parent, $price_country, $post->post_title, true, count($toll_free_child));
-                                array_shift($toll_free_child);
+                            $toll_free_rows = [];
+                            foreach ( $toll_free_child as $child ) {
+                                $price_region       = get_field('price_options', $child->ID);
+                                $prefix_child       = get_field('prefix', $child->ID);
+                                $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
+                                $toll_free_all = !empty($price_region['toll_free_all']) ? $price_region['toll_free_all'] : $price_country['toll_free_all'];
+                                $toll_free_fixed = !empty($price_region['toll_free_fixed']) ? $price_region['toll_free_fixed'] : $price_country['toll_free_fixed'];
+                                $toll_free_mobile = !empty($price_region['toll_free_mobile']) ? $price_region['toll_free_mobile'] : $price_country['toll_free_mobile'];
+
+                                if (!empty($toll_free_all)) {
+                                    $toll_free_rows[] = [
+                                        'id' => $child->ID,
+                                        'price' => $toll_free_all,
+                                        'network' => 'All',
+                                        'monthly_price' => $monthly_price,
+                                        'prefix_child' => $prefix_child
+                                    ];
+                                } else {
+                                    if ( !empty($toll_free_fixed) ) {
+                                        $toll_free_rows[] = [
+                                            'id' => $child->ID,
+                                            'price' => $toll_free_fixed,
+                                            'network' => 'Fixed',
+                                            'monthly_price' => $monthly_price,
+                                            'prefix_child' => $prefix_child
+                                        ];
+                                    }
+                                    if ( !empty($toll_free_mobile) ) {
+                                        $toll_free_rows[] = [
+                                            'id' => $child->ID,
+                                            'price' => $toll_free_mobile,
+                                            'network' => 'Mobile',
+                                            'monthly_price' => $monthly_price,
+                                            'prefix_child' => $prefix_child
+                                        ];
+                                    }
+                                }
                             }
 
-                            foreach ($toll_free_child as $child_item) {
-                                child_row($child_item, $prefix_parent, $price_country, $post->post_title, false, 0);
+                            $row_index = 0;
+                            foreach ( $toll_free_rows as $row ) {
+                                child_row( $prefix_parent, $row['prefix_child'] , $post->post_title, $row['network'], $row['price'], $row['monthly_price'], $row_index == 0, count($toll_free_rows) );
+                                $row_index++;
                             }
                         }
                         ?>
