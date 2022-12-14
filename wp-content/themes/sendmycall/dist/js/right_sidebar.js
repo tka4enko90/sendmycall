@@ -100,6 +100,7 @@ jQuery(document).ready(function ($) {
   var video_popup = $('.video-popup');
   var btn_close = $('.close-btn');
   var overlay = $('.overlay');
+  var iframe = $('iframe');
   $('body').on('click', '.popup-iframe', function (e) {
     e.preventDefault();
     overlay.show();
@@ -108,15 +109,18 @@ jQuery(document).ready(function ($) {
   btn_close.click(function () {
     video_popup.hide();
     overlay.hide();
+    iframe.attr('src', $('iframe').attr('src'));
   });
   $(document).on('mouseup keydown', function (e) {
     if (e.keyCode === 27) {
       video_popup.hide();
       overlay.hide();
+      iframe.attr('src', $('iframe').attr('src'));
     }
-    if (!$(video_popup).is(e.target)) {
+    if (!$(iframe).is(e.target)) {
       video_popup.hide();
       overlay.hide();
+      iframe.attr('src', $('iframe').attr('src'));
     }
   });
   /**

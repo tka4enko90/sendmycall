@@ -132,9 +132,8 @@ get_header();
         $src = $matches[1];
 
         $params = array(
-            'controls'  => 0,
+            'controls'  => 1,
             'hd'        => 1,
-            'autohide'  => 1
         );
         $new_src = add_query_arg($params, $src);
         $iframe = str_replace($src, $new_src, $iframe);

@@ -5,6 +5,7 @@ jQuery( document ).ready(function($) {
     let video_popup = $('.video-popup');
     let btn_close = $('.close-btn');
     let overlay = $('.overlay');
+    let iframe = $('iframe')
 
     $('body').on('click', '.popup-iframe', function(e){
         e.preventDefault();
@@ -15,17 +16,19 @@ jQuery( document ).ready(function($) {
     btn_close.click(function() {
         video_popup.hide();
         overlay.hide();
+        iframe.attr('src', $('iframe').attr('src'));
     });
     $(document).on('mouseup keydown', function (e) {
         if (e.keyCode === 27) {
+            iframe.attr('src', $('iframe').attr('src'));
             video_popup.hide();
             overlay.hide();
         }
-        if (!$(video_popup).is(e.target)) {
+        if (!$(iframe).is(e.target)) {
             video_popup.hide();
             overlay.hide();
+            iframe.attr('src', $('iframe').attr('src'));
         }
-
     });
     /**
      * Smooth scroll to anchor
