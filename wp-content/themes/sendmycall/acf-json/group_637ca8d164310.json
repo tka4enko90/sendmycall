@@ -588,9 +588,9 @@
                 },
                 {
                     "key": "field_63978f0664e51",
-                    "label": "Youtube link",
-                    "name": "youtube_link",
-                    "type": "link",
+                    "label": "Youtube iframe",
+                    "name": "youtube_iframe",
+                    "type": "oembed",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -599,7 +599,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "width": "",
+                    "height": ""
                 }
             ]
         }
@@ -622,5 +623,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671007632
+    "modified": 1671027019
 }
