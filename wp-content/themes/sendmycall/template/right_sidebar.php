@@ -93,11 +93,8 @@ get_header();
                                     <p class="sidebar-text"><?php echo wp_kses_post( $new_to_sendmycall['text'] ); ?></p>
                                 <?php endif; ?>
 
-                                <?php if ( $new_to_sendmycall['img'] && $new_to_sendmycall['youtube_link'] ) : ?>
-                                    <a class="popup-iframe" href="<?php echo esc_url( $new_to_sendmycall['youtube_link']['url'] ); ?>"
-                                        <?php if( $new_to_sendmycall['youtube_link']['target'] ) : ?>
-                                            target="<?php echo $new_to_sendmycall['youtube_link']['target']; ?>"
-                                        <?php endif;?> >
+                                <?php if ( $new_to_sendmycall['img'] ) : ?>
+                                    <a class="popup-iframe" href="#">
                                         <?php echo wp_get_attachment_image($new_to_sendmycall['img']['ID'], $size = "sidebar_img" ); ?>
                                     </a>
                                 <?php endif; ?>
@@ -129,9 +126,24 @@ get_header();
 <div class="overlay"></div>
 <div class="video-popup modal">
     <div class="video-popup-holder">
-        <?php if ( $new_to_sendmycall['youtube_link'] ) : ?>
-            <iframe width="100%" height="350" src="<?php echo esc_url( $new_to_sendmycall['youtube_link']['url'] ); ?>" frameborder="0" allowfullscreen></iframe>
-        <?php endif; ?>
+        <?php
+        $iframe = $new_to_sendmycall['youtube_iframe'];
+        preg_match('/src="(.+?)"/', $iframe, $matches);
+        $src = $matches[1];
+
+        $params = array(
+            'controls'  => 0,
+            'hd'        => 1,
+            'autohide'  => 1
+        );
+        $new_src = add_query_arg($params, $src);
+        $iframe = str_replace($src, $new_src, $iframe);
+
+        $attributes = 'frameborder="0"';
+        $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+
+        echo $iframe;
+        ?>
         <div class="close-btn">
             <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_858_23248" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="33">
