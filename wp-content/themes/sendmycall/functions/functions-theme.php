@@ -10,6 +10,7 @@ add_image_size( 'logo_img', 203, 46 );
 add_image_size( 'icon_img', 20, 20 );
 add_image_size( 'bg_img', 1920, 238 );
 add_image_size( 'icon_title', 124, 124 );
+add_image_size( 'sidebar_img', 250, 250 );
 
 /**
  * Disable gutenberg

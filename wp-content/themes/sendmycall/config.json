@@ -17,6 +17,9 @@
     ],
     "table_toll_free_forwarding_rate": [
       "./modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js"
+    ],
+    "right_sidebar": [
+      "./assets/js/right_sidebar.js"
     ]
   },
   "cacheBusting": "[name]",
