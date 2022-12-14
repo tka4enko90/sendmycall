@@ -14,6 +14,9 @@
     ],
     "form": [
       "./modules/form/form.js"
+    ],
+    "right_sidebar": [
+      "./assets/js/right_sidebar.js"
     ]
   },
   "cacheBusting": "[name]",
