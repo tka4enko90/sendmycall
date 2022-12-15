@@ -20,6 +20,9 @@
     ],
     "right_sidebar": [
       "./assets/js/right_sidebar.js"
+    ],
+    "forwarding_rates": [
+      "./modules/forwarding_rates/forwarding_rates.js"
     ]
   },
   "cacheBusting": "[name]",

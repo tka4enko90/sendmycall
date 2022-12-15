@@ -38,3 +38,99 @@ add_filter( 'acf-flexible-content-preview.images', function( $layouts_images ) {
     }
     return $layouts_images_new;
 } );
+
+/**
+ *  Register forwarding_rates post type
+ */
+
+add_action( 'init', 'register_forwarding_rates_post_type' );
+function register_forwarding_rates_post_type() {
+
+    $args = array(
+        'labels' => array(
+            'menu_name'     => __( 'Forwarding rates' ),
+            'singular_name' => __( 'Forwarding rates' )
+        ),
+        'rewrite'   => array('slug' => 'forwarding-rates'),
+        'public'    => true,
+        'menu_icon' => 'dashicons-smartphone',
+        'taxonomies' => array('country'),
+    );
+    register_post_type( 'forwarding_rates', $args );
+}
+
+/**
+ *  Register taxonomy for forwarding_rates
+ */
+
+add_action( 'init', 'register_taxonomy_for_forwarding_rates' );
+function register_taxonomy_for_forwarding_rates(){
+    $args = array(
+        'public' => true,
+        'hierarchical' => true,
+        'show_admin_column' => true,
+        'labels' => array(
+            'name'                     => 'Countries',
+            'singular_name'            => 'Country',
+            'menu_name'                => 'Country',
+            'all_items'                => 'All Countries',
+            'edit_item'                => 'Edit country',
+            'view_item'                => 'View country',
+            'update_item'              => 'Update country',
+            'add_new_item'             => 'Add new country',
+            'new_item_name'            => 'New name country',
+            'parent_item'              => 'Parent country',
+            'parent_item_colon'        => 'Parent item colon country:',
+            'search_items'             => 'Search country',
+            'popular_items'            => 'Popular country',
+            'add_or_remove_items'      => 'Add or remove country',
+            'choose_from_most_used'    => 'Choose from most used country',
+            'not_found'                => 'Not found',
+            'back_to_items'            => '← Back to country',
+        ),
+        );
+    register_taxonomy( 'country', 'forwarding_rates', $args);
+    register_taxonomy_for_object_type( 'country', 'forwarding_rates');
+}
+
+/**
+ *  Generate title for forwarding_rates post type
+ */
+
+add_action('save_post', 'save_forwarding_rates');
+function save_forwarding_rates($post_id) {
+    $data = get_post($post_id);
+    if($data->post_type == 'forwarding_rates') {
+        $forwarding_rates_options = get_field('forwarding_rates_options', $post_id);
+
+        remove_action('save_post', 'save_forwarding_rates');
+
+        $categories = get_the_terms($post_id, 'country');
+        $post_title = '';
+        $post_slug = '';
+        foreach($categories as $value) {
+            $post_slug .= $value->slug;
+            $post_title .= $value->name;
+        }
+
+        wp_update_post(array(
+            'ID' => $post_id,
+            'post_title' => $post_title .' '. $forwarding_rates_options['prefix'],
+            'post_name' => $post_slug .'-'. $forwarding_rates_options['prefix']
+        ));
+
+        add_action('save_post', 'save_forwarding_rates');
+    }
+}
+
+/**
+ *  Registering custom query_var
+ */
+
+add_filter('query_vars', 'registering_custom_query_var');
+function registering_custom_query_var($query_vars)
+{
+    $query_vars[] = 'posts_per_page';
+    $query_vars[] = 'country';
+    return $query_vars;
+}

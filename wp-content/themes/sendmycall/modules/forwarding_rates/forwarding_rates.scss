@@ -1,0 +1,75 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section {
+  &-forwarding_rates {
+    margin-top: 70px;
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
+    select {
+      font-size: 14px;
+      font-family: $font-family-dm-sans-regular;
+    }
+    &-holder {
+      overflow: auto;
+    }
+    #selectors {
+      text-align: center;
+      margin: 20px 0;
+      select {
+        width: 290px;
+        border: 1px solid $primary-color;
+        background-color: $white;
+        color: $primary-color;
+        height: 50px;
+        line-height: 50px;
+        &:focus-within {
+          outline: none;
+        }
+      }
+    }
+    .table {
+      border-collapse: separate;
+      border-spacing: 0;
+      border-right: 1px solid $border-color;
+      width: 100%;
+      max-width: 1030px;
+      margin: 0 auto;
+      th, td {
+        padding: 8px;
+        line-height: 20px;
+        text-align: left;
+        font-size: 14px;
+        vertical-align: top;
+        border-left: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+      }
+      th {
+        background-color: $bg-light-grey;
+        border-top: 1px solid $border-color;
+      }
+    }
+    &-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      a, span {
+        padding: 8px;
+        background-color: $bg-light-grey;
+        margin: 4px;
+        min-width: 40px;
+        text-align: center;
+      }
+      span {
+        color: $text-color;
+      }
+    }
+  }
+}
