@@ -108,15 +108,19 @@ function save_forwarding_rates($post_id) {
         $categories = get_the_terms($post_id, 'country');
         $post_title = '';
         $post_slug = '';
+        $prefix = '';
         foreach($categories as $value) {
             $post_slug .= $value->slug;
             $post_title .= $value->name;
         }
+        if (!empty($forwarding_rates_options['prefix'])) {
+            $prefix .= $forwarding_rates_options['prefix'];
+        }
 
         wp_update_post(array(
             'ID' => $post_id,
-            'post_title' => $post_title .' '. $forwarding_rates_options['prefix'],
-            'post_name' => $post_slug .'-'. $forwarding_rates_options['prefix']
+            'post_title' => $post_title .' '. $prefix,
+            'post_name' => $post_slug .'-'. $prefix
         ));
 
         add_action('save_post', 'save_forwarding_rates');
@@ -130,7 +134,6 @@ function save_forwarding_rates($post_id) {
 add_filter('query_vars', 'registering_custom_query_var');
 function registering_custom_query_var($query_vars)
 {
-    $query_vars[] = 'posts_per_page';
     $query_vars[] = 'country';
     return $query_vars;
 }

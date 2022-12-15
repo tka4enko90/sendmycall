@@ -19,7 +19,7 @@ $posts_per_page_options = [
     '100' => '100',
     'All' => '-1'
 ];
-$posts_per_page = (get_query_var('posts_per_page')) ? get_query_var('posts_per_page') : $posts_per_page_options[0];
+$posts_per_page = (isset($_GET['posts_per_page'])) ? $_GET['posts_per_page'] : $posts_per_page_options[0];
 
 $args = array(
     'post_type'      => 'forwarding_rates',
@@ -62,10 +62,13 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                                 'taxonomy' => 'country',
                                 'hide_empty' => false,
                             ) );
-
-                            foreach( $countries as $country ) : ?>
-                                <option value="<?php echo $country->slug; ?>" <?php selected( $_GET['country'], $country->slug ) ?>><?php echo $country->name; ?></option>
-                            <?php endforeach; ?>
+                            if (!empty($countries)) :
+                                foreach( $countries as $country ) : ?>
+                                    <option value="<?php echo $country->slug; ?>"
+                                        <?php selected($_GET['country'],$country->slug ) ?> ><?php echo $country->name; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </select>
                     </div>
                     <div class="section-forwarding_rates-holder">
@@ -81,37 +84,41 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                             <tbody id="countries">
                                 <?php
                                 $current_country = '';
-                                foreach( $posts as $post ) :
-                                    $terms                      = get_the_terms( $post->ID, 'country' );
-                                    $forwarding_rates_options   = get_field('forwarding_rates_options', $post->ID);
-                                    $country_name               = $terms[0]->name == $current_country ? '' : $terms[0]->name;
-                                    $current_country            = $terms[0]->name;
-                                    ?>
-                                    <tr class="<?php echo $country_name; ?>">
-                                        <td><?php echo $country_name; ?></td>
-                                        <td>
-                                            <?php
-                                            if ( !empty($forwarding_rates_options['network']) ) {
-                                                echo $forwarding_rates_options['network'];
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if ( !empty($forwarding_rates_options['prefix']) ) {
-                                                echo $forwarding_rates_options['prefix'];
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if ( !empty($forwarding_rates_options['per_minute_rate']) ) {
-                                                echo $forwarding_rates_options['per_minute_rate'];
-                                            }
-                                            ?>
-                                        </td>
-                                    </tr>
-                                <?php endforeach;?>
+                                if (!empty($posts)) :
+                                    foreach( $posts as $post ) :
+                                        $terms                      = get_the_terms( $post->ID, 'country' );
+                                        $forwarding_rates_options   = get_field('forwarding_rates_options', $post->ID);
+                                        if (!empty($terms)) {
+                                            $country_name     = $terms[0]->name == $current_country ? '' : $terms[0]->name;
+                                            $current_country  = $terms[0]->name;
+                                        }
+                                        ?>
+                                        <tr class="<?php echo $country_name; ?>">
+                                            <td><?php echo $country_name; ?></td>
+                                            <td>
+                                                <?php
+                                                if ( !empty($forwarding_rates_options['network']) ) {
+                                                    echo $forwarding_rates_options['network'];
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                if ( !empty($forwarding_rates_options['prefix']) ) {
+                                                    echo $forwarding_rates_options['prefix'];
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                if ( !empty($forwarding_rates_options['per_minute_rate']) ) {
+                                                    echo $forwarding_rates_options['per_minute_rate'];
+                                                }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach;?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                         <div class="section-forwarding_rates-pagination">
