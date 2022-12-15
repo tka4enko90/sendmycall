@@ -109,9 +109,11 @@ function save_forwarding_rates($post_id) {
         $post_title = '';
         $post_slug = '';
         $prefix = '';
-        foreach($categories as $value) {
-            $post_slug .= $value->slug;
-            $post_title .= $value->name;
+        if ( !empty($categories) ) {
+            foreach ($categories as $value) {
+                $post_slug .= $value->slug;
+                $post_title .= $value->name;
+            }
         }
         if (!empty($forwarding_rates_options['prefix'])) {
             $prefix .= $forwarding_rates_options['prefix'];
