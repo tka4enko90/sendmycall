@@ -81,21 +81,21 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/js/right_sidebar.js":
-/*!************************************!*\
-  !*** ./assets/js/right_sidebar.js ***!
-  \************************************/
+/***/ "./modules/phone_system_video/phone_system_video.js":
+/*!**********************************************************!*\
+  !*** ./modules/phone_system_video/phone_system_video.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 jQuery(document).ready(function ($) {
   /**
-   * Sidebar popup
+   * Video popup
    */
   var video_popup = $('.video-popup');
   var btn_close = $('.close-btn');
@@ -123,30 +123,21 @@ jQuery(document).ready(function ($) {
       iframe.attr('src', $('iframe').attr('src'));
     }
   });
-  /**
-   * Smooth scroll to anchor
-   */
-  $(document).on('click', 'a[href^="#"]', function (event) {
-    event.preventDefault();
-    $('html, body').animate({
-      scrollTop: $($.attr(this, 'href')).offset().top - 130
-    }, 500);
-  });
 });
 
 /***/ }),
 
-/***/ 6:
-/*!******************************************!*\
-  !*** multi ./assets/js/right_sidebar.js ***!
-  \******************************************/
+/***/ 7:
+/*!****************************************************************!*\
+  !*** multi ./modules/phone_system_video/phone_system_video.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./assets/js/right_sidebar.js */"./assets/js/right_sidebar.js");
+module.exports = __webpack_require__(/*! ./modules/phone_system_video/phone_system_video.js */"./modules/phone_system_video/phone_system_video.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=right_sidebar.js.map
+//# sourceMappingURL=phone_system_video.js.map
