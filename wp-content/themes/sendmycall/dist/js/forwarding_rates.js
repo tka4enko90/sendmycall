@@ -95,6 +95,7 @@
 
 (function ($) {
   $(document).ready(function () {
+    $('#sel_country, #limit').select2();
     $('#sel_country').on('change', function () {
       if ($(this).val() === '') {
         $('#sel_country').prop('disabled', true);
