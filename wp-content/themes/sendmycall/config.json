@@ -26,6 +26,12 @@
     ],
     "free_features": [
       "./modules/free_features/free_features.js"
+    ],
+    "forwarding_rates": [
+      "./modules/forwarding_rates/forwarding_rates.js"
+    ],
+    "select2": [
+      "./assets/js/select2.js"
     ]
   },
   "cacheBusting": "[name]",
