@@ -26,8 +26,8 @@ if ( ! empty( $free_features ) ) : ?>
                     foreach ( $free_features['free_features_repeater'] as $key => $free_features_item ) :
                         if( !empty( $free_features_item['link'] && $free_features_item['link']['url'] ) ) : ?>
                             <?php if ($key >= 8) {echo '<div class="hide">';} ?>
-                                <a <?php if( $hero_left_col['btn']['target'] ) : ?>
-                                    target="<?php echo $hero_left_col['btn']['target']; ?>"
+                                <a <?php if( $free_features_item['link']['target'] ) : ?>
+                                    target="<?php echo $free_features_item['link']['target']; ?>"
                                     <?php endif;?>
                                     href="<?php echo $free_features_item['link']['url']?>" class="section-free_features-col">
                                     <?php
