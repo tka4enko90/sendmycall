@@ -81,72 +81,39 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/js/right_sidebar.js":
-/*!************************************!*\
-  !*** ./assets/js/right_sidebar.js ***!
-  \************************************/
+/***/ "./modules/free_features/free_features.js":
+/*!************************************************!*\
+  !*** ./modules/free_features/free_features.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 jQuery(document).ready(function ($) {
-  /**
-   * Sidebar popup
-   */
-  var video_popup = $('.video-popup');
-  var btn_close = $('.close-btn');
-  var overlay = $('.overlay');
-  var iframe = $('iframe');
-  $('body').on('click', '.popup-iframe', function (e) {
+  $('.show_more_btn .btn').click(function (e) {
     e.preventDefault();
-    overlay.show();
-    video_popup.show();
-  });
-  btn_close.click(function () {
-    video_popup.hide();
-    overlay.hide();
-    iframe.attr('src', $('iframe').attr('src'));
-  });
-  $(document).on('mouseup keydown', function (e) {
-    if (e.keyCode === 27) {
-      iframe.attr('src', $('iframe').attr('src'));
-      video_popup.hide();
-      overlay.hide();
-    }
-    if (!$(iframe).is(e.target)) {
-      video_popup.hide();
-      overlay.hide();
-      iframe.attr('src', $('iframe').attr('src'));
-    }
-  });
-  /**
-   * Smooth scroll to anchor
-   */
-  $(document).on('click', 'a[href^="#"]', function (event) {
-    event.preventDefault();
-    $('html, body').animate({
-      scrollTop: $($.attr(this, 'href')).offset().top - 130
-    }, 500);
+    $('.hide').slideToggle();
+    $(".show_more_btn span").text($(".show_more_btn span").text() == 'Hide' ? 'Show more' : 'Hide').fadeIn();
   });
 });
 
 /***/ }),
 
-/***/ 6:
-/*!******************************************!*\
-  !*** multi ./assets/js/right_sidebar.js ***!
-  \******************************************/
+/***/ 8:
+/*!******************************************************!*\
+  !*** multi ./modules/free_features/free_features.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./assets/js/right_sidebar.js */"./assets/js/right_sidebar.js");
+module.exports = __webpack_require__(/*! ./modules/free_features/free_features.js */"./modules/free_features/free_features.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=right_sidebar.js.map
+//# sourceMappingURL=free_features.js.map

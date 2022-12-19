@@ -20,6 +20,12 @@
     ],
     "right_sidebar": [
       "./assets/js/right_sidebar.js"
+    ],
+    "phone_system_video": [
+      "./modules/phone_system_video/phone_system_video.js"
+    ],
+    "free_features": [
+      "./modules/free_features/free_features.js"
     ]
   },
   "cacheBusting": "[name]",

@@ -1,0 +1,37 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section {
+  &-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &-hero_left_col {
+    position: relative;
+    padding: 135px 0 155px;
+    background-color: $white;
+    text-align: center;
+    @include media-breakpoint-down(md) {
+      padding: 75px 0 85px;
+    }
+    &-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    &-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      text-align: left;
+      h1,h2,p {
+        color: $white;
+      }
+    }
+  }
+}
