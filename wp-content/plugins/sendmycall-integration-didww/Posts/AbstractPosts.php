@@ -18,8 +18,6 @@ abstract class AbstractPosts {
 
             $slug .=  $post->attributes->area_name.'_(' . $country->attributes->prefix . '-' . $post->attributes->prefix . ')';
 
-        }else {
-            $slug = 'DID_numbers_in_'.$slug;
         }
 
         $post_exists = $this -> getPageBySlug( $slug , $type );
