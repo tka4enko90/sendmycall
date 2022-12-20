@@ -16,121 +16,16 @@
   h3 {
     padding-top: 30px;
   }
-  .sidebar {
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      li {
-        &::marker {
-          color: $primary-color;
-        }
-      }
-      ul {
-        list-style-type: circle;
-      }
-    }
-    &-app {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      background-color: $bg-light-grey;
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      &-title {
-        background-color: $primary-color;
-        color: $white;
-        margin: 0;
-        width: 100%;
-        padding: 10px 25px;
-        font-size: 16px;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-      }
-    }
-    &-guide {
-      padding: 30px 0;
-      display: block;
-      a {
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    li {
+      &::marker {
         color: $primary-color;
-        text-decoration: none;
-        transition: color $transition;
-        &:hover {
-          color: $text-color;
-        }
       }
     }
-    &-text {
-      padding: 0 25px;
-    }
-    &-video {
-      &-title {
-        margin: 0;
-        font-size: 16px;
-      }
+    ul {
+      list-style-type: circle;
     }
   }
-}
-
-.video {
-  &-popup {
-    border-radius: 20px;
-    max-height: 720px;
-    max-width: 1200px;
-    width: 85%;
-    @include media-breakpoint-up(xl) {
-      width: 95%;
-    }
-    @include media-breakpoint-down(sm) {
-      width: 100%;
-    }
-    @media screen and (min-height: 560px) and (max-height: 777px) {
-      width: 75%;
-    }
-    &-holder {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-      }
-    }
-    .close-btn {
-      position: absolute;
-      right: -30px;
-      top: 0;
-      cursor: pointer;
-    }
-  }
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate( -50%, -50% );
-  z-index: 13;
-}
-
-.overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: $heading-color;
-  opacity: 0.5;
-  z-index: 12;
-  cursor: pointer;
 }
