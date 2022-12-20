@@ -2,10 +2,10 @@ jQuery( document ).ready(function($) {
     /**
      * Smooth scroll to anchor
      */
-    $(document).on('click', 'a[href^="#"]', function (e) {
+    $(document).on('click', '.scroll-to', function (e) {
         e.preventDefault();
-        let $scroll = $('a[href^="#"]');
-        if ($scroll.length) {
+        let $scrollTo = $('.scroll-to');
+        if ($scrollTo.length) {
             $('html, body').animate({
                 scrollTop: $($.attr(this, 'href')).offset().top - 130
             }, 500);

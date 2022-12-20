@@ -26,30 +26,30 @@ get_header();
         <div class="row">
             <div class="col-9">
                 <div id="Top">
-                <?php if ( !empty($virtual_pbx_user_guide) ) : ?>
-                    <?php foreach ( $virtual_pbx_user_guide as $virtual_pbx_user_guide_item ) : ?>
-                        <?php if ( ! empty( $virtual_pbx_user_guide_item['title'] ) ) : ?>
-                            <div id="<?php echo clean($virtual_pbx_user_guide_item['title']) ?>">
-                                <h3><?php echo wp_kses_post( $virtual_pbx_user_guide_item['title'] ); ?></h3>
-                            </div>
-                        <?php endif; ?>
-                        <?php if ( ! empty( $virtual_pbx_user_guide_item['description'] ) ) {
-                            echo wp_kses_post($virtual_pbx_user_guide_item['description']);
-                        } ?>
-                        <a href="#Top">Back to the top</a>
-                        <?php foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
-                            <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
-                                <div id="<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
-                                    <h3><?php echo wp_kses_post( $sub_virtual_pbx_user_guide_item['title'] ); ?></h3>
+                    <?php if ( !empty($virtual_pbx_user_guide) ) : ?>
+                        <?php foreach ( $virtual_pbx_user_guide as $virtual_pbx_user_guide_item ) : ?>
+                            <?php if ( ! empty( $virtual_pbx_user_guide_item['title'] ) ) : ?>
+                                <div id="<?php echo clean($virtual_pbx_user_guide_item['title']) ?>">
+                                    <h3><?php echo wp_kses_post( $virtual_pbx_user_guide_item['title'] ); ?></h3>
                                 </div>
                             <?php endif; ?>
-                            <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['description'] ) ) {
-                                echo wp_kses_post($sub_virtual_pbx_user_guide_item['description']);
+                            <?php if ( ! empty( $virtual_pbx_user_guide_item['description'] ) ) {
+                                echo wp_kses_post($virtual_pbx_user_guide_item['description']);
                             } ?>
-                            <a href="#Top">Back to the top</a>
+                            <a class="scroll-to" href="#Top">Back to the top</a>
+                            <?php foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
+                                <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
+                                    <div id="<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
+                                        <h3><?php echo wp_kses_post( $sub_virtual_pbx_user_guide_item['title'] ); ?></h3>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['description'] ) ) {
+                                    echo wp_kses_post($sub_virtual_pbx_user_guide_item['description']);
+                                } ?>
+                                <a class="scroll-to" href="#Top">Back to the top</a>
+                            <?php endforeach; ?>
                         <?php endforeach; ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="col-3">
@@ -60,7 +60,7 @@ get_header();
                                 <?php foreach ( $virtual_pbx_user_guide as $virtual_pbx_user_guide_item ) : ?>
                                     <?php if ( ! empty( $virtual_pbx_user_guide_item['title'] ) ) : ?>
                                     <li>
-                                        <a href="#<?php echo clean($virtual_pbx_user_guide_item['title']); ?>">
+                                        <a class="scroll-to" href="#<?php echo clean($virtual_pbx_user_guide_item['title']); ?>">
                                             <?php echo wp_kses_post( $virtual_pbx_user_guide_item['title'] ); ?>
                                         </a>
                                     </li>
@@ -69,7 +69,7 @@ get_header();
                                         <?php foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
                                             <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
                                             <li>
-                                                <a href="#<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
+                                                <a class="scroll-to" href="#<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
                                                     <?php echo $sub_virtual_pbx_user_guide_item['title'] ; ?>
                                                 </a>
                                             </li>
