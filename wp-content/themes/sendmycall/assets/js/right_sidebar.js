@@ -30,14 +30,4 @@ jQuery( document ).ready(function($) {
             iframe.attr('src', $('iframe').attr('src'));
         }
     });
-    /**
-     * Smooth scroll to anchor
-     */
-    $(document).on('click', 'a[href^="#"]', function (event) {
-        event.preventDefault();
-
-        $('html, body').animate({
-            scrollTop: $($.attr(this, 'href')).offset().top - 130
-        }, 500);
-    });
 });

@@ -32,6 +32,9 @@
     ],
     "select2": [
       "./assets/js/select2.js"
+    ],
+    "virtual_pbx_user_guide": [
+      "./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js"
     ]
   },
   "cacheBusting": "[name]",

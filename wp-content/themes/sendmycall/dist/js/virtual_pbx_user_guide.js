@@ -81,63 +81,46 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/js/right_sidebar.js":
-/*!************************************!*\
-  !*** ./assets/js/right_sidebar.js ***!
-  \************************************/
+/***/ "./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js":
+/*!******************************************************************!*\
+  !*** ./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 jQuery(document).ready(function ($) {
   /**
-   * Sidebar popup
+   * Smooth scroll to anchor
    */
-  var video_popup = $('.video-popup');
-  var btn_close = $('.close-btn');
-  var overlay = $('.overlay');
-  var iframe = $('iframe');
-  $('body').on('click', '.popup-iframe', function (e) {
+  $(document).on('click', '.scroll-to', function (e) {
     e.preventDefault();
-    overlay.show();
-    video_popup.show();
-  });
-  btn_close.click(function () {
-    video_popup.hide();
-    overlay.hide();
-    iframe.attr('src', $('iframe').attr('src'));
-  });
-  $(document).on('mouseup keydown', function (e) {
-    if (e.keyCode === 27) {
-      iframe.attr('src', $('iframe').attr('src'));
-      video_popup.hide();
-      overlay.hide();
-    }
-    if (!$(iframe).is(e.target)) {
-      video_popup.hide();
-      overlay.hide();
-      iframe.attr('src', $('iframe').attr('src'));
+    var $scrollTo = $('.scroll-to');
+    if ($scrollTo.length) {
+      $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top - 130
+      }, 500);
     }
   });
 });
 
 /***/ }),
 
-/***/ 6:
-/*!******************************************!*\
-  !*** multi ./assets/js/right_sidebar.js ***!
-  \******************************************/
+/***/ 7:
+/*!************************************************************************!*\
+  !*** multi ./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./assets/js/right_sidebar.js */"./assets/js/right_sidebar.js");
+module.exports = __webpack_require__(/*! ./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js */"./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=right_sidebar.js.map
+//# sourceMappingURL=virtual_pbx_user_guide.js.map
