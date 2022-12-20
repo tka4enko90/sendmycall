@@ -1,0 +1,36 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section-info_lists {
+  padding: 50px 0;
+  background-color: $bg-light-grey;
+  margin: 50px 0;
+  &-holder {
+    margin-bottom: 30px;
+  }
+  &-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    img {
+      width: 65px;
+      margin-right: 10px;
+    }
+  }
+  &-list {
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      li {
+        margin-bottom: 10px;
+        &::marker {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
