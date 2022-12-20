@@ -2295,33 +2295,6 @@
                                 },
                                 {
                                     "key": "field_63a19bf3c9d8b",
-                "layout_63a0af14c2a68": {
-                    "key": "layout_63a0af14c2a68",
-                    "name": "virtual_pbx_user_guide",
-                    "label": "Virtual pbx user guide",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_63a0af24c2a69",
-                            "label": "",
-                            "name": "virtual_pbx_user_guide",
-                            "type": "repeater",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "table",
-                            "button_label": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_63a0af33c2a6a",
                                     "label": "Title",
                                     "name": "title",
                                     "type": "text",
@@ -2340,114 +2313,9 @@
                                     "maxlength": ""
                                 },
                                 {
-                                    "key": "field_63a0af3fc2a6b",
-                                    "label": "Description",
-                                    "name": "description",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
-                                },
-                                {
-                                    "key": "field_63a0af68c2a6c",
-                                    "label": "Sub virtual pbx user guide",
-                                    "name": "sub_virtual_pbx_user_guide",
-                                    "type": "repeater",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "collapsed": "",
-                                    "min": 0,
-                                    "max": 0,
-                                    "layout": "table",
-                                    "button_label": "",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_63a0af97c2a6d",
-                                            "label": "Title",
-                                            "name": "title",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_63a0afa2c2a6e",
-                                            "label": "Description",
-                                            "name": "description",
-                                            "type": "wysiwyg",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "tabs": "all",
-                                            "toolbar": "full",
-                                            "media_upload": 1,
-                                            "delay": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_63a18949360c0": {
-                    "key": "layout_63a18949360c0",
-                    "name": "phone_system_single",
-                    "label": "Phone system single",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_63a1895c360c1",
-                            "label": "",
-                            "name": "phone_system_single",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_63a18968360c2",
-                                    "label": "Content",
-                                    "name": "content",
+                                    "key": "field_63a19c2ac9d8c",
+                                    "label": "List",
+                                    "name": "list",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
@@ -2507,5 +2375,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671530878
+    "modified": 1671542447
 }
