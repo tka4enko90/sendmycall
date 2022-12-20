@@ -20,6 +20,9 @@
     ],
     "right_sidebar": [
       "./assets/js/right_sidebar.js"
+    ],
+    "virtual_pbx_user_guide": [
+      "./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js"
     ]
   },
   "cacheBusting": "[name]",
