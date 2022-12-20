@@ -1,0 +1,18 @@
+@import "../../assets/scss/grid/mixins/breakpoints";
+@import "../../assets/scss/vars";
+
+.section{
+  &-phone_system_single {
+    margin: 50px 0;
+    &-content {
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        transition: color $transition;
+        &:hover {
+          color: $text-color;
+        }
+      }
+    }
+  }
+}
