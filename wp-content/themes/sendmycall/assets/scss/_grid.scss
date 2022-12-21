@@ -11,6 +11,9 @@
   .col-9 {
     width: 66.67%;
   }
+  .col-6 {
+    width: 50%;
+  }
   [class^="col-"] {
     padding: 0 20px;
     @include media-breakpoint-down(sm) {
