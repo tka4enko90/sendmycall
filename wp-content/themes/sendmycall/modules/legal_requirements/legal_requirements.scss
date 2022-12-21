@@ -1,0 +1,20 @@
+@import "../../assets/scss/vars";
+
+.section-legal_requirements {
+  margin: 50px 0;
+  .acc {
+    border-bottom: 1px solid $border-color;
+    &-head {
+      a {
+        padding: 10px 0;
+        display: block;
+      }
+    }
+    &-content {
+      padding: 10px;
+      display: none;
+    }
+  }
+
+}
+
