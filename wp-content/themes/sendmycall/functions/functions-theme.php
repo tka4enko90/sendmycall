@@ -109,6 +109,7 @@ function save_forwarding_rates($post_id) {
         $post_title = '';
         $post_slug = '';
         $prefix = '';
+        $network = '';
         if ( !empty($categories) ) {
             foreach ($categories as $value) {
                 $post_slug .= $value->slug;
@@ -119,10 +120,14 @@ function save_forwarding_rates($post_id) {
             $prefix .= $forwarding_rates_options['prefix'];
         }
 
+        if (!empty($forwarding_rates_options['network'])) {
+            $network .= $forwarding_rates_options['network'];
+        }
+
         wp_update_post(array(
             'ID' => $post_id,
-            'post_title' => $post_title .' '. $prefix,
-            'post_name' => $post_slug .'-'. $prefix
+            'post_title' => $post_title .' '. $network .' '. $prefix,
+            'post_name' => $post_slug .'-'. $network .'-'. $prefix
         ));
 
         add_action('save_post', 'save_forwarding_rates');
