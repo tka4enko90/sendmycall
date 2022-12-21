@@ -38,6 +38,9 @@
     ],
     "contact_us_form": [
       "./modules/contact_us_form/contact_us_form.js"
+    ],
+    "legal_requirements": [
+      "./modules/legal_requirements/legal_requirements.js"
     ]
   },
   "cacheBusting": "[name]",
