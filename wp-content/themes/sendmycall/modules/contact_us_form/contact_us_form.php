@@ -5,11 +5,11 @@ if ( function_exists( 'wp_enqueue_style' ) ) {
 
 if ( function_exists( 'wp_enqueue_script' ) ) {
     wp_enqueue_script( 'contact_us_form-js', get_template_directory_uri() . '/dist/js/contact_us_form.min.js');
+    wp_enqueue_script('maps_google_apis-js', '//maps.googleapis.com/maps/api/js');
 }
 
 $contact_us_form = get_sub_field( 'contact_us_form' );
 ?>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcRmwjOhkDqJo2Yzo3DkL773VWpiHVoOs"></script>
 
 <?php
 if ( ! empty( $contact_us_form ) ) : ?>
