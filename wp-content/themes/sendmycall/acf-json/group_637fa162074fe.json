@@ -2778,6 +2778,88 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_63a31e4f4ce14": {
+                    "key": "layout_63a31e4f4ce14",
+                    "name": "step_by_step_guides",
+                    "label": "Step by step guides",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_63a31e624ce15",
+                            "label": "",
+                            "name": "step_by_step_guides",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63a31e7b4ce16",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_63a31e8a4ce17",
+                                    "label": "Links",
+                                    "name": "links",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "table",
+                                    "button_label": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_63a31ea94ce18",
+                                            "label": "Link",
+                                            "name": "link",
+                                            "type": "link",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Row",
@@ -2817,5 +2899,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671628004
+    "modified": 1671634647
 }

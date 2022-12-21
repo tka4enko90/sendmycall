@@ -1,0 +1,33 @@
+@import "../../assets/scss/vars";
+
+.section-step_by_step_guides {
+  &-content {
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      li {
+        margin-bottom: 10px;
+        &::marker {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  padding: 50px 0;
+  &-link {
+    padding: 10px 0;
+    border-bottom: 1px solid $border-color;
+    display: block;
+  }
+  &-links {
+    margin-bottom: 30px;
+  }
+}
