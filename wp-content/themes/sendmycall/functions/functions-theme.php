@@ -139,3 +139,13 @@ function registering_custom_query_var($query_vars)
     $query_vars[] = 'country';
     return $query_vars;
 }
+
+/**
+ *  Register Google API key
+ */
+add_filter('acf/fields/google_map/api', 'acf_google_map_api');
+function acf_google_map_api( $api ){
+    $google_api_key  = get_field( 'google_api_key', 'options' );
+    $api['key'] = $google_api_key;
+    return $api;
+}
