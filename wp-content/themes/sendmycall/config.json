@@ -35,6 +35,9 @@
     ],
     "virtual_pbx_user_guide": [
       "./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js"
+    ],
+    "contact_us_form": [
+      "./modules/contact_us_form/contact_us_form.js"
     ]
   },
   "cacheBusting": "[name]",
