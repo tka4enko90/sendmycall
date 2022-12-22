@@ -1,0 +1,45 @@
+@import "../../assets/scss/vars";
+
+.section-stylized_numbered_list {
+  &-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    h3 {
+      margin: 0;
+      color: $primary-color;
+      font-weight: 500;
+    }
+  }
+  &-number {
+    background: $primary-color;
+    color: $white;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    li {
+      &::marker {
+        color: $primary-color;
+      }
+    }
+  }
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color $transition;
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
