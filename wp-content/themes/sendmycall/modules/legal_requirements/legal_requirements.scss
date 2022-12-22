@@ -2,12 +2,26 @@
 
 .section-legal_requirements {
   margin: 50px 0;
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color $transition;
+    &:hover {
+      color: $text-color;
+    }
+  }
   .acc {
     border-bottom: 1px solid $border-color;
     &-head {
       a {
         padding: 10px 0;
         display: block;
+        color: $text-color;
+        text-decoration: none;
+        transition: color $transition;
+        &:hover {
+          color: $primary-color;
+        }
       }
     }
     &-content {
