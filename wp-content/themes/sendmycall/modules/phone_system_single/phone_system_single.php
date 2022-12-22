@@ -19,6 +19,33 @@ $phone_system_single = get_sub_field( 'phone_system_single' );
                         <?php echo wp_kses_post( $phone_system_single['content'] ); ?>
                     </div>
                 <?php endif; ?>
+                <?php if ( ! empty( $phone_system_single['video'] ) ) : ?>
+                    <div class="section-phone_system_single-video">
+                        <?php
+                        $iframe = $phone_system_single['video'];
+
+                        preg_match('/src="(.+?)"/', $iframe, $matches);
+                        $src = $matches[1];
+
+                        $params = array(
+                            'controls'  => 1,
+                            'hd'        => 1,
+                        );
+                        $new_src = add_query_arg($params, $src);
+                        $iframe = str_replace($src, $new_src, $iframe);
+
+                        $attributes = 'frameborder="0"';
+                        $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+
+                        echo $iframe;
+                        ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ( ! empty( $phone_system_single['content_after'] ) ) : ?>
+                    <div class="section-phone_system_single-content">
+                        <?php echo wp_kses_post( $phone_system_single['content_after'] ); ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="col-3">
                 <?php get_template_part('template-parts/right', "sidebar" ); ?>
