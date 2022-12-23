@@ -41,6 +41,9 @@
     ],
     "legal_requirements": [
       "./modules/legal_requirements/legal_requirements.js"
+    ],
+    "support": [
+      "./modules/support/support.js"
     ]
   },
   "cacheBusting": "[name]",
