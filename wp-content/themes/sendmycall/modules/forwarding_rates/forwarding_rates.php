@@ -1,7 +1,7 @@
 <?php
 if ( function_exists( 'wp_enqueue_style' ) ) {
-    wp_enqueue_style( 'forwarding_rates-css', get_template_directory_uri() . '/dist/css/modules/forwarding_rates/forwarding_rates.css', '', '', 'all' );
     wp_enqueue_style( 'select2-css', get_template_directory_uri() . '/dist/css/select2.css', '', '', 'all' );
+    wp_enqueue_style( 'forwarding_rates-css', get_template_directory_uri() . '/dist/css/modules/forwarding_rates/forwarding_rates.css', '', '', 'all' );
 }
 if ( function_exists( 'wp_enqueue_script' ) ) {
     wp_enqueue_script( 'select2-js', get_template_directory_uri() . '/dist/js/select2.min.js');
