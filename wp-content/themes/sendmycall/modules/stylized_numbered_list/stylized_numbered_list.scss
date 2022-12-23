@@ -7,9 +7,9 @@
     flex-wrap: wrap;
     margin-top: 50px;
     h3 {
-      margin: 0;
       color: $primary-color;
       font-weight: 500;
+      margin-bottom: 20px;
     }
   }
   &-number {
@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
   }
   ul {
     list-style-type: disc;
