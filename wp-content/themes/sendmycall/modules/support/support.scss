@@ -12,11 +12,20 @@
       }
     }
   }
+  &-holder {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
   &-title {
-    background-size: 65px;
-    background-repeat: no-repeat;
-    padding: 25px 20px 25px 75px;
-    background-position: left center;
+    margin-bottom: 20px;
   }
   &-content {
     display: flex;

@@ -15,10 +15,11 @@ $hero_parallax = get_sub_field( 'hero_parallax' );
     <div class="container">
         <div class="row">
             <div class="col-9">
-                <?php if ( ! empty( $support['title'] && $support['img'] ) ) : ?>
-                    <h4 class="section-support-title"
-                        style="background-image: url(<?php echo $support['img']['url']?>);">
-                        <?php echo wp_kses_post( $support['title'] ); ?></h4>
+                <?php if ( ! empty( $support['title'] && $support['img']) ) : ?>
+                    <div class="section-support-holder">
+                        <?php echo wp_get_attachment_image( $support['img']['ID'], 'icon_title' ); ?>
+                        <h4 class="section-support-title"><?php echo wp_kses_post( $support['title'] ); ?></h4>
+                    </div>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $support['list'] ) ) : ?>
@@ -28,9 +29,10 @@ $hero_parallax = get_sub_field( 'hero_parallax' );
                 <?php endif; ?>
 
                 <?php if ( ! empty( $support['title_faq'] && $support['img_faq'] ) ) : ?>
-                    <h4 class="section-support-title"
-                        style="background-image: url(<?php echo $support['img_faq']['url']?>);">
-                        <?php echo wp_kses_post( $support['title_faq'] ); ?></h4>
+                    <div class="section-support-holder">
+                        <?php echo wp_get_attachment_image( $support['img_faq']['ID'], 'icon_title' ); ?>
+                        <h4 class="section-support-title"><?php echo wp_kses_post( $support['title_faq'] ); ?></h4>
+                    </div>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $support['accordion'] ) ) : ?>
