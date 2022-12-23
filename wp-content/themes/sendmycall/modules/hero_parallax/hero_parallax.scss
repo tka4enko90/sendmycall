@@ -1,11 +1,17 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
 .section {
   &-hero_parallax {
     &-image {
-      min-height: 177px;
+      min-height: 200px;
       background-attachment: fixed;
-      background-position: 50% 21%;
+      background-position: top;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
+      @include media-breakpoint-up(xxl) {
+        background-size: 100% 300px;
+      }
     }
   }
 }
