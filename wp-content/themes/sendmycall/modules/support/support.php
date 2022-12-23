@@ -37,34 +37,19 @@ $hero_parallax = get_sub_field( 'hero_parallax' );
                     <div class="section-support-accordion">
                         <div class="acc-container">
                             <?php
-                            $count_items = count($support['accordion']);
                             foreach ( $support['accordion'] as $key => $faq_item ) : ?>
-                                <?php
-                                if ($count_items >= 12 ) {
-                                    if ($key == 12) {
-                                        echo '<div class="d_none">';
-                                    }
-                                }
-                                ?>
-                                    <div class="acc">
-                                        <?php if ( ! empty( $faq_item['title'] ) ) : ?>
-                                            <div class="acc-head">
-                                                <a href="#"><?php echo wp_kses_post( $faq_item['title'] ); ?></a>
-                                            </div>
-                                        <?php endif; ?>
-                                        <div class="acc-content">
-                                            <?php if ( ! empty( $faq_item['description'] ) ) {
-                                                echo wp_kses_post($faq_item['description']);
-                                            } ?>
+                                <div class="acc <?php if ($key >= 12 ) { echo 'd_none' ;} ?>">
+                                    <?php if ( ! empty( $faq_item['title'] ) ) : ?>
+                                        <div class="acc-head">
+                                            <a href="#"><?php echo wp_kses_post( $faq_item['title'] ); ?></a>
                                         </div>
+                                    <?php endif; ?>
+                                    <div class="acc-content">
+                                        <?php if ( ! empty( $faq_item['description'] ) ) {
+                                            echo wp_kses_post($faq_item['description']);
+                                        } ?>
                                     </div>
-                                <?php
-                                    if($count_items >= 12) {
-                                        if ($key == $count_items - 1) {
-                                            echo '</div>';
-                                        }
-                                    }
-                                ?>
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
