@@ -1,0 +1,65 @@
+@import "../../assets/scss/vars";
+
+.section-support {
+  margin: 50px 0;
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    li {
+      margin-bottom: 10px;
+      &::marker {
+        color: $primary-color;
+      }
+    }
+  }
+  &-title {
+    background-size: 65px;
+    background-repeat: no-repeat;
+    padding: 25px 20px 25px 75px;
+    background-position: left center;
+  }
+  &-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    ul {
+      margin-right: 30px;
+    }
+  }
+  .d_none {
+    display: none;
+  }
+  .acc {
+    border-bottom: 1px solid $border-color;
+    &-head {
+      a {
+        padding: 10px 0;
+        display: block;
+        color: $text-color;
+        text-decoration: none;
+        transition: color $transition;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    &-content {
+      padding: 10px;
+      display: none;
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        transition: color $transition;
+        &:hover {
+          color: $text-color;
+        }
+      }
+
+    }
+  }
+
+  .show_more_btn {
+    margin: 30px 0;
+    text-align: center;
+  }
+}
