@@ -3,6 +3,11 @@
  * @package WordPress
  * @subpackage sendmycall
  */
+
+if ( function_exists( 'wp_enqueue_script' ) ) {
+    wp_enqueue_script('trustpilot-js', '//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js');
+}
+
 $logo                             = get_field( 'logo', 'options' );
 $social_block                     = get_field( 'social_block', 'options' );
 $menu_title_customer_review       = get_field( 'menu_title_customer_review', 'options' );
@@ -100,6 +105,9 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
                         <div class="acc-head">
                             <?php if ( !empty( $menu_title_customer_review ) ): ?>
                                 <a href="#" class="footer-col-title"><?php echo $menu_title_customer_review; ?></a>
+                                <div class="trustpilot-widget sub-menu" data-locale="en-US" data-template-id="5613c9cde69ddc09340c6beb" data-businessunit-id="4e5ecafc000064000510e413" data-style-height="100%" data-style-width="100%" data-theme="light">
+                                    <a href="https://www.trustpilot.com/review/sendmycall.com" target="_blank" rel="noopener">Trustpilot</a>
+                                </div>
                             <?php endif; ?>
                         </div>
                     </div>

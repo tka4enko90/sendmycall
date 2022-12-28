@@ -36,7 +36,7 @@ get_header();
                             <?php foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
                                 <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
                                     <div id="<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
-                                        <h3><?php echo wp_kses_post( $sub_virtual_pbx_user_guide_item['title'] ); ?></h3>
+                                        <h4><?php echo wp_kses_post( $sub_virtual_pbx_user_guide_item['title'] ); ?></h4>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['description'] ) ) {
