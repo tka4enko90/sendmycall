@@ -2092,7 +2092,7 @@
                             "collapsed": "",
                             "min": 0,
                             "max": 0,
-                            "layout": "table",
+                            "layout": "block",
                             "button_label": "",
                             "sub_fields": [
                                 {
@@ -2104,7 +2104,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "20",
                                         "class": "",
                                         "id": ""
                                     },
@@ -2123,7 +2123,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "80",
                                         "class": "",
                                         "id": ""
                                     },
@@ -2161,7 +2161,7 @@
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
-                                                "width": "",
+                                                "width": "20",
                                                 "class": "",
                                                 "id": ""
                                             },
@@ -2180,7 +2180,7 @@
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
-                                                "width": "",
+                                                "width": "80",
                                                 "class": "",
                                                 "id": ""
                                             },
@@ -3392,5 +3392,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1672220132
+    "modified": 1672228541
 }
