@@ -5,7 +5,6 @@ if ( function_exists( 'wp_enqueue_style' ) ) {
 
 if ( function_exists( 'wp_enqueue_script' ) ) {
     wp_enqueue_script( 'contact_us_form-js', get_template_directory_uri() . '/dist/js/contact_us_form.min.js');
-    wp_enqueue_script('maps_google_apis-js', '//maps.googleapis.com/maps/api/js');
 }
 
 $contact_us_form = get_sub_field( 'contact_us_form' );
@@ -31,13 +30,9 @@ if ( ! empty( $contact_us_form ) ) : ?>
                     ?>
                 </div>
                 <div class="col-6">
-                    <?php
-                    $location = $contact_us_form['map'];
-                    if( ! empty($location) ): ?>
-                        <div class="acf-map" data-zoom="12">
-                            <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
-                        </div>
-                    <?php endif; ?>
+                    <div class="section-contact_us_form-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48520.65307362568!2d-74.25581738910688!3d40.52963937646002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3b54bd49469ab%3A0x9ab1e44a0cc8d5f4!2zVyBTaG9yZSBFeHB5LCBTdGF0ZW4gSXNsYW5kLCBOWSAxMDMwOSwg0KHQqNCQ!5e0!3m2!1sru!2sua!4v1463046643758" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>                        </div>
+                    </div>
                 </div>
             </div>
         </div>

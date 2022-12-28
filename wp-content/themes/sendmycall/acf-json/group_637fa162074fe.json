@@ -2665,24 +2665,6 @@
                                     "toolbar": "full",
                                     "media_upload": 1,
                                     "delay": 0
-                                },
-                                {
-                                    "key": "field_63a1da6f59f65",
-                                    "label": "Map",
-                                    "name": "map",
-                                    "type": "google_map",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "center_lat": "40.5326516",
-                                    "center_lng": "-74.2813527",
-                                    "zoom": 10,
-                                    "height": ""
                                 }
                             ]
                         }
@@ -3410,5 +3392,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671782735
+    "modified": 1672220132
 }

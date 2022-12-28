@@ -1,6 +1,6 @@
 (function($){
     $(document).ready(function() {
-
+        $('#sel_country').select2();
         function getDropDownList(name, id) {
             let combo = $("<select></select>").attr("id", id).attr("name", name);
             let optionList = [];
