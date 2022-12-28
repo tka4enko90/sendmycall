@@ -9,6 +9,7 @@ if ( function_exists( 'wp_enqueue_script' ) ) {
 }
 
 $virtual_pbx_user_guide = get_sub_field( 'virtual_pbx_user_guide' );
+$virtual_pbx_list_title = get_sub_field( 'virtual_pbx_list_title' );
 
 function clean($string) {
     $string = str_replace(' ', '-', $string);
@@ -52,6 +53,9 @@ get_header();
                 <div class="sidebar-holder">
                     <?php if ( !empty($virtual_pbx_user_guide) ) : ?>
                         <div class="sidebar-guide">
+                            <?php if ( !empty($virtual_pbx_user_guide) ) : ?>
+                                <h3 class="list_title"><?php echo wp_kses_post( $virtual_pbx_list_title ); ?></h3>
+                            <?php endif; ?>
                             <ul>
                                 <?php foreach ( $virtual_pbx_user_guide as $virtual_pbx_user_guide_item ) : ?>
                                     <?php if ( ! empty( $virtual_pbx_user_guide_item['title'] ) ) : ?>
