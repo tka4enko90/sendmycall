@@ -44,6 +44,9 @@
         border: 1px solid $primary-color;
         border-radius: 4px;
       }
+      option {
+        color: $text-color;
+      }
     }
     .limit_select {
       padding: 0 5px;
@@ -65,6 +68,9 @@
         border: 1px solid $primary-color;
         border-radius: 4px;
         text-align: center;
+      }
+      option {
+        color: $text-color;
       }
     }
     .limit_holder {

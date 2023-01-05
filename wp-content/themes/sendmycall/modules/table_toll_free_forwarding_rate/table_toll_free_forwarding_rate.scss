@@ -49,6 +49,9 @@
           outline: none;
         }
       }
+      option {
+        color: $text-color;
+      }
     }
     .table {
       border-collapse: separate;
