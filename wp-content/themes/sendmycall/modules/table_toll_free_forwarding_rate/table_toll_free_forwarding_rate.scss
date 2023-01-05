@@ -22,9 +22,16 @@
     #selectors {
       max-width: 290px;
       margin: 20px auto;
-      padding: 0 10px;
-      border: 1px solid $primary-color;
-      border-radius: 4px;
+      position: relative;
+      &:after {
+        content: ">";
+        font-size: 1rem;
+        right: 15px;
+        top: 13px;
+        position: absolute;
+        color: $primary-color;
+        transform: rotate(90deg);
+      }
       select {
         font-size: 14px;
         font-family: $font-family-dm-sans-regular;
@@ -34,6 +41,10 @@
         color: $primary-color;
         height: 50px;
         line-height: 50px;
+        padding: 0 15px;
+        appearance: none;
+        border: 1px solid $primary-color;
+        border-radius: 4px;
         &:focus-within {
           outline: none;
         }

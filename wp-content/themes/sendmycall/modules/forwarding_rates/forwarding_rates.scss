@@ -26,22 +26,45 @@
     #selectors {
       max-width: 290px;
       margin: 20px auto;
-      padding: 0 10px;
-      border: 1px solid $primary-color;
       border-radius: 4px;
+      position: relative;
+      &:after {
+        content: ">";
+        right: 17px;
+        top: 13px;
+        position: absolute;
+        color: $primary-color;
+        transform: rotate(90deg);
+      }
       select {
         height: 50px;
         line-height: 50px;
+        padding: 0 15px;
+        appearance: none;
+        border: 1px solid $primary-color;
+        border-radius: 4px;
       }
     }
     .limit_select {
-      max-width: 50px;
       padding: 0 5px;
-      border: 1px solid $primary-color;
-      margin: 0 5px;
+      position: relative;
+      &:after {
+        content: ">";
+        font-size: 1rem;
+        right: 11px;
+        top: 6px;
+        position: absolute;
+        color: $primary-color;
+        transform: rotate(90deg);
+      }
       select {
         height: 35px;
         line-height: 35px;
+        padding: 0 15px 0 5px;
+        appearance: none;
+        border: 1px solid $primary-color;
+        border-radius: 4px;
+        text-align: center;
       }
     }
     .limit_holder {
