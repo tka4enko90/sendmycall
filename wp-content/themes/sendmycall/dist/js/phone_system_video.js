@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -100,7 +100,7 @@ jQuery(document).ready(function ($) {
   var video_popup = $('.video-popup');
   var btn_close = $('.close-btn');
   var overlay = $('.overlay');
-  var iframe = $('iframe');
+  var iframe = $('.video-popup iframe');
   $('body').on('click', '.popup-iframe', function (e) {
     e.preventDefault();
     overlay.show();
@@ -113,21 +113,21 @@ jQuery(document).ready(function ($) {
   });
   $(document).on('mouseup keydown', function (e) {
     if (e.keyCode === 27) {
-      iframe.attr('src', $('iframe').attr('src'));
+      iframe.attr('src', $('.video-popup iframe').attr('src'));
       video_popup.hide();
       overlay.hide();
     }
     if (!$(iframe).is(e.target)) {
       video_popup.hide();
       overlay.hide();
-      iframe.attr('src', $('iframe').attr('src'));
+      iframe.attr('src', $('.video-popup iframe').attr('src'));
     }
   });
 });
 
 /***/ }),
 
-/***/ 7:
+/***/ 6:
 /*!****************************************************************!*\
   !*** multi ./modules/phone_system_video/phone_system_video.js ***!
   \****************************************************************/

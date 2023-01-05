@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -95,7 +95,6 @@
 
 (function ($) {
   $(document).ready(function () {
-    $('#sel_country, #limit').select2();
     $('#sel_country').on('change', function () {
       if ($(this).val() === '') {
         $('#sel_country').prop('disabled', true);
@@ -113,7 +112,7 @@
 
 /***/ }),
 
-/***/ 9:
+/***/ 8:
 /*!************************************************************!*\
   !*** multi ./modules/forwarding_rates/forwarding_rates.js ***!
   \************************************************************/

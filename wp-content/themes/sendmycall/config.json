@@ -15,9 +15,6 @@
     "form": [
       "./modules/form/form.js"
     ],
-    "table_toll_free_forwarding_rate": [
-      "./modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js"
-    ],
     "right_sidebar": [
       "./assets/js/right_sidebar.js"
     ],
@@ -29,9 +26,6 @@
     ],
     "forwarding_rates": [
       "./modules/forwarding_rates/forwarding_rates.js"
-    ],
-    "select2": [
-      "./assets/js/select2.js"
     ],
     "virtual_pbx_user_guide": [
       "./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js"

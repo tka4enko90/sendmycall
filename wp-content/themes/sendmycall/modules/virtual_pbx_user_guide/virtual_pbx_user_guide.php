@@ -53,7 +53,7 @@ get_header();
                 <div class="sidebar-holder">
                     <?php if ( !empty($virtual_pbx_user_guide) ) : ?>
                         <div class="sidebar-guide">
-                            <?php if ( !empty($virtual_pbx_user_guide) ) : ?>
+                            <?php if ( !empty($virtual_pbx_list_title) ) : ?>
                                 <h3 class="list_title"><?php echo wp_kses_post( $virtual_pbx_list_title ); ?></h3>
                             <?php endif; ?>
                             <ul>

@@ -1,12 +1,8 @@
 <?php
 if ( function_exists( 'wp_enqueue_style' ) ) {
-    wp_enqueue_style( 'select2-css', get_template_directory_uri() . '/dist/css/select2.css', '', '', 'all' );
     wp_enqueue_style( 'table_toll_free_forwarding_rate-css', get_template_directory_uri() . '/dist/css/modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.css', '', '', 'all' );
 }
-if ( function_exists( 'wp_enqueue_script' ) ) {
-    wp_enqueue_script( 'select2-js', get_template_directory_uri() . '/dist/js/select2.min.js');
-    wp_enqueue_script( 'table_toll_free_forwarding_rate-js', get_template_directory_uri() . '/dist/js/table_toll_free_forwarding_rate.min.js');
-}
+
 $table_toll_free_forwarding_rate = get_sub_field( 'table_toll_free_forwarding_rate' );
 
 $args = array(
