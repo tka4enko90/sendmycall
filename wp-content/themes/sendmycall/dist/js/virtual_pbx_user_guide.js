@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -110,7 +110,7 @@ jQuery(document).ready(function ($) {
 
 /***/ }),
 
-/***/ 9:
+/***/ 10:
 /*!************************************************************************!*\
   !*** multi ./modules/virtual_pbx_user_guide/virtual_pbx_user_guide.js ***!
   \************************************************************************/

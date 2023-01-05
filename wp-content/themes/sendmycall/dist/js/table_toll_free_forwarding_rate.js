@@ -86,6 +86,55 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js":
+/*!************************************************************************************!*\
+  !*** ./modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  $(document).ready(function () {
+    function getDropDownList(name, id) {
+      var combo = $("<select></select>").attr("id", id).attr("name", name);
+      var optionList = [];
+      $("#countries tr").each(function () {
+        var item = $(this).attr("class");
+        var idx = $.inArray(item, optionList);
+        if (idx == -1 && item !== undefined) {
+          optionList.push(item);
+        }
+      });
+      combo.append("<option>Select country for filter</option>");
+      $.each(optionList, function (i, el) {
+        combo.append("<option>" + el + "</option>");
+      });
+    }
+    getDropDownList("select_country", "sel_country");
+    $("#sel_country").change(function () {
+      var sel_class = this.value;
+      $("#countries tr").each(function () {
+        var item = $(this).attr("class");
+        if (sel_class !== item && sel_class !== "Select country for filter") {
+          $(this).css({
+            "display": "none"
+          });
+        } else if (sel_class == "Select country") {
+          $(this).css({
+            "display": "table-row"
+          });
+        } else {
+          $(this).css({
+            "display": "table-row"
+          });
+        }
+      });
+    }).change();
+  });
+})(jQuery);
+
+/***/ }),
+
 /***/ 5:
 /*!******************************************************************************************!*\
   !*** multi ./modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js ***!
@@ -93,7 +142,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!(function webpackMissingModule() { var e = new Error("Cannot find module './modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+module.exports = __webpack_require__(/*! ./modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js */"./modules/table_toll_free_forwarding_rate/table_toll_free_forwarding_rate.js");
 
 
 /***/ })
