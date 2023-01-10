@@ -9,6 +9,7 @@ $args = array(
     'posts_per_page' => -1,
     'order'          => 'ASC',
     'post_status'    => 'publish',
+    'orderby'        => 'title'
 );
 
 $posts = get_posts( $args );
