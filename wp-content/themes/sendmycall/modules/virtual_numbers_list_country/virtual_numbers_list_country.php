@@ -35,7 +35,7 @@ if ( ! empty( $posts ) ) : ?>
                     ?>
                     <div class="section-virtual_numbers_list_country-item">
                         <a href="<?php echo get_permalink($post->id) ?>">
-                            <img width="16px" height="16px" class="lazy" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/flags/' . strtolower( $iso ).'.png' ); ?>" alt="Country flag <?php echo $post->post_title;?>" >
+                            <img width="16px" height="16px" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/flags/' . strtolower( $iso ).'.png' ); ?>" alt="Country flag <?php echo $post->post_title;?>" >
                             <?php echo $post->post_title; ?> <?php if ($virtual_numbers_list_country['select_country'] == 'toll_free') { echo '(' . implode(',', $toll_free_codes) . ')'; } ?>
                         </a>
                     </div>
