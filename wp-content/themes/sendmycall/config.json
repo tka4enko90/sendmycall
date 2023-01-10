@@ -41,6 +41,9 @@
     ],
     "support": [
       "./modules/support/support.js"
+    ],
+    "virtual_numbers_list_country": [
+      "./modules/virtual_numbers_list_country/virtual_numbers_list_country.js"
     ]
   },
   "cacheBusting": "[name]",

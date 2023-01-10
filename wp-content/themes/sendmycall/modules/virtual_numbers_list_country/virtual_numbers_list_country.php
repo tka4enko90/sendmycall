@@ -2,6 +2,9 @@
 if ( function_exists( 'wp_enqueue_style' ) ) {
     wp_enqueue_style( 'virtual_numbers_list_country-css', get_template_directory_uri() . '/dist/css/modules/virtual_numbers_list_country/virtual_numbers_list_country.css', '', '', 'all' );
 }
+if ( function_exists( 'wp_enqueue_script' ) ) {
+    wp_enqueue_script( 'virtual_numbers_list_country-js', get_template_directory_uri() . '/dist/js/virtual_numbers_list_country.min.js');
+}
 $virtual_numbers_list_country = get_sub_field( 'virtual_numbers_list_country' );
 
 $args = array(
