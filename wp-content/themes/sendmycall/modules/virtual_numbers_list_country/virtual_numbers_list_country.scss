@@ -16,6 +16,14 @@
       @include media-breakpoint-up(lg) {
         columns: 4;
       }
+      &.toll_free {
+        @include media-breakpoint-up(sm) {
+          columns: 2;
+        }
+        @include media-breakpoint-up(md) {
+          columns: 3;
+        }
+      }
     }
     &-item {
       padding: 7px;
