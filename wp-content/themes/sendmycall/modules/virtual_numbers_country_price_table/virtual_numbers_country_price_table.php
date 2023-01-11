@@ -15,6 +15,7 @@ $args = array(
     'order'       => 'ASC',
     'post_parent' => $post->ID,
     'post_status' => 'publish',
+    'orderby'     => 'title'
 );
 $children = get_children($args);
 if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
