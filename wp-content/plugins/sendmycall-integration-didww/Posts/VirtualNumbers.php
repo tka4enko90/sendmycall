@@ -9,8 +9,9 @@ class VirtualNumbers extends AbstractPosts {
     {
         $query = array(
             'filter[country.id]' => $country->id,
+            'page[number]' => 1
         );
-        $cities = $this->DidwwAPI->getDIDGroupsByParams($query);
+        $cities = $this->get_cities([], $query);
 
         foreach ($cities as $city) {
 
@@ -24,6 +25,18 @@ class VirtualNumbers extends AbstractPosts {
 
             $this->insertPost($args, $city);
         }
+    }
+
+    public function get_cities( $cities, $query ) {
+        $result = $this->DidwwAPI->getDIDGroupsByParams($query, false);
+        $cities = array_merge($cities, (array)$result->data);
+
+        if (property_exists($result->links, 'next')) {
+            $query['page[number]']++;
+            return $this->get_cities($cities, $query);
+        }
+
+        return $cities;
     }
 
     public function setPosts() {

@@ -18,11 +18,11 @@ class DidwwAPI {
         return $this->fetchRequest($query);
     }
 
-    public function getDIDGroupsByParams($params) {
+    public function getDIDGroupsByParams($params,$data = true) {
         $url = self::CONVERSION_DATA_API.'/did_groups';
         $query = add_query_arg($params, $url );
 
-        return $this->fetchRequest($query);
+        return $this->fetchRequest($query, $data);
     }
 
     public function getDIDGroupTypes($name = false) {
@@ -41,7 +41,7 @@ class DidwwAPI {
         return $this->fetchRequest($query);
     }
 
-    private function fetchRequest($additional) {
+    private function fetchRequest($additional, $data = true ) {
         $headers =  array(
             'timeout' => "600",
             'headers' => array(
@@ -51,7 +51,10 @@ class DidwwAPI {
         );
         $response = wp_remote_get( $additional, $headers );
         if (isset($response['response']['code']) && $response['response']['code'] == '200') {
-            return json_decode($response['body'], false)->data;
+            if( $data ) {
+                return json_decode($response['body'], false)->data;
+            }
+            return json_decode($response['body'], false);
         }
         return [];
     }
