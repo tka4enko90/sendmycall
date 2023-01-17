@@ -30,8 +30,9 @@ class TollFree extends AbstractPosts {
                 $query = array(
                     'filter[country.id]' => $country->id,
                     'filter[did_group_type.id]' => $tollFreeID,
+                    'page[number]' => 1
                 );
-                $response = $this->DidwwAPI->getDIDGroupsByParams($query);
+                $response = $this::get_cities([], $query);
                 if ($response) {
                     $slug = $this->generateSlug($country, false,false, 'toll_free');
                     if ( !$slug ) continue;

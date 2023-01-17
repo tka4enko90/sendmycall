@@ -58,6 +58,18 @@ abstract class AbstractPosts {
         return false;
     }
 
+    protected function get_cities( $cities, $query ) {
+        $result = $this->DidwwAPI->getDIDGroupsByParams($query, false);
+        $cities = array_merge($cities, (array)$result->data);
+
+        if (property_exists($result->links, 'next')) {
+            $query['page[number]']++;
+            return $this->get_cities($cities, $query);
+        }
+
+        return $cities;
+    }
+
     abstract public function createChildPost($parent_ID, $country);
     abstract public function setPosts();
 }
