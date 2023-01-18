@@ -11,7 +11,7 @@ abstract class AbstractPosts {
         $this-> DidwwAPI = new DidwwAPI();
     }
 
-    protected function generateSlug($post,  $country = false, $child = false, $type = false) {
+    protected function generateSlug($post,  $country = false, $child = false) {
         $slug = str_replace(" ", "-", $post->attributes->name);
 
         if ($child && $country) {
@@ -19,9 +19,6 @@ abstract class AbstractPosts {
             $slug .=  $post->attributes->area_name.'_(' . $country->attributes->prefix . '-' . $post->attributes->prefix . ')';
 
         }
-
-        $post_exists = $this -> getPageBySlug( $slug , $type );
-        if ($post_exists) return false;
 
         return $slug;
     }
@@ -56,18 +53,6 @@ abstract class AbstractPosts {
         if ( $page )
             return get_post($page);
         return false;
-    }
-
-    protected function get_cities( $cities, $query ) {
-        $result = $this->DidwwAPI->getDIDGroupsByParams($query, false);
-        $cities = array_merge($cities, (array)$result->data);
-
-        if (property_exists($result->links, 'next')) {
-            $query['page[number]']++;
-            return $this->get_cities($cities, $query);
-        }
-
-        return $cities;
     }
 
     abstract public function createChildPost($parent_ID, $country);

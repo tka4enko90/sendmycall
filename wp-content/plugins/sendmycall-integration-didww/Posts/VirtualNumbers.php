@@ -8,15 +8,14 @@ class VirtualNumbers extends AbstractPosts {
     public function createChildPost($parent_ID, $country)
     {
         $query = array(
-            'filter[country.id]' => $country->id,
-            'page[number]' => 1
+            'filter[country.id]' => $country->id
         );
-        $cities = $this::get_cities([], $query);
-
+        $cities = $this->DidwwAPI->getDIDGroupsByParams($query);
         foreach ($cities as $city) {
 
-            $slug = $this->generateSlug($city, $country, true, 'virtual_number');
-            if ( !$slug ) continue;
+            $slug = $this->generateSlug($city, $country, true);
+            $post_exists = $this -> getPageBySlug( $slug , 'virtual_number' );
+            if ($post_exists) continue;
             $args = array(
                 'post_title' => $city->attributes->area_name,
                 'post_name' => $slug,
@@ -31,9 +30,13 @@ class VirtualNumbers extends AbstractPosts {
         $countries = $this->DidwwAPI->getCountries();
 
         foreach ($countries as $country) {
-            $slug = $this->generateSlug($country, false, false, 'virtual_number');
+            $slug = $this->generateSlug($country, false, false);
 
-            if ( !$slug ) continue;
+            $post_exists = $this -> getPageBySlug( $slug , 'virtual_number' );
+            if ($post_exists) {
+//                $this->createChildPost($post_exists->ID, $country);
+                continue;
+            }
 
             $arguments = array(
                 'post_title' => $country->attributes->name,
@@ -43,7 +46,7 @@ class VirtualNumbers extends AbstractPosts {
 
             $postID = $this->insertPost($arguments, $country);
 
-            $this->createChildPost($postID, $country);
+//            $this->createChildPost($postID, $country);
         }
     }
 }
