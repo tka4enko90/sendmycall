@@ -34,9 +34,9 @@ class SendMyCall {
     }
 
     public function runPostsUpdate() {
-//        $TollFree = new TollFree();
+        $TollFree = new TollFree();
         $VirtualNumbers = new VirtualNumbers();
-//        $TollFree->setPosts();
+        $TollFree->setPosts();
         $VirtualNumbers->setPosts();
     }
     /**
