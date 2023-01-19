@@ -3,10 +3,10 @@ namespace SendMyCall\API;
 
 class DidwwAPI {
     const CONVERSION_DATA_API = 'https://api.didww.com/v3';
-    private $headers;
+    public $groups = [];
+
     public function __construct()
     {
-
         $this->getDIDGroupTypes();
     }
     public function getCountries() {
@@ -15,14 +15,21 @@ class DidwwAPI {
             'filter[is_available]' => true,
         ), $url );
 
-        return $this->fetchRequest($query);
+        return $this->fetchRequest($query)->data;
     }
 
     public function getDIDGroupsByParams($params) {
         $url = self::CONVERSION_DATA_API.'/did_groups';
         $query = add_query_arg($params, $url );
-
-        return $this->fetchRequest($query);
+        $result = $this->fetchRequest($query);
+        $this->groups = array_merge($this->groups, $result->data);
+        if (property_exists($result->links, 'next')) {
+            $params['page[number]'] += 1;
+            return $this->getDIDGroupsByParams($params);
+        }
+        $groups = $this->groups;
+        $this->groups = [];
+        return $groups;
     }
 
     public function getDIDGroupTypes($name = false) {
@@ -30,7 +37,7 @@ class DidwwAPI {
         $query = add_query_arg( array(
             'filter[name]' => $name,
         ), $url );
-        return $this->fetchRequest($query);
+        return $this->fetchRequest($query)->data;
     }
 
     protected function getDIDGroupByCountryIDGroupID($countryID, $groupID) {
@@ -38,7 +45,7 @@ class DidwwAPI {
         $query = add_query_arg( array(
             'filter[name]' => $name,
         ), $url );
-        return $this->fetchRequest($query);
+        return $this->fetchRequest($query)->data;
     }
 
     private function fetchRequest($additional) {
@@ -51,7 +58,7 @@ class DidwwAPI {
         );
         $response = wp_remote_get( $additional, $headers );
         if (isset($response['response']['code']) && $response['response']['code'] == '200') {
-            return json_decode($response['body'], false)->data;
+            return json_decode($response['body'], false);
         }
         return [];
     }

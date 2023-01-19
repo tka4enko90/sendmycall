@@ -11,19 +11,16 @@ abstract class AbstractPosts {
         $this-> DidwwAPI = new DidwwAPI();
     }
 
-    protected function generateSlug($post,  $country = false, $child = false, $type = false) {
+    protected function generateSlug($post,  $country = false, $child = false) {
         $slug = str_replace(" ", "-", $post->attributes->name);
 
         if ($child && $country) {
 
-            $slug .=  $post->attributes->area_name.'_(' . $country->attributes->prefix . '-' . $post->attributes->prefix . ')';
+            $slug .=  sanitize_title($post->attributes->area_name).'_' . $country->attributes->prefix . '-' . $post->attributes->prefix . '';
 
         }
 
-        $post_exists = $this -> getPageBySlug( $slug , $type );
-        if ($post_exists) return false;
-
-        return $slug;
+        return strtolower($slug);
     }
     protected function insertPost($args, $params) {
 
