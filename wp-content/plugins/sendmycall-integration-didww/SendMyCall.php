@@ -27,7 +27,6 @@ class SendMyCall {
 
         new RegisterFields();
         add_action( 'init', array($this, 'createPostTypes'));
-//        add_action( 'init', array($this, 'runPostsUpdate'));
         add_action( 'send_my_call_cron_hook', array($this,'runPostsUpdate'));
         if ( is_admin() && ! wp_next_scheduled( 'send_my_call_cron_hook' ) ) {
             wp_schedule_event( time(), 'weekly', 'send_my_call_cron_hook' );

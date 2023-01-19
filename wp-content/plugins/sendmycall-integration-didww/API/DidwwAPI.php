@@ -3,13 +3,10 @@ namespace SendMyCall\API;
 
 class DidwwAPI {
     const CONVERSION_DATA_API = 'https://api.didww.com/v3';
-    private $headers;
-    private $pagination;
-    private $groups;
+    public $groups = [];
+
     public function __construct()
     {
-        $this->pagination = 1;
-        $this->groups = [];
         $this->getDIDGroupTypes();
     }
     public function getCountries() {
@@ -23,23 +20,16 @@ class DidwwAPI {
 
     public function getDIDGroupsByParams($params) {
         $url = self::CONVERSION_DATA_API.'/did_groups';
-        $params['page[number]'] = $this->pagination;
         $query = add_query_arg($params, $url );
         $result = $this->fetchRequest($query);
         $this->groups = array_merge($this->groups, $result->data);
-
-        ?>
-        <pre>
-            <?php print_r($this->pagination . '+++'); ?>
-        </pre>
-        <?php
-
         if (property_exists($result->links, 'next')) {
-            $this->pagination += 1;
+            $params['page[number]'] += 1;
             return $this->getDIDGroupsByParams($params);
         }
-
-        return $this->groups;
+        $groups = $this->groups;
+        $this->groups = [];
+        return $groups;
     }
 
     public function getDIDGroupTypes($name = false) {
@@ -55,7 +45,7 @@ class DidwwAPI {
         $query = add_query_arg( array(
             'filter[name]' => $name,
         ), $url );
-        return $this->fetchRequest($query)->data;;
+        return $this->fetchRequest($query)->data;
     }
 
     private function fetchRequest($additional) {

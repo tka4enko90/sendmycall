@@ -16,11 +16,11 @@ abstract class AbstractPosts {
 
         if ($child && $country) {
 
-            $slug .=  $post->attributes->area_name.'_(' . $country->attributes->prefix . '-' . $post->attributes->prefix . ')';
+            $slug .=  sanitize_title($post->attributes->area_name).'_' . $country->attributes->prefix . '-' . $post->attributes->prefix . '';
 
         }
 
-        return $slug;
+        return strtolower($slug);
     }
     protected function insertPost($args, $params) {
 

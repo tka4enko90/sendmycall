@@ -30,15 +30,17 @@ class TollFree extends AbstractPosts {
             foreach ($countries as $country) {
                 $query = array(
                     'filter[country.id]' => $country->id,
-                    'filter[did_group_type.id]' => $tollFreeID
+                    'filter[did_group_type.id]' => $tollFreeID,
+                    'page[number]' => 1
                 );
+                $this->DidwwAPI->groups = [];
                 $response = $this->DidwwAPI->getDIDGroupsByParams($query);
 
                 if ($response) {
                     $slug = $this->generateSlug($country, false,false);
                     $post_exists = $this -> getPageBySlug( $slug , 'toll_free' );
                     if ($post_exists) {
-//                        $this->createChildPost($post_exists->ID, $country, $response);
+                        $this->createChildPost($post_exists->ID, $country, $response);
                         continue;
                     }
                     $args = array(
@@ -47,7 +49,7 @@ class TollFree extends AbstractPosts {
                         'post_type' => 'toll_free'
                     );
                     $postID = $this->insertPost($args, $country);
-//                    $this->createChildPost($postID, $country, $response);
+                    $this->createChildPost($postID, $country, $response);
                 }
             }
         }
