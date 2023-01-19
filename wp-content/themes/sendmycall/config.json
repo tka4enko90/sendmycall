@@ -44,6 +44,9 @@
     ],
     "virtual_numbers_list_country": [
       "./modules/virtual_numbers_list_country/virtual_numbers_list_country.js"
+    ],
+    "prices": [
+      "./modules/prices/prices.js"
     ]
   },
   "cacheBusting": "[name]",
