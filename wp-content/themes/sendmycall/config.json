@@ -47,6 +47,9 @@
     ],
     "prices": [
       "./modules/prices/prices.js"
+    ],
+    "select2": [
+      "./assets/js/select2.js"
     ]
   },
   "cacheBusting": "[name]",

@@ -1615,10 +1615,10 @@
                                     "delay": 0
                                 },
                                 {
-                                    "key": "field_63c91376cb435",
-                                    "label": "Subscription price",
-                                    "name": "subscription_price",
-                                    "type": "repeater",
+                                    "key": "field_63cabb4d7ad85",
+                                    "label": "Notification",
+                                    "name": "notification",
+                                    "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1627,74 +1627,49 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "collapsed": "",
-                                    "min": 0,
-                                    "max": 0,
-                                    "layout": "table",
-                                    "button_label": "",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_63c91aa6cb436",
-                                            "label": "Month text",
-                                            "name": "month_text",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_63c91af7cb437",
-                                            "label": "Month price",
-                                            "name": "month_price",
-                                            "type": "number",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "min": "",
-                                            "max": "",
-                                            "step": ""
-                                        },
-                                        {
-                                            "key": "field_63c91b32cb439",
-                                            "label": "Month sale",
-                                            "name": "month_sale",
-                                            "type": "number",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "min": "",
-                                            "max": "",
-                                            "step": ""
-                                        }
-                                    ]
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_63cabfeb5b2cd",
+                                    "label": "Information text",
+                                    "name": "information_text",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_63c93dda337e4",
+                                    "label": "Subscription price title",
+                                    "name": "subscription_price_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
                                 },
                                 {
                                     "key": "field_63c91b0bcb438",
@@ -1827,5 +1802,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674126406
+    "modified": 1674682469
 }

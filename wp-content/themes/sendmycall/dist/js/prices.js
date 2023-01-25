@@ -93,7 +93,117 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+(function ($) {
+  $(document).ready(function () {
+    $('select').select2();
+    $("#country_from").select2({
+      templateResult: add_image_for_option,
+      templateSelection: add_image_for_option
+    });
+    function add_image_for_option(opt) {
+      if (!opt.id) {
+        return opt.text;
+      }
+      var optimage = $(opt.element).attr('data-image');
+      if (!optimage) {
+        return opt.text;
+      } else {
+        var $opt = $('<span><img src="' + optimage + '" width="30px" /> ' + opt.text + '</span>');
+        return $opt;
+      }
+    }
+    $('#cities').on('select2:select', function (e) {
+      var price = e.params.data.monthly_price;
+      var sale_array = [{
+        month: 3,
+        percentage: 10
+      }, {
+        month: 6,
+        percentage: 15
+      }, {
+        month: 12,
+        percentage: 25
+      }];
+      sale_array.forEach(function (item) {
+        var economy = item.percentage / 100 * price;
+        $(".subscription_price_".concat(item.month)).html((price - economy).toFixed(2) + '/');
+        $(".subscription_economy_".concat(item.month)).html((economy * item.month).toFixed(2));
+      });
+      $('.subscription_price').html(price + '/');
+    });
+    $('#cities').prop('disabled', true);
+    $('#type').prop('disabled', true);
+    $('#destination').prop('disabled', true);
+    $('#country_from').on('change', function (e) {
+      $('#type').prop('disabled', false);
+      $('#cities').prop('disabled', false);
+      $('#destination').prop('disabled', false);
+      $('.section-prices-subscription').show();
+      var post_id = $(this).val();
+      var $form = $('#filter');
+      $.ajax({
+        url: $form.attr('action'),
+        data: {
+          country_post_id: post_id,
+          action: 'filter_cities'
+        },
+        type: $form.attr('method'),
+        success: function success(data) {
+          var posts = JSON.parse(data);
+          $('#cities').html('').select2({
+            data: posts
+          }).trigger({
+            type: 'select2:select',
+            params: {
+              data: {
+                monthly_price: posts[0].monthly_price
+              }
+            }
+          });
+        }
+      });
+    });
+    $('#type').on('change', function () {
+      if ($(this).val() === 'toll_free') {
+        $('#cities').prop('disabled', true);
+        $('.section-prices-notification').show();
+        var $form = $('#filter');
+        var slug = $("#country_from").select2().find(":selected").data("slug");
+        var toll_free_price = $('.section-prices-notification-holder');
+        $.ajax({
+          url: $form.attr('action'),
+          data: {
+            slug: slug,
+            action: 'filter_toll_free'
+          },
+          type: $form.attr('method'),
+          success: function success(data) {
+            $(toll_free_price).html(data);
+          }
+        });
+      } else {
+        $('#cities').prop('disabled', false);
+        $('.section-prices-notification').hide();
+      }
+    });
+    $('#destination').on('change', function () {
+      var term_id = $(this).val();
+      var $form = $('#filter');
+      var tbody = $('#countries');
+      $.ajax({
+        url: $form.attr('action'),
+        data: {
+          term_id: term_id,
+          action: 'filter_forwarding_rates'
+        },
+        type: $form.attr('method'),
+        success: function success(data) {
+          $(tbody).html(data);
+        }
+      });
+    });
+  });
+})(jQuery);
 
 /***/ }),
 
