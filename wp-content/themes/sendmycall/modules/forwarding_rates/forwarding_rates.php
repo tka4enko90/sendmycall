@@ -112,7 +112,8 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                                             <td>
                                                 <?php
                                                 if ( !empty($forwarding_rates_options['per_minute_rate']) ) {
-                                                    echo $forwarding_rates_options['per_minute_rate'];
+                                                    $clean_price = str_replace('$', '', $forwarding_rates_options['per_minute_rate']);
+                                                    echo '$'.$clean_price;
                                                 }
                                                 ?>
                                             </td>

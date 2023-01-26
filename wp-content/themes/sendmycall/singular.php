@@ -68,12 +68,14 @@ get_header();
                                 <?php
                                 $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
                                 $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
-                                if ( !empty( $setup_price ) ) : ?>
-                                    <p>Setup price: <?php echo $setup_price;?></p>
+                                if ( !empty( $setup_price ) ) :
+                                    $clean_price = str_replace('$', '', $setup_price);?>
+                                    <p>Setup price: <?php echo '$'.$clean_price;?></p>
                                 <?php endif; ?>
 
-                                <?php if ( !empty( $monthly_price ) ) : ?>
-                                    <p>Monthly price: <?php echo $monthly_price;?></p>
+                                <?php if ( !empty( $monthly_price ) ) :
+                                    $clean_price = str_replace('$', '', $monthly_price); ?>
+                                    <p>Monthly price: <?php echo '$'.$clean_price;?></p>
                                 <?php endif; ?>
 
                                 <?php if ( $btn_buy_link ) : ?>

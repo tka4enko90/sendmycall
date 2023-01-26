@@ -95,8 +95,11 @@
 
 (function ($) {
   $(document).ready(function () {
-    $('select').select2();
-    $("#country_from").select2({
+    var cities = $('#cities').select2();
+    var type = $('#type').select2();
+    var destination = $('#destination').select2();
+    var country_from = $('#country_from').select2();
+    $(country_from).select2({
       templateResult: add_image_for_option,
       templateSelection: add_image_for_option
     });
@@ -112,7 +115,7 @@
         return $opt;
       }
     }
-    $('#cities').on('select2:select', function (e) {
+    $(cities).on('select2:select', function (e) {
       var price = e.params.data.monthly_price;
       var sale_array = [{
         month: 3,
@@ -131,14 +134,11 @@
       });
       $('.subscription_price').html(price + '/');
     });
-    $('#cities').prop('disabled', true);
-    $('#type').prop('disabled', true);
-    $('#destination').prop('disabled', true);
-    $('#country_from').on('change', function (e) {
+    $(cities).prop('disabled', true);
+    $(type).prop('disabled', true);
+    $(destination).prop('disabled', true);
+    $(country_from).on('change', function () {
       $('#type').prop('disabled', false);
-      $('#cities').prop('disabled', false);
-      $('#destination').prop('disabled', false);
-      $('.section-prices-subscription').show();
       var post_id = $(this).val();
       var $form = $('#filter');
       $.ajax({
@@ -150,7 +150,7 @@
         type: $form.attr('method'),
         success: function success(data) {
           var posts = JSON.parse(data);
-          $('#cities').html('').select2({
+          $('#cities').select2({
             data: posts
           }).trigger({
             type: 'select2:select',
@@ -163,33 +163,41 @@
         }
       });
     });
-    $('#type').on('change', function () {
+    $(type).on('change', function () {
       if ($(this).val() === 'toll_free') {
-        $('#cities').prop('disabled', true);
-        $('.section-prices-notification').show();
-        var $form = $('#filter');
-        var slug = $("#country_from").select2().find(":selected").data("slug");
-        var toll_free_price = $('.section-prices-notification-holder');
-        $.ajax({
-          url: $form.attr('action'),
-          data: {
-            slug: slug,
-            action: 'filter_toll_free'
-          },
-          type: $form.attr('method'),
-          success: function success(data) {
-            $(toll_free_price).html(data);
-          }
-        });
+        $(cities).prop('disabled', true);
+        $(destination).prop('disabled', false);
       } else {
-        $('#cities').prop('disabled', false);
-        $('.section-prices-notification').hide();
+        $(cities).prop('disabled', false);
       }
     });
-    $('#destination').on('change', function () {
+    $(cities).on('change', function () {
+      $(destination).prop('disabled', false);
+      $('.section-prices-subscription').show();
+      var post_id = $(this).val();
+      var $form = $('#filter');
+      $.ajax({
+        url: $form.attr('action'),
+        data: {
+          country_post_id: post_id,
+          action: 'filter_cities'
+        },
+        type: $form.attr('method'),
+        success: function success(data) {
+          var posts = JSON.parse(data);
+          // $('#cities option').empty();
+          $(cities).select2({
+            data: posts
+          });
+        }
+      });
+    });
+    $(destination).on('change', function () {
       var term_id = $(this).val();
       var $form = $('#filter');
       var tbody = $('#countries');
+      var slug = $(this).find(":selected").data("slug");
+      var toll_free_price = $('.section-prices-notification-rate');
       $.ajax({
         url: $form.attr('action'),
         data: {
@@ -199,6 +207,17 @@
         type: $form.attr('method'),
         success: function success(data) {
           $(tbody).html(data);
+          $.ajax({
+            url: $form.attr('action'),
+            data: {
+              slug: slug,
+              action: 'filter_toll_free'
+            },
+            type: $form.attr('method'),
+            success: function success(data) {
+              $(toll_free_price).html(data);
+            }
+          });
         }
       });
     });

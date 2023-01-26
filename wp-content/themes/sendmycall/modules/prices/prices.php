@@ -8,17 +8,14 @@ if (function_exists('wp_enqueue_script')) {
     wp_enqueue_script('prices-js', get_template_directory_uri() . '/dist/js/prices.min.js');
 }
 
-$args = array(
+$posts = get_posts([
     'post_type'      => 'virtual_number',
     'posts_per_page' => -1,
     'order'          => 'ASC',
     'post_status'    => 'publish',
     'orderby'        => 'title',
     'post_parent'    => 0
-);
-
-$query = new WP_Query( $args );
-$posts = $query->posts;
+]);
 
 $prices = get_sub_field('prices');
 
@@ -26,11 +23,7 @@ if ( ! empty( $prices ) ) : ?>
 <section class="section-prices">
     <div class="container">
         <div class="section-prices-content">
-            <?php
-            if ( !empty( $prices['content'] ) ) {
-                echo wp_kses_post( $prices['content'] );
-            }
-            ?>
+            <?php if ( !empty( $prices['content'] ) ) { echo wp_kses_post( $prices['content'] ); } ?>
         </div>
 
         <div class="section-prices-table">
@@ -45,7 +38,7 @@ if ( ! empty( $prices ) ) : ?>
                                     if ($post->post_parent !== 0) continue;
                                     $iso = get_field('iso', $post->ID); ?>
                                     <option
-                                        data-slug="<?php echo $post->post_name ?>"
+                                        data-slug-country-from="<?php echo $post->post_name ?>"
                                         data-image="<?php echo esc_url(get_template_directory_uri() . '/assets/img/flags/' . strtolower($iso) . '.png'); ?>"
                                         value="<?php echo $post->ID; ?>">
                                         <?php echo $post->post_title ?>
@@ -83,6 +76,7 @@ if ( ! empty( $prices ) ) : ?>
                             if (!empty($countries)) :
                                 foreach( $countries as $country ) :?>
                                     <option value="<?php echo $country->term_id; ?>"
+                                            data-slug="<?php echo $country->slug; ?>"
                                         <?php selected($_GET['country'],$country->term_id ) ?> ><?php echo $country->name; ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -135,13 +129,16 @@ if ( ! empty( $prices ) ) : ?>
                         </tbody>
                     </table>
                 </div>
-                <div class="section-prices-notification">
-                    <?php
-                    if ( !empty( $prices['notification'] ) ) {
-                        echo wp_kses_post( $prices['notification'] );
-                    }
-                    ?>
-                    <div class="section-prices-notification-holder"></div>
+
+                <div class="section-prices-notification-holder">
+                    <div class="section-prices-notification">
+                        <?php
+                            if ( !empty( $prices['notification'] ) ) {
+                                echo wp_kses_post( $prices['notification'] );
+                            }
+                        ?>
+                        <div class="section-prices-notification-rate"></div>
+                    </div>
                 </div>
             </form>
         </div>

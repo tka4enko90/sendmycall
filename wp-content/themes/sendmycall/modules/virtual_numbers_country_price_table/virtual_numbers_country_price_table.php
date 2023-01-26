@@ -35,9 +35,9 @@ if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
                     <tbody>
                     <?php
                     $prefix_parent = get_field('prefix', $post->ID);
-                    $price_country      = get_field('price_options', $post->ID);
+                    $price_country = get_field('price_options', $post->ID);
                     foreach( $children as $child ) {
-                        $prefix = get_field('prefix', $child->ID);
+                        $prefix       = get_field('prefix', $child->ID);
                         $price_region = get_field('price_options', $child->ID);
                         ?>
                         <tr>

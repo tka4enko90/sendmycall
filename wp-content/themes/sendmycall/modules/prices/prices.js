@@ -1,8 +1,11 @@
 (function($){
     $(document).ready(function() {
-        $('select').select2();
+        let cities = $('#cities').select2();
+        let type = $('#type').select2();
+        let destination = $('#destination').select2();
+        let country_from = $('#country_from').select2();
 
-        $("#country_from").select2({
+        $(country_from).select2({
             templateResult: add_image_for_option,
             templateSelection: add_image_for_option
         });
@@ -23,7 +26,7 @@
             }
         }
 
-        $('#cities').on('select2:select', function (e) {
+        $(cities).on('select2:select', function (e) {
             let price = e.params.data.monthly_price;
             let sale_array = [{
                     month: 3,
@@ -43,15 +46,12 @@
             $('.subscription_price').html(price + '/');
         });
 
-        $('#cities').prop('disabled', true);
-        $('#type').prop('disabled', true);
-        $('#destination').prop('disabled', true);
-        $('#country_from').on('change', function(e) {
-            $('#type').prop('disabled', false);
-            $('#cities').prop('disabled', false);
-            $('#destination').prop('disabled', false);
-            $('.section-prices-subscription').show();
+        $(cities).prop('disabled', true);
+        $(type).prop('disabled', true);
+        $(destination).prop('disabled', true);
 
+        $(country_from).on('change', function() {
+            $('#type').prop('disabled', false);
             const post_id = $(this).val();
             const $form = $('#filter');
             $.ajax({
@@ -63,7 +63,7 @@
                 type:$form.attr('method'),
                 success:function(data){
                     const posts = JSON.parse(data);
-                    $('#cities').html('').select2( {
+                    $('#cities').select2( {
                         data: posts
                     } ).trigger({
                         type: 'select2:select',
@@ -77,35 +77,43 @@
             });
         });
 
-        $('#type').on('change', function() {
+        $(type).on('change', function() {
             if( $(this).val() === 'toll_free' ) {
-                $('#cities').prop('disabled', true);
-                $('.section-prices-notification').show();
-                const $form = $('#filter');
-                const slug = $("#country_from").select2().find(":selected").data("slug");
-                const toll_free_price = $('.section-prices-notification-holder');
-
-                $.ajax({
-                    url:$form.attr('action'),
-                    data: {
-                        slug: slug,
-                        action: 'filter_toll_free',
-                    },
-                    type:$form.attr('method'),
-                    success:function(data){
-                        $(toll_free_price).html(data)
-                    }
-                });
+                $(cities).prop('disabled', true);
+                $(destination).prop('disabled', false);
             } else {
-                $('#cities').prop('disabled', false);
-                $('.section-prices-notification').hide();
+                $(cities).prop('disabled', false);
             }
         });
 
-        $('#destination').on('change', function() {
+        $(cities).on('change', function() {
+            $(destination).prop('disabled', false);
+            $('.section-prices-subscription').show();
+            const post_id = $(this).val();
+            const $form = $('#filter');
+            $.ajax({
+                url:$form.attr('action'),
+                data: {
+                    country_post_id: post_id,
+                    action: 'filter_cities',
+                },
+                type:$form.attr('method'),
+                success:function(data){
+                    const posts = JSON.parse(data);
+                    // $('#cities option').empty();
+                    $(cities).select2( {
+                        data: posts
+                    } )
+                }
+            });
+        });
+
+        $(destination).on('change', function() {
             const term_id = $(this).val();
             const $form = $('#filter');
             const tbody = $('#countries');
+            const slug = $(this).find(":selected").data("slug");
+            const toll_free_price = $('.section-prices-notification-rate');
             $.ajax({
                 url:$form.attr('action'),
                 data: {
@@ -114,7 +122,18 @@
                 },
                 type:$form.attr('method'),
                 success:function(data){
-                    $(tbody).html(data)
+                    $(tbody).html(data);
+                    $.ajax({
+                        url:$form.attr('action'),
+                        data: {
+                            slug: slug,
+                            action: 'filter_toll_free',
+                        },
+                        type:$form.attr('method'),
+                        success:function(data){
+                            $(toll_free_price).html(data);
+                        }
+                    });
                 }
             });
         });
