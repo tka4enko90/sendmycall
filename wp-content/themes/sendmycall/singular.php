@@ -48,9 +48,15 @@ get_header();
                                         echo 'Toll-free numbers for';
                                     }
                                     echo "&nbsp";
-                                    echo $parent_post_title?>
+                                    echo $parent_post_title;?>
                                 </h2>
                             <?php endif; ?>
+                            <div class="section-singular-text">
+                                <p>Everything you need in one place. SendMyCall delivers a <?php echo $parent_post_title ?> virtual telephone number with the most advanced PBX cloud base Phone System and easy online management that is suitable for every business, where users can manage their call preferences and forwarding options.
+                                    <?php echo $parent_post_title ?> virtual numbers are billed on the billing cycle basis and renewed automatically, until canceled by the customer. There is no long-term commitment and virtual numbers can be canceled at any time.
+                                    Incoming calls to <?php echo $parent_post_title ?> Virtual Numbers may be forwarded to your own network using public Internet. In addition calls made to Virtual Numbers may be forwarded to any IP phone or mobile app for free as well as to landlines or mobile phones anywhere in the world, at low pay-per-minute rates.
+                                </p>
+                            </div>
                             <?php the_content(); ?>
                         </div>
                         <div class="section-singular-col">
@@ -82,7 +88,7 @@ get_header();
                                             target="<?php echo $btn_buy_link['target']; ?>"
                                         <?php endif;?>
                                        class="btn btn-primary">
-                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/buy_icon.png' ?>" >
+                                        <img alt="Buy icon" src="<?php echo get_template_directory_uri() . '/assets/img/buy_icon.png' ?>" >
                                         <?php echo $btn_buy_link['title']; ?>
                                     </a>
                                 <?php endif; ?>
@@ -90,6 +96,21 @@ get_header();
                         </div>
                     </div>
                 </div>
+            </section>
+            <section class="section-singular-flexible">
+                <?php
+                if ( have_rows( 'modules', get_the_ID() ) ) {
+                    while ( have_rows( 'modules', get_the_ID() ) ) {
+                        the_row();
+                        $layout = get_row_layout();
+                        $template = get_template_directory() . '/modules/' . $layout . '/' . $layout . '.php';
+
+                        if (file_exists($template)) {
+                            get_template_part('modules/' . $layout . '/' . $layout);
+                        }
+                    }
+                }
+                ?>
             </section>
         <?php
         }
