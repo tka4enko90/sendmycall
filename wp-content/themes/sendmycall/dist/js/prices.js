@@ -115,6 +115,22 @@
         return $opt;
       }
     }
+    $(destination).select2({
+      templateResult: add_image_for_option_destination,
+      templateSelection: add_image_for_option_destination
+    });
+    function add_image_for_option_destination(opt) {
+      if (!opt.id) {
+        return opt.text;
+      }
+      var optimage = $(opt.element).attr('data-image');
+      if (!optimage) {
+        return opt.text;
+      } else {
+        var $opt = $('<span><img src="' + optimage + '" width="30px" /> ' + opt.text + '</span>');
+        return $opt;
+      }
+    }
     $(cities).on('select2:select', function (e) {
       var price = e.params.data.monthly_price;
       var sale_array = [{
@@ -185,7 +201,6 @@
         type: $form.attr('method'),
         success: function success(data) {
           var posts = JSON.parse(data);
-          // $('#cities option').empty();
           $(cities).select2({
             data: posts
           });

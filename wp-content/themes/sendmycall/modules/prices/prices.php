@@ -73,10 +73,13 @@ if ( ! empty( $prices ) ) : ?>
                                 'taxonomy' => 'country',
                                 'hide_empty' => false,
                             ) );
+
                             if (!empty($countries)) :
-                                foreach( $countries as $country ) :?>
+                                foreach( $countries as $country ) :
+                                    $iso = term_description($country->term_id, 'release_category'); ?>
                                     <option value="<?php echo $country->term_id; ?>"
                                             data-slug="<?php echo $country->slug; ?>"
+                                            data-image="<?php echo esc_url(get_template_directory_uri() . '/assets/img/flags/' . strip_tags( strtolower($iso) ) . '.png'); ?>"
                                         <?php selected($_GET['country'],$country->term_id ) ?> ><?php echo $country->name; ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -109,11 +112,7 @@ if ( ! empty( $prices ) ) : ?>
                                             </defs>
                                         </svg>
                                         <div class="section-prices-table-info-text">
-                                            <?php
-                                            if ( ! empty( $prices['information_text'] ) ) {
-                                                echo wp_kses_post( $prices['information_text'] );
-                                            }
-                                            ?>
+                                            <?php if ( ! empty( $prices['information_text'] ) ) { echo wp_kses_post( $prices['information_text'] ); }?>
                                         </div>
                                     </div>
                                 </th>
@@ -132,11 +131,7 @@ if ( ! empty( $prices ) ) : ?>
 
                 <div class="section-prices-notification-holder">
                     <div class="section-prices-notification">
-                        <?php
-                            if ( !empty( $prices['notification'] ) ) {
-                                echo wp_kses_post( $prices['notification'] );
-                            }
-                        ?>
+                        <?php if ( !empty( $prices['notification'] ) ) { echo wp_kses_post( $prices['notification'] ); } ?>
                         <div class="section-prices-notification-rate"></div>
                     </div>
                 </div>
@@ -151,12 +146,7 @@ if ( ! empty( $prices ) ) : ?>
         }
         ?>
         <div class="container">
-            <h3><?php
-                if ( ! empty( $prices['subscription_price_title'] ) ) {
-                    echo wp_kses_post( $prices['subscription_price_title'] );
-                }
-                ?>
-            </h3>
+            <h3><?php if ( ! empty( $prices['subscription_price_title'] ) ) { echo wp_kses_post( $prices['subscription_price_title'] ); } ?></h3>
             <div class="section-prices-subscription-holder row">
                 <div class="col-6">
                     <div class="section-prices-subscription_plans">
