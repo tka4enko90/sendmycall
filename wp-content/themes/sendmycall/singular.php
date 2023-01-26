@@ -16,6 +16,7 @@ $price_region       = get_field('price_options', $post->ID);
 $price_country      = get_field('price_options', $post->post_parent);
 $title              = get_field( 'virtual_number_single_page_title', 'options' );
 $btn_buy_link       = get_field( 'btn_buy_link', 'options' );
+$single_description = get_field('single_description', 'options');
 
 get_header();
 ?>
@@ -52,11 +53,7 @@ get_header();
                                 </h2>
                             <?php endif; ?>
                             <div class="section-singular-text">
-                                <p>Everything you need in one place. SendMyCall delivers a <?php echo $parent_post_title ?> virtual telephone number with the most advanced PBX cloud base Phone System and easy online management that is suitable for every business, where users can manage their call preferences and forwarding options.
-                                    <?php echo $parent_post_title ?> virtual numbers are billed on the billing cycle basis and renewed automatically, until canceled by the customer. There is no long-term commitment and virtual numbers can be canceled at any time.
-                                    Incoming calls to <?php echo $parent_post_title ?> Virtual Numbers may be forwarded to your own network using public Internet. In addition calls made to Virtual Numbers may be forwarded to any IP phone or mobile app for free as well as to landlines or mobile phones anywhere in the world, at
-                                    <a target="_blank" href="/call-forwarding-option/forwarding-rates ">low pay-per-minute rates</a>.
-                                </p>
+                                <?php if ( !empty( $single_description ) ) { echo wp_kses_post( $single_description ); } ?>
                             </div>
                             <?php the_content(); ?>
                         </div>
