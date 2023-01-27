@@ -70,8 +70,13 @@
                 const slug = $('#country_from').find(":selected").data("slug-country-from");
                 let toll_free_price = $('.section-prices-notification-rate');
                 let prices_notification = $('.section-prices-notification-holder');
+                let prices_subscription = $('.section-prices-subscription');
                 if ($(this).val() === 'toll_free') {
+                    cities.val(null).trigger('change');
                     cities.prop('disabled', true);
+                    $('#countries td').html('-');
+                    $('#countries tr:not(:first)').remove();
+                    prices_subscription.hide();
                     destination.prop('disabled', false);
                     $.ajax({
                         url:$form.attr('action'),

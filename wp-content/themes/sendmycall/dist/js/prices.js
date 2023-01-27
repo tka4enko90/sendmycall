@@ -161,8 +161,13 @@
         var slug = $('#country_from').find(":selected").data("slug-country-from");
         var toll_free_price = $('.section-prices-notification-rate');
         var prices_notification = $('.section-prices-notification-holder');
+        var prices_subscription = $('.section-prices-subscription');
         if ($(this).val() === 'toll_free') {
+          cities.val(null).trigger('change');
           cities.prop('disabled', true);
+          $('#countries td').html('-');
+          $('#countries tr:not(:first)').remove();
+          prices_subscription.hide();
           destination.prop('disabled', false);
           $.ajax({
             url: $form.attr('action'),
