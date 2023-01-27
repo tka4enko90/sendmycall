@@ -66,7 +66,12 @@
                 $(`.subscription_price_${item.month}`).html((price - economy).toFixed(2) + '/');
                 $(`.subscription_economy_${item.month}`).html((economy * item.month).toFixed(2));
             } );
-            $('.subscription_price').html(price + '/');
+            if (price.length) {
+                $('.subscription_price').html(price + '/');
+            } else {
+                $('.section-prices-subscription').hide(500);
+            }
+
         });
 
         $(cities).prop('disabled', true);
@@ -112,7 +117,7 @@
 
         $(cities).on('change', function() {
             $(destination).prop('disabled', false);
-            $('.section-prices-subscription').show();
+            $('.section-prices-subscription').show(500);
         });
 
         $(destination).on('change', function() {
@@ -140,10 +145,10 @@
                         success:function(data){
                             if(data){
                                 $(toll_free_price).html(data);
-                                $('.section-prices-notification-holder').show(1000);
+                                $('.section-prices-notification-holder').show(500);
                                 return;
                             }
-                            $('.section-prices-notification-holder').hide(1000);
+                            $('.section-prices-notification-holder').hide(500);
                         }
                     });
                 }
