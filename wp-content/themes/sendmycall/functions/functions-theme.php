@@ -192,7 +192,7 @@ add_action('wp_ajax_nopriv_filter_cities', 'filter_cities');
 
 function filter_forwarding_rates() {
     if ( empty( $_POST['term_id']) ) {
-        return '';
+        echo '';
     }
     $args = [
         'post_type'      => 'forwarding_rates',
@@ -247,7 +247,7 @@ add_action('wp_ajax_nopriv_filter_forwarding_rates', 'filter_forwarding_rates');
 
 function filter_toll_free() {
     if ( empty( $_POST['slug']) ) {
-        return '';
+        echo '';
     }
     $args = [
         'post_type'      => 'toll_free',
