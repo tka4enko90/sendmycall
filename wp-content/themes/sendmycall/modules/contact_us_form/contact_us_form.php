@@ -15,19 +15,11 @@ if ( ! empty( $contact_us_form ) ) : ?>
     <section class="section-contact_us_form">
         <div class="container">
             <div class="section-contact_us_form-content">
-                <?php
-                if ( ! empty( $contact_us_form['content'] ) ) {
-                    echo wp_kses_post($contact_us_form['content']);
-                }
-                ?>
+                <?php if ( ! empty( $contact_us_form['content'] ) ) { echo wp_kses_post($contact_us_form['content']); } ?>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <?php
-                    if ( ! empty( $contact_us_form['form_shortcode'] ) ) {
-                        echo do_shortcode($contact_us_form['form_shortcode']);
-                    }
-                    ?>
+                    <?php if ( ! empty( $contact_us_form['form_shortcode'] ) ) { echo do_shortcode($contact_us_form['form_shortcode']); } ?>
                 </div>
                 <div class="col-6">
                     <div class="section-contact_us_form-map">

@@ -16,11 +16,7 @@ if ( ! empty( $step_by_step_guides ) ) : ?>
             <div class="row">
                 <div class="col-9">
                     <div class="section-step_by_step_guides-content">
-                        <?php
-                        if ( ! empty( $step_by_step_guides['title'] ) ) {
-                            echo wp_kses_post($step_by_step_guides['title']);
-                        }
-                        ?>
+                        <?php if ( ! empty( $step_by_step_guides['title'] ) ) { echo wp_kses_post($step_by_step_guides['title']); } ?>
                     </div>
                     <div class="section-step_by_step_guides-links">
                         <?php if ( ! empty( $step_by_step_guides['links'] ) ) : ?>

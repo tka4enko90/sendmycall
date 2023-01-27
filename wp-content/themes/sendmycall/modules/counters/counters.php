@@ -14,56 +14,40 @@ if ( ! empty( $counters ) ) : ?>
                 <div class="section-counters-col">
                     <div class="section-counters-holder">
                         <div class="section-counters-counter">
-                            <?php if ( ! empty( $counters['years'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['years'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['years'] ) ) { echo wp_kses_post( $counters['years'] ); } ?>
                         </div>
                         <div class="section-counters-text">
-                            <?php if ( ! empty( $counters['years_text'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['years_text'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['years_text'] ) ) { echo wp_kses_post( $counters['years_text'] ); } ?>
                         </div>
                     </div>
                 </div>
                 <div class="section-counters-col">
                     <div class="section-counters-holder">
                         <div class="section-counters-counter">
-                            <?php if ( ! empty( $counters['customers'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['customers'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['customers'] ) ) { echo wp_kses_post( $counters['customers'] ); } ?>
                         </div>
                         <div class="section-counters-text">
-                            <?php if ( ! empty( $counters['customers_text'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['customers_text'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['customers_text'] ) ) { echo wp_kses_post( $counters['customers_text'] ); } ?>
                         </div>
                     </div>
                 </div>
                 <div class="section-counters-col">
                     <div class="section-counters-holder">
                         <div class="section-counters-counter">
-                            <?php if ( ! empty( $counters['clients'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['clients'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['clients'] ) ) { echo wp_kses_post( $counters['clients'] ); } ?>
                         </div>
                         <div class="section-counters-text">
-                            <?php if ( ! empty( $counters['clients_text'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['clients_text'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['clients_text'] ) ) { echo wp_kses_post( $counters['clients_text'] ); } ?>
                         </div>
                     </div>
                 </div>
                 <div class="section-counters-col">
                     <div class="section-counters-holder">
                         <div class="section-counters-counter">
-                            <?php if ( ! empty( $counters['companies'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['companies'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['companies'] ) ) { echo wp_kses_post( $counters['companies'] ); } ?>
                         </div>
                         <div class="section-counters-text">
-                            <?php if ( ! empty( $counters['companies_text'] ) ) : ?>
-                                <?php echo wp_kses_post( $counters['companies_text'] ); ?>
-                            <?php endif; ?>
+                            <?php if ( ! empty( $counters['companies_text'] ) ) { echo wp_kses_post( $counters['companies_text'] ); } ?>
                         </div>
                     </div>
                 </div>

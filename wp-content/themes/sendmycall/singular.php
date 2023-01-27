@@ -43,9 +43,9 @@ get_header();
                                     echo $title;
                                     echo "&nbsp";
                                     if ($post->post_type == 'virtual_number') {
-                                        echo "virtual phone numbers for";
+                                        echo esc_html__('virtual phone numbers for', 'sendmycall');
                                     } else {
-                                        echo 'Toll-free numbers for';
+                                        echo esc_html__('Toll-free numbers for', 'sendmycall');
                                     }
                                     echo "&nbsp";
                                     echo $parent_post_title?>
@@ -57,25 +57,32 @@ get_header();
                             <div class="section-singular-holder">
                                 <?php if ( !empty( $post_title && $parent_post_title ) ) : ?>
                                     <h3 class="section-singular-holder-title">
-                                        BUY <?php if ($post->post_type == 'virtual_number') { echo "virtual number"; } else { echo $post_title; } ?>
-                                        IN <?php echo $parent_post_title; ?>
+                                        <?php
+                                        echo esc_html__('BUY', 'sendmycall');
+                                        if ($post->post_type == 'virtual_number') {
+                                            echo "virtual number";
+                                        } else {
+                                            echo $post_title;
+                                        }
+                                        echo esc_html__('IN', 'sendmycall');
+                                        echo $parent_post_title;
+                                        ?>
                                     </h3>
                                 <?php endif;?>
                                 <?php if ( !empty( $prefix_child && $prefix_parent ) ) : ?>
-                                    <p>Prefix: <?php echo $prefix_parent;?>-<?php echo $prefix_child;?></p>
+                                    <p><?php echo esc_html__('Setup price:', 'sendmycall'); ?>Prefix: <?php echo $prefix_parent;?>-<?php echo $prefix_child;?></p>
                                 <?php endif;?>
-
                                 <?php
                                 $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
                                 $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
                                 if ( !empty( $setup_price ) ) :
                                     $clean_price = str_replace('$', '', $setup_price);?>
-                                    <p>Setup price: <?php echo '$'.$clean_price;?></p>
+                                    <p><?php echo esc_html__('Setup price:', 'sendmycall'); ?> <?php echo '$'.$clean_price;?></p>
                                 <?php endif; ?>
 
                                 <?php if ( !empty( $monthly_price ) ) :
                                     $clean_price = str_replace('$', '', $monthly_price); ?>
-                                    <p>Monthly price: <?php echo '$'.$clean_price;?></p>
+                                    <p><?php echo esc_html__('Monthly price:', 'sendmycall'); ?> <?php echo '$'.$clean_price;?></p>
                                 <?php endif; ?>
 
                                 <?php if ( $btn_buy_link ) : ?>

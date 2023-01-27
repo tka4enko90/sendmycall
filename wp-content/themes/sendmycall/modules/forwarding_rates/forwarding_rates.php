@@ -95,22 +95,9 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                                         ?>
                                         <tr class="<?php echo $country_name; ?>">
                                             <td><?php echo $country_name; ?></td>
-                                            <td>
-                                                <?php
-                                                if ( !empty($forwarding_rates_options['network']) ) {
-                                                    echo $forwarding_rates_options['network'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                if ( !empty($forwarding_rates_options['prefix']) ) {
-                                                    echo $forwarding_rates_options['prefix'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
+                                            <td><?php if ( !empty($forwarding_rates_options['network']) ) { echo $forwarding_rates_options['network']; } ?></td>
+                                            <td><?php if ( !empty($forwarding_rates_options['prefix']) ) { echo $forwarding_rates_options['prefix']; } ?></td>
+                                            <td><?php
                                                 if ( !empty($forwarding_rates_options['per_minute_rate']) ) {
                                                     $clean_price = str_replace('$', '', $forwarding_rates_options['per_minute_rate']);
                                                     echo '$'.$clean_price;

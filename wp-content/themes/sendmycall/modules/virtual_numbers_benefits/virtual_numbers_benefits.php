@@ -18,19 +18,13 @@ if ( ! empty( $virtual_numbers_benefits ) ) : ?>
             <div class="section-virtual_numbers_benefits-list">
                 <div class="container">
                     <div class="section-virtual_numbers_benefits-wrap">
-                        <?php
-                        if ( ! empty( $virtual_numbers_benefits['list'] ) ) : ?>
-                            <?php echo wp_kses_post( $virtual_numbers_benefits['list'] ); ?>
-                        <?php endif; ?>
+                        <?php if ( ! empty( $virtual_numbers_benefits['list'] ) ) { echo wp_kses_post( $virtual_numbers_benefits['list'] ); } ?>
                     </div>
                 </div>
             </div>
             <div class="section-virtual_numbers_benefits-link">
                 <div class="container">
-                <?php
-                if ( ! empty( $virtual_numbers_benefits['link'] ) ) : ?>
-                    <?php echo wp_kses_post( $virtual_numbers_benefits['link'] ); ?>
-                <?php endif; ?>
+                    <?php if ( ! empty( $virtual_numbers_benefits['link'] ) ) { echo wp_kses_post( $virtual_numbers_benefits['link'] ); } ?>
                 </div>
             </div>
         </div>

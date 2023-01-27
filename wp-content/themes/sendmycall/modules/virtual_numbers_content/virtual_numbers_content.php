@@ -8,11 +8,7 @@ if ( ! empty( $virtual_numbers_content ) ) : ?>
     <section class="section-virtual_numbers_content">
         <div class="section-virtual_numbers_content-text">
             <div class="container">
-                <?php
-                if ( ! empty( $virtual_numbers_content['content'] ) ) {
-                    echo wp_kses_post( $virtual_numbers_content['content'] );
-                }
-                ?>
+                <?php if ( ! empty( $virtual_numbers_content['content'] ) ) { echo wp_kses_post( $virtual_numbers_content['content'] ); } ?>
             </div>
         </div>
     </section>

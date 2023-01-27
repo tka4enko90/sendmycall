@@ -36,6 +36,9 @@
       font-size: 18px;
       line-height: 26px;
       letter-spacing: -0.02em;
+      &-holder {
+        display: none;
+      }
       &-rate {
         span {
           font-weight: 700;

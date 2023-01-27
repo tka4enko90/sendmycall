@@ -5,10 +5,12 @@
         let destination = $('#destination').select2();
         let country_from = $('#country_from').select2();
 
-        $(country_from).select2({
-            templateResult: add_image_for_option,
-            templateSelection: add_image_for_option
-        });
+        if (country_from.length) {
+            $(country_from).select2({
+                templateResult: add_image_for_option,
+                templateSelection: add_image_for_option
+            });
+        }
 
         function add_image_for_option (opt) {
             if (!opt.id) {
@@ -25,12 +27,12 @@
                 return $opt;
             }
         }
-
-        $(destination).select2({
-            templateResult: add_image_for_option_destination,
-            templateSelection: add_image_for_option_destination
-        });
-
+        if (destination.length) {
+            $(destination).select2({
+                templateResult: add_image_for_option_destination,
+                templateSelection: add_image_for_option_destination
+            });
+        }
         function add_image_for_option_destination (opt) {
             if (!opt.id) {
                 return opt.text;
@@ -84,7 +86,8 @@
                 type:$form.attr('method'),
                 success:function(data){
                     const posts = JSON.parse(data);
-                    $('#cities').select2( {
+                    $('#cities option:not(:first)').remove();
+                    cities.select2( {
                         data: posts
                     } ).trigger({
                         type: 'select2:select',
@@ -110,22 +113,6 @@
         $(cities).on('change', function() {
             $(destination).prop('disabled', false);
             $('.section-prices-subscription').show();
-            const post_id = $(this).val();
-            const $form = $('#filter');
-            $.ajax({
-                url:$form.attr('action'),
-                data: {
-                    country_post_id: post_id,
-                    action: 'filter_cities',
-                },
-                type:$form.attr('method'),
-                success:function(data){
-                    const posts = JSON.parse(data);
-                    $(cities).select2( {
-                        data: posts
-                    } )
-                }
-            });
         });
 
         $(destination).on('change', function() {
@@ -151,7 +138,12 @@
                         },
                         type:$form.attr('method'),
                         success:function(data){
-                            $(toll_free_price).html(data);
+                            if(data){
+                                $(toll_free_price).html(data);
+                                $('.section-prices-notification-holder').show(1000);
+                                return;
+                            }
+                            $('.section-prices-notification-holder').hide(1000);
                         }
                     });
                 }

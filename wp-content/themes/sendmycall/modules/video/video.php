@@ -15,9 +15,7 @@ if ( ! empty( $video ) ) : ?>
         <div class="container">
             <div class="section-video-holder">
                 <div class="section-video-block">
-                    <?php if ( ! empty( $video['title'] ) ) : ?>
-                        <?php echo wp_kses_post( $video['title'] ); ?>
-                    <?php endif; ?>
+                    <?php if ( ! empty( $video['title'] ) ) { echo wp_kses_post( $video['title'] ); } ?>
                     <div class="btn-holder">
                         <?php if ( $video['link_button_buy_now'] ) : ?>
                             <a href="<?php echo esc_url( $video['link_button_buy_now']['url'] ); ?>"

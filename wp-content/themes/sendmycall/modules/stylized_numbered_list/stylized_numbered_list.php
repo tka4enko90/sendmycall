@@ -18,9 +18,7 @@ if ( ! empty( $stylized_numbered_list ) ) : ?>
                             <h3><?php echo wp_kses_post( $stylized_numbered_list_item['title'] ); ?></h3>
                         </div>
                     <?php endif; ?>
-                    <?php if ( ! empty( $stylized_numbered_list_item['content'] ) ) {
-                        echo wp_kses_post($stylized_numbered_list_item['content']);
-                    }
+                    <?php if ( ! empty( $stylized_numbered_list_item['content'] ) ) { echo wp_kses_post($stylized_numbered_list_item['content']); }
                     $count++;
                     ?>
                 <?php endforeach; ?>

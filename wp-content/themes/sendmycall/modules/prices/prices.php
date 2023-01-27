@@ -25,13 +25,12 @@ if ( ! empty( $prices ) ) : ?>
         <div class="section-prices-content">
             <?php if ( !empty( $prices['content'] ) ) { echo wp_kses_post( $prices['content'] ); } ?>
         </div>
-
         <div class="section-prices-table">
             <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
                 <div class="section-prices-table-holder">
                     <div class="section-prices-table-item">
                         <select id="country_from" name="country_from">
-                            <option value="">Choose country</option>
+                            <option value=""><?php echo esc_html__('Choose country', 'sendmycall'); ?></option>
                             <?php
                             if ( !empty($posts) ) {
                                 foreach ($posts as $post) {
@@ -51,23 +50,22 @@ if ( ! empty( $prices ) ) : ?>
                     </div>
                     <div class="section-prices-table-item">
                         <select value="" name="type" id="type">
-                            <option value="">Number Type</option>
-                            <option value="global">Global</option>
-                            <option value="local">Local</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="national">National</option>
-                            <option value="toll_free">Toll Free</option>
+                            <option value=""><?php echo esc_html__('Number Type', 'sendmycall'); ?></option>
+                            <option value="global"><?php echo esc_html__('Global', 'sendmycall'); ?></option>
+                            <option value="local"><?php echo esc_html__('Local', 'sendmycall'); ?></option>
+                            <option value="mobile"><?php echo esc_html__('Mobile', 'sendmycall'); ?></option>
+                            <option value="national"><?php echo esc_html__('National', 'sendmycall'); ?></option>
+                            <option value="toll_free"><?php echo esc_html__('Toll Free', 'sendmycall'); ?></option>
                         </select>
                     </div>
                     <div class="section-prices-table-item">
                         <select name="cities" id="cities">
-                            <option value="">City\State</option>
+                            <option value=""><?php echo esc_html__('City\State', 'sendmycall'); ?></option>
                         </select>
                     </div>
-
                     <div class="section-prices-table-item">
                         <select name="destination" id="destination">
-                            <option value="">Forwarding Destination Country</option>
+                            <option value=""><?php echo esc_html__('Forwarding Destination Country', 'sendmycall'); ?></option>
                             <?php
                             $countries = get_terms( array(
                                 'taxonomy' => 'country',
@@ -79,8 +77,8 @@ if ( ! empty( $prices ) ) : ?>
                                     $iso = term_description($country->term_id, 'release_category'); ?>
                                     <option value="<?php echo $country->term_id; ?>"
                                             data-slug="<?php echo $country->slug; ?>"
-                                            data-image="<?php echo esc_url(get_template_directory_uri() . '/assets/img/flags/' . strip_tags( strtolower($iso) ) . '.png'); ?>"
-                                        <?php selected($_GET['country'],$country->term_id ) ?> ><?php echo $country->name; ?>
+                                            data-image="<?php echo esc_url(get_template_directory_uri() . '/assets/img/flags/' . strip_tags( strtolower($iso) ) . '.png'); ?>">
+                                        <?php echo $country->name; ?>
                                     </option>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -91,12 +89,12 @@ if ( ! empty( $prices ) ) : ?>
                     <table class="table" id="response">
                         <thead>
                             <tr>
-                                <th>Destination Country</th>
-                                <th>Prefix</th>
-                                <th>Per Minute Rate</th>
+                                <th><?php echo esc_html__('Destination Country', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Prefix', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Per Minute Rate', 'sendmycall'); ?></th>
                                 <th>
                                     <div class="section-prices-table-info">
-                                        VoIP
+                                        <?php echo esc_html__('VoIP', 'sendmycall'); ?>
                                         <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <mask id="mask0_1703_55601" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="15" height="16">
                                                 <rect y="0.5" width="15" height="15" fill="url(#pattern0)"/>
@@ -123,12 +121,11 @@ if ( ! empty( $prices ) ) : ?>
                                 <td class="destination_сountry">-</td>
                                 <td class="prefix">-</td>
                                 <td class="per_minute_rate">-</td>
-                                <td>Free</td>
+                                <td><?php echo esc_html__('Free', 'sendmycall'); ?></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
                 <div class="section-prices-notification-holder">
                     <div class="section-prices-notification">
                         <?php if ( !empty( $prices['notification'] ) ) { echo wp_kses_post( $prices['notification'] ); } ?>
@@ -153,41 +150,41 @@ if ( ! empty( $prices ) ) : ?>
                         <div class="section-prices-subscription_plans-holder">
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
-                                    <div class="section-prices-subscription_plans-item-text">1 month</div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price"></span><span>monthly</span></div>
+                                    <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('1 month', 'sendmycall'); ?></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
                             </div>
 
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
-                                    <div class="section-prices-subscription_plans-item-text">3 month</div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_3"></span><span>monthly</span></div>
+                                    <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('3 month', 'sendmycall'); ?></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_3"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
                                 <div class="section-prices-subscription_plans-item-sale">-10%</div>
                                 <div class="section-prices-subscription_plans-item-economy">
-                                    $<span class="subscription_economy_3"></span> economy
+                                    $<span class="subscription_economy_3"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
                             </div>
 
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
-                                    <div class="section-prices-subscription_plans-item-text">6 month</div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_6"></span><span>monthly</span></div>
+                                    <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('6 month', 'sendmycall'); ?></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_6"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
                                 <div class="section-prices-subscription_plans-item-sale">-15%</div>
                                 <div class="section-prices-subscription_plans-item-economy">
-                                    $<span class="subscription_economy_6"></span> economy
+                                    $<span class="subscription_economy_6"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
                             </div>
 
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
-                                    <div class="section-prices-subscription_plans-item-text">12 month</div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_12"></span><span>monthly</span></div>
+                                    <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('12 month', 'sendmycall'); ?></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_12"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
                                 <div class="section-prices-subscription_plans-item-sale">-25%</div>
                                 <div class="section-prices-subscription_plans-item-economy">
-                                    $<span class="subscription_economy_12"></span> economy
+                                    $<span class="subscription_economy_12"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
                             </div>
                         </div>
