@@ -101,6 +101,12 @@
     var country_from = $('#country_from').select2();
     var prices_notification = $('.section-prices-notification-holder');
     var prices_subscription = $('.section-prices-subscription');
+    function clear_content() {
+      $('#countries td').html('-');
+      $('#countries tr:not(:first)').remove();
+      prices_notification.hide();
+      prices_subscription.hide();
+    }
     if (country_from.length) {
       var add_image_for_country_from = function add_image_for_country_from(opt) {
         if (!opt.id) {
@@ -160,20 +166,13 @@
         if ($(this).val() === 'toll_free') {
           cities.val(null).trigger('change');
           cities.prop('disabled', true);
-          $('#countries td').html('-');
-          $('#countries tr:not(:first)').remove();
           prices_subscription.show();
           destination.prop('disabled', false);
         } else if ($(this).val() === '') {
           prices_subscription.hide();
-          $('#countries td').html('-');
-          $('#countries tr:not(:first)').remove();
-          prices_notification.hide();
         } else {
           cities.prop('disabled', false);
           prices_subscription.hide();
-          $('#countries td').html('-');
-          $('#countries tr:not(:first)').remove();
           prices_notification.hide();
         }
       });
@@ -207,12 +206,10 @@
       });
       cities.on('change', function () {
         destination.prop('disabled', false);
-        $('.section-prices-subscription').show();
         if ($(this).val() === '') {
           prices_subscription.hide();
-          $('#countries td').html('-');
-          $('#countries tr:not(:first)').remove();
-          prices_notification.hide();
+        } else {
+          prices_subscription.show();
         }
       });
     }
@@ -239,10 +236,7 @@
           return;
         }
         if ($(this).val() === '') {
-          prices_subscription.hide();
-          $('#countries td').html('-');
-          $('#countries tr:not(:first)').remove();
-          prices_notification.hide();
+          clear_content();
           return;
         }
         var term_id = $(this).val();

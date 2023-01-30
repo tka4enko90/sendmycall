@@ -258,10 +258,20 @@ function filter_toll_free() {
     ];
     $toll_free = new WP_Query( $args );
     ob_start();
-    if ( !empty( $toll_free->posts ) ) {
-        foreach ( $toll_free->posts as $post ) {
-            $price_country    = get_field('price_options', $post->ID);
-            $price_region     = get_field('price_options', $post->ID);
+    if (!empty($toll_free->posts)) {
+        $post_parent = $toll_free->posts[0];
+        $price_country   = get_field('price_options',$post_parent->ID);
+        $args = [
+            'post_type'      => 'toll_free',
+            'posts_per_page' => -1,
+            'order'          => 'ASC',
+            'post_status'    => 'publish',
+            'post_parent'    => $post_parent->ID
+        ];
+        $toll_free_child = new WP_Query( $args );
+        foreach ( $toll_free_child->posts as $child ) {
+            $price_region = get_field('price_options', $child->ID);
+
             $toll_free_all = !empty($price_region['toll_free_all']) ? $price_region['toll_free_all'] : $price_country['toll_free_all'];
             $toll_free_fixed = !empty($price_region['toll_free_fixed']) ? $price_region['toll_free_fixed'] : $price_country['toll_free_fixed'];
             $toll_free_mobile = !empty($price_region['toll_free_mobile']) ? $price_region['toll_free_mobile'] : $price_country['toll_free_mobile'];
@@ -271,10 +281,15 @@ function filter_toll_free() {
             $clean_price_toll_free_mobile = str_replace('$', '', $toll_free_mobile);
 
             if ( !empty($toll_free_all) ) : ?>
-                    <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate all:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_all;  ?></span></div>
-                <?php else : ?>
-                    <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Fixed:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_fixed; ?></span></div>
-                    <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Mobile:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_mobile  ?></span></div>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate all:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_all;  ?></span></div>
+            <?php break; ?>
+            <?php elseif(!empty($toll_free_fixed) && !empty($toll_free_mobile)) : ?>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Mobile:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_mobile  ?></span></div>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Fixed:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_fixed; ?></span></div>
+            <?php elseif(!empty($toll_free_mobile)) : ?>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Mobile:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_mobile  ?></span></div>
+            <?php elseif(!empty($toll_free_fixed)) : ?>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Fixed:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_fixed; ?></span></div>
             <?php endif;
         }
     }
