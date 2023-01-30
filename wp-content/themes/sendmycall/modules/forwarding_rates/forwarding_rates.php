@@ -19,8 +19,9 @@ $posts_per_page_options = [
     '100' => '100',
     'All' => '-1'
 ];
-$posts_per_page = (isset($_GET['posts_per_page'])) ? $_GET['posts_per_page'] : $posts_per_page_options[0];
-
+if (!empty($posts_per_page_options[0])) {
+    $posts_per_page = (isset($_GET['posts_per_page'])) ? $_GET['posts_per_page'] : $posts_per_page_options[0];
+}
 $args = array(
     'post_type'      => 'forwarding_rates',
     'posts_per_page' => $posts_per_page,
@@ -130,7 +131,13 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                             <div class="limit_select">
                                 <select id="limit" name="posts_per_page">
                                     <?php foreach ($posts_per_page_options as $key => $val) : ?>
-                                        <option value="<?php echo $val; ?>" <?php selected( $_GET['posts_per_page'], $val ) ?>><?php echo $key; ?></option>
+                                        <option value="<?php echo $val; ?>"
+                                            <?php
+                                            if (!empty($posts_per_page_options[0])) {
+                                                selected(isset($_GET['posts_per_page']) ? $_GET['posts_per_page'] : $posts_per_page_options[0], $val) ;
+                                            }?>>
+                                            <?php echo $key; ?>
+                                        </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
