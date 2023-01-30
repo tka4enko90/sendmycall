@@ -3373,14 +3373,14 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_63c91063cb432": {
-                    "key": "layout_63c91063cb432",
+                "layout_63d80bcf02e23": {
+                    "key": "layout_63d80bcf02e23",
                     "name": "prices",
                     "label": "Prices",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_63c9106ecb433",
+                            "key": "field_63d80bdd02e24",
                             "label": "",
                             "name": "prices",
                             "type": "group",
@@ -3395,7 +3395,7 @@
                             "layout": "block",
                             "sub_fields": [
                                 {
-                                    "key": "field_63c910b0cb434",
+                                    "key": "field_63d80c6502e25",
                                     "label": "Content",
                                     "name": "content",
                                     "type": "wysiwyg",
@@ -3414,7 +3414,7 @@
                                     "delay": 0
                                 },
                                 {
-                                    "key": "field_63cabb4d7ad85",
+                                    "key": "field_63d80c7902e26",
                                     "label": "Notification",
                                     "name": "notification",
                                     "type": "wysiwyg",
@@ -3433,7 +3433,7 @@
                                     "delay": 0
                                 },
                                 {
-                                    "key": "field_63cabfeb5b2cd",
+                                    "key": "field_63d80c9702e27",
                                     "label": "Information text",
                                     "name": "information_text",
                                     "type": "text",
@@ -3452,7 +3452,7 @@
                                     "maxlength": ""
                                 },
                                 {
-                                    "key": "field_63c93dda337e4",
+                                    "key": "field_63d80ca802e28",
                                     "label": "Subscription price title",
                                     "name": "subscription_price_title",
                                     "type": "text",
@@ -3471,7 +3471,7 @@
                                     "maxlength": ""
                                 },
                                 {
-                                    "key": "field_63c91b0bcb438",
+                                    "key": "field_63d80cb202e29",
                                     "label": "Btn buy now",
                                     "name": "btn_buy_now",
                                     "type": "link",
@@ -3486,7 +3486,7 @@
                                     "return_format": "array"
                                 },
                                 {
-                                    "key": "field_63c9209306a39",
+                                    "key": "field_63d80cc502e2a",
                                     "label": "Background image",
                                     "name": "background_image",
                                     "type": "image",
@@ -3510,7 +3510,7 @@
                                     "mime_types": ""
                                 },
                                 {
-                                    "key": "field_63c923b006a3a",
+                                    "key": "field_63d80cf502e2b",
                                     "label": "Prices image",
                                     "name": "prices_image",
                                     "type": "image",
@@ -3534,7 +3534,7 @@
                                     "mime_types": ""
                                 },
                                 {
-                                    "key": "field_63c9241306a3b",
+                                    "key": "field_63d80d1902e2c",
                                     "label": "Prices image bg",
                                     "name": "prices_image_bg",
                                     "type": "image",
@@ -3601,5 +3601,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1672236547
+    "modified": 1675103592
 }
