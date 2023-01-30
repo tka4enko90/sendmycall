@@ -11,6 +11,7 @@ add_image_size( 'icon_img', 20, 20 );
 add_image_size( 'bg_img', 1920, 238 );
 add_image_size( 'icon_title', 124, 124 );
 add_image_size( 'sidebar_img', 250, 250 );
+add_image_size( 'price_img', 420, 548 );
 
 /**
  * Disable gutenberg
@@ -144,3 +145,160 @@ function registering_custom_query_var($query_vars)
     $query_vars[] = 'country';
     return $query_vars;
 }
+
+/**
+ *  Ajax filter cities
+ */
+
+function filter_cities() {
+    if (empty($_POST['country_post_id']) ) {
+        return;
+    }
+
+    $country_post_id = $_POST['country_post_id'];
+    $virtual_number = get_posts([
+        'post_type' => 'virtual_number',
+        'posts_per_page' => -1,
+        'order' => 'ASC',
+        'post_status' => 'publish',
+        'post_parent' => intval($country_post_id)
+    ]);
+
+    $price_country = get_field('price_options', $country_post_id);
+    $response = [];
+    if (!empty($virtual_number)) {
+        foreach ($virtual_number as $city) {
+            $price_region = get_field('price_options', $city->ID);
+            $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
+            $clean_price = str_replace('$', '', $monthly_price);
+            $response[] = array(
+                'id' => $city->ID,
+                'text' => $city->post_title,
+                'monthly_price' => $clean_price
+            );
+        }
+    }
+
+    echo json_encode($response);
+    wp_reset_postdata();
+    wp_die();
+}
+add_action('wp_ajax_filter_cities', 'filter_cities');
+add_action('wp_ajax_nopriv_filter_cities', 'filter_cities');
+
+/**
+ *  Ajax filter forwarding_rates
+ */
+
+function filter_forwarding_rates() {
+    if ( empty( $_POST['term_id']) ) {
+        return;
+    }
+    $args = [
+        'post_type'      => 'forwarding_rates',
+        'posts_per_page' => -1,
+        'order'          => 'ASC',
+        'orderby'        => 'country, name',
+        'post_status'    => 'publish',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'country',
+                'field' => 'term_id',
+                'terms' => intval($_POST['term_id'])
+            )
+        )
+    ];
+    $forwarding_rates = new WP_Query( $args );
+    $current_country = '';
+    $country_name = '';
+    ob_start();
+    if ( !empty( $forwarding_rates->posts ) ) {
+        foreach ($forwarding_rates->posts as $post) {
+            $terms = get_the_terms($post->ID, 'country');
+            $forwarding_rates_options = get_field('forwarding_rates_options', $post->ID);
+            $prefix = $forwarding_rates_options['prefix'];
+            if (!empty($terms)) {
+                $country_name = $terms[0]->name == $current_country ? '' : $terms[0]->name;
+                $current_country = $terms[0]->name;
+            } ?>
+
+            <tr>
+                <td class="destination_сountry"><?php echo $country_name; ?></td>
+                <td class="prefix"><?php echo $prefix; ?></td>
+                <td class="per_minute_rate">$<?php echo$forwarding_rates_options['per_minute_rate']; ?></td>
+                <td class="per_minute_rate"><?php echo esc_html__('Free', 'sendmycall'); ?></td>
+            </tr>
+            <?php
+        }
+    }
+
+    $html = ob_get_contents();
+    ob_get_clean();
+    echo $html;
+    wp_reset_postdata();
+    wp_die();
+}
+add_action('wp_ajax_filter_forwarding_rates', 'filter_forwarding_rates');
+add_action('wp_ajax_nopriv_filter_forwarding_rates', 'filter_forwarding_rates');
+
+/**
+ *  Ajax filter toll_free
+ */
+
+function filter_toll_free() {
+    if ( empty( $_POST['slug']) ) {
+        return;
+    }
+    $args = [
+        'post_type'      => 'toll_free',
+        'posts_per_page' => -1,
+        'order'          => 'ASC',
+        'post_status'    => 'publish',
+        'name'           => $_POST['slug']
+    ];
+    $toll_free = new WP_Query( $args );
+    ob_start();
+    if (!empty($toll_free->posts)) {
+        $post_parent = $toll_free->posts[0];
+        $price_country   = get_field('price_options',$post_parent->ID);
+        $args = [
+            'post_type'      => 'toll_free',
+            'posts_per_page' => -1,
+            'order'          => 'ASC',
+            'post_status'    => 'publish',
+            'post_parent'    => $post_parent->ID
+        ];
+        $toll_free_child = new WP_Query( $args );
+        foreach ( $toll_free_child->posts as $child ) {
+            $price_region = get_field('price_options', $child->ID);
+
+            $toll_free_all = !empty($price_region['toll_free_all']) ? $price_region['toll_free_all'] : $price_country['toll_free_all'];
+            $toll_free_fixed = !empty($price_region['toll_free_fixed']) ? $price_region['toll_free_fixed'] : $price_country['toll_free_fixed'];
+            $toll_free_mobile = !empty($price_region['toll_free_mobile']) ? $price_region['toll_free_mobile'] : $price_country['toll_free_mobile'];
+
+            $clean_price_toll_free_all = str_replace('$', '', $toll_free_all);
+            $clean_price_toll_free_fixed = str_replace('$', '', $toll_free_fixed);
+            $clean_price_toll_free_mobile = str_replace('$', '', $toll_free_mobile);
+
+            if ( !empty($toll_free_all) ) : ?>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate all:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_all;  ?></span></div>
+            <?php break; ?>
+            <?php elseif(!empty($toll_free_fixed) && !empty($toll_free_mobile)) : ?>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Mobile:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_mobile  ?></span></div>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Fixed:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_fixed; ?></span></div>
+            <?php elseif(!empty($toll_free_mobile)) : ?>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Mobile:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_mobile  ?></span></div>
+            <?php elseif(!empty($toll_free_fixed)) : ?>
+                <div class="section-prices-notification-rate"><?php echo esc_html__('Additional Toll Free Rate Fixed:', 'sendmycall'); ?> <span>$<?php echo $clean_price_toll_free_fixed; ?></span></div>
+            <?php endif;
+        }
+    }
+
+    $html = ob_get_contents();
+    ob_get_clean();
+    echo $html;
+    wp_reset_postdata();
+    wp_die();
+}
+add_action('wp_ajax_filter_toll_free', 'filter_toll_free');
+add_action('wp_ajax_nopriv_filter_toll_free', 'filter_toll_free');

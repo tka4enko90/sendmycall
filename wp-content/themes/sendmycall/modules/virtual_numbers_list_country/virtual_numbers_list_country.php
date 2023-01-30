@@ -25,24 +25,30 @@ if ( ! empty( $posts ) ) : ?>
             <?php endif; ?>
             <div class="section-virtual_numbers_list_country-holder <?php if ($virtual_numbers_list_country['select_country'] == 'toll_free') {echo 'toll_free';}?>">
                <?php
-                foreach($posts as $post) {
-                    if ($post->post_parent !== 0) continue;
-                    $iso = get_field('iso', $post->ID);
-                    $toll_free_codes = [];
+                if ( ! empty( $posts ) ) {
+                    foreach ($posts as $post) {
+                        if ($post->post_parent !== 0) continue;
+                        $iso = get_field('iso', $post->ID);
+                        $toll_free_codes = [];
 
-                    foreach ( $posts as $child ) {
-                        if ( $child->post_parent == $post->ID ) {
-                            $toll_free_codes[] = get_field('prefix', $child->ID);
+                        foreach ($posts as $child) {
+                            if ($child->post_parent == $post->ID) {
+                                $toll_free_codes[] = get_field('prefix', $child->ID);
+                            }
                         }
+                        ?>
+                        <div class="section-virtual_numbers_list_country-item">
+                            <a href="<?php echo get_permalink($post->id) ?>">
+                                <img width="16px" height="16px"
+                                     src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/flags/' . strtolower($iso) . '.png'); ?>"
+                                     alt="Country flag <?php echo $post->post_title; ?>">
+                                <?php echo $post->post_title; ?> <?php if ($virtual_numbers_list_country['select_country'] == 'toll_free') {
+                                    echo '(' . implode(',', $toll_free_codes) . ')';
+                                } ?>
+                            </a>
+                        </div>
+                        <?php
                     }
-                    ?>
-                    <div class="section-virtual_numbers_list_country-item">
-                        <a href="<?php echo get_permalink($post->id) ?>">
-                            <img width="16px" height="16px" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/flags/' . strtolower( $iso ).'.png' ); ?>" alt="Country flag <?php echo $post->post_title;?>" >
-                            <?php echo $post->post_title; ?> <?php if ($virtual_numbers_list_country['select_country'] == 'toll_free') { echo '(' . implode(',', $toll_free_codes) . ')'; } ?>
-                        </a>
-                    </div>
-                    <?php
                 }
                 ?>
                 <?php wp_reset_postdata(); ?>

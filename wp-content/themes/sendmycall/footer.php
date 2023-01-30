@@ -122,7 +122,7 @@ $text_copyright                   = get_field( 'text_copyright', 'options' );
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.50008 11.0832V2.83317L1.63341 6.7165L0.916748 5.99984L6.00008 0.916504L11.0834 5.99984L10.3667 6.7165L6.50008 2.83317V11.0832H5.50008Z" fill="#09243D"/>
                         </svg>
-                        Back to top
+                        <?php echo esc_html__('Back to top', 'sendmycall'); ?>
                     </a>
                 </div>
             </div>

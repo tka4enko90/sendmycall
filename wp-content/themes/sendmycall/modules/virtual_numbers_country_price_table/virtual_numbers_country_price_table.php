@@ -23,45 +23,48 @@ if (  $virtual_numbers_country_price_table['show_table'] ) : ?>
         <div class="container">
             <div class="section-virtual_numbers_country_price_table-holder">
                 <table>
-                <thead>
-                <tr>
-                    <th>Prefix</th>
-                    <th>City</th>
-                    <th>Setup price</th>
-                    <th>Monthly price</th>
-                    <th></th>
-                </tr>
-                </thead>
-                    <tbody>
-                    <?php
-                    $prefix_parent = get_field('prefix', $post->ID);
-                    $price_country      = get_field('price_options', $post->ID);
-                    foreach( $children as $child ) {
-                        $prefix = get_field('prefix', $child->ID);
-                        $price_region = get_field('price_options', $child->ID);
-                        ?>
+                    <thead>
                         <tr>
-                            <td><?php echo $prefix_parent;?>-<?php echo $prefix;?></td>
-                            <td><?php echo $child->post_title;?></td>
-                            <td>
-                                <?php
-                                echo $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
-                                ?>
-                            </td>
-                            <td>
-                                <?php
-                                echo $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
-                                ?>
-                            </td>
-                            <td>Read more about
-                                <a href="<?php echo get_permalink($child->ID) ?>">
-                                    Virtual Number in <?php echo $child->post_title;?>
-                                </a>
-                            </td>
+                            <th><?php echo esc_html__('Prefix', 'sendmycall') ?></th>
+                            <th><?php echo esc_html__('City', 'sendmycall') ?></th>
+                            <th><?php echo esc_html__('Setup price', 'sendmycall') ?></th>
+                            <th><?php echo esc_html__('Monthly price', 'sendmycall') ?></th>
+                            <th></th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $prefix_parent = get_field('prefix', $post->ID);
+                        $price_country = get_field('price_options', $post->ID);
+                        if (!empty($children)) :
+                            foreach( $children as $child ) :
+                                $prefix       = get_field('prefix', $child->ID);
+                                $price_region = get_field('price_options', $child->ID);
+                                $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
+                                $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
+                                ?>
+                                <tr>
+                                    <?php if ( !empty($prefix_parent) || !empty($prefix) ) : ?>
+                                        <td><?php echo $prefix_parent;?>-<?php echo $prefix;?></td>
+                                    <?php endif; ?>
+                                    <td><?php echo $child->post_title;?></td>
+                                    <?php if ( !empty($setup_price)) : ?>
+                                        <td>$<?php echo $setup_price = str_replace('$', '', $setup_price); ?></td>
+                                    <?php endif; ?>
+                                    <?php if ( !empty($monthly_price)) : ?>
+                                        <td>$<?php echo $monthly_price = str_replace('$', '', $monthly_price);  ?></td>
+                                    <?php endif; ?>
+                                    <td><?php echo esc_html__('Read more about', 'sendmycall') ?>
+                                        <a href="<?php echo get_permalink($child->ID) ?>">
+                                            <?php echo esc_html__('Virtual Number in', 'sendmycall') ?> <?php echo $child->post_title;?>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php
+                            endforeach;
+                        endif; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

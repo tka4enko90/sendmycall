@@ -20,9 +20,7 @@ if ( ! empty( $virtual_number_restrictions ) ) : ?>
                     <?php if ( ! empty( $country['title'] ) ) : ?>
                         <h4><?php echo wp_kses_post( $country['title'] ); ?></h4>
                     <?php endif; ?>
-                    <?php if ( ! empty( $country['list'] ) ) {
-                        echo wp_kses_post($country['list']);
-                    } ?>
+                    <?php if ( ! empty( $country['list'] ) ) { echo wp_kses_post($country['list']); } ?>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>

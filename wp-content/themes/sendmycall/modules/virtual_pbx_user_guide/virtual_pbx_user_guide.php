@@ -33,7 +33,7 @@ get_header();
                             <?php if ( ! empty( $virtual_pbx_user_guide_item['description'] ) ) {
                                 echo wp_kses_post($virtual_pbx_user_guide_item['description']);
                             } ?>
-                            <a class="scroll-to" href="#Top">Back to the top</a>
+                            <a class="scroll-to" href="#Top"><?php echo esc_html__('Back to the top', 'sendmycall'); ?></a>
                             <?php foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
                                 <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
                                     <div id="<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
@@ -43,7 +43,7 @@ get_header();
                                 <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['description'] ) ) {
                                     echo wp_kses_post($sub_virtual_pbx_user_guide_item['description']);
                                 } ?>
-                                <a class="scroll-to" href="#Top">Back to the top</a>
+                                <a class="scroll-to" href="#Top"><?php echo esc_html__('Back to the top', 'sendmycall'); ?></a>
                             <?php endforeach; ?>
                         <?php endforeach; ?>
                     <?php endif; ?>

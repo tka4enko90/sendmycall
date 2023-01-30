@@ -19,8 +19,9 @@ $posts_per_page_options = [
     '100' => '100',
     'All' => '-1'
 ];
-$posts_per_page = (isset($_GET['posts_per_page'])) ? $_GET['posts_per_page'] : $posts_per_page_options[0];
-
+if (!empty($posts_per_page_options[0])) {
+    $posts_per_page = (isset($_GET['posts_per_page'])) ? $_GET['posts_per_page'] : $posts_per_page_options[0];
+}
 $args = array(
     'post_type'      => 'forwarding_rates',
     'posts_per_page' => $posts_per_page,
@@ -56,7 +57,7 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                 <form action="" id="form_select">
                     <div id="selectors">
                         <select id="sel_country" name="country">
-                            <option value="">Select country for filter</option>
+                            <option value=""><?php echo esc_html__('Select country for filter', 'sendmycall'); ?></option>
                             <?php
                             $countries = get_terms( array(
                                 'taxonomy' => 'country',
@@ -75,10 +76,10 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Country</th>
-                                <th>Network</th>
-                                <th>Prefix</th>
-                                <th>Per Minute Rate</th>
+                                <th><?php echo esc_html__('Country', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Network', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Prefix', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Per Minute Rate', 'sendmycall'); ?></th>
                             </tr>
                             </thead>
                             <tbody id="countries">
@@ -95,24 +96,12 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                                         ?>
                                         <tr class="<?php echo $country_name; ?>">
                                             <td><?php echo $country_name; ?></td>
-                                            <td>
-                                                <?php
-                                                if ( !empty($forwarding_rates_options['network']) ) {
-                                                    echo $forwarding_rates_options['network'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                if ( !empty($forwarding_rates_options['prefix']) ) {
-                                                    echo $forwarding_rates_options['prefix'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
+                                            <td><?php if ( !empty($forwarding_rates_options['network']) ) { echo $forwarding_rates_options['network']; } ?></td>
+                                            <td><?php if ( !empty($forwarding_rates_options['prefix']) ) { echo $forwarding_rates_options['prefix']; } ?></td>
+                                            <td><?php
                                                 if ( !empty($forwarding_rates_options['per_minute_rate']) ) {
-                                                    echo $forwarding_rates_options['per_minute_rate'];
+                                                    $clean_price = str_replace('$', '', $forwarding_rates_options['per_minute_rate']);
+                                                    echo '$'.$clean_price;
                                                 }
                                                 ?>
                                             </td>
@@ -138,17 +127,23 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                             ?>
                         </div>
                         <div class="limit_holder">
-                            <span>Display # </span>
+                            <span><?php echo esc_html__('Display # ', 'sendmycall'); ?></span>
                             <div class="limit_select">
                                 <select id="limit" name="posts_per_page">
                                     <?php foreach ($posts_per_page_options as $key => $val) : ?>
-                                        <option value="<?php echo $val; ?>" <?php selected( $_GET['posts_per_page'], $val ) ?>><?php echo $key; ?></option>
+                                        <option value="<?php echo $val; ?>"
+                                            <?php
+                                            if (!empty($posts_per_page_options[0])) {
+                                                selected(isset($_GET['posts_per_page']) ? $_GET['posts_per_page'] : $posts_per_page_options[0], $val) ;
+                                            }?>>
+                                            <?php echo $key; ?>
+                                        </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>
                         <div class="counter">
-                            Page <?php echo $paged; ?> of <?php echo $total_pages ; ?>
+                            <?php echo esc_html__('Page', 'sendmycall'); echo $paged; echo esc_html__('of', 'sendmycall'); echo $total_pages ; ?>
                         </div>
                     </div>
                     <input type="hidden" value="1" name="page">

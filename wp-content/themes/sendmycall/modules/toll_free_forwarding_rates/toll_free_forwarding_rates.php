@@ -8,9 +8,7 @@ if ( ! empty( $toll_free_forwarding_rates ) ) : ?>
     <section class="section-toll_free_forwarding_rates">
         <div class="section-toll_free_forwarding_rates-content">
             <div class="container">
-                <?php if ( $toll_free_forwarding_rates['text'] ) : ?>
-                    <?php echo wp_kses_post( $toll_free_forwarding_rates['text'] ); ?>
-                <?php endif; ?>
+                <?php if ( $toll_free_forwarding_rates['text'] ) { echo wp_kses_post( $toll_free_forwarding_rates['text'] ); } ?>
                 <div class="btn_holder">
                     <?php if ( $toll_free_forwarding_rates['btn_link'] ) : ?>
                         <a href="<?php echo esc_url( $toll_free_forwarding_rates['btn_link']['url'] ); ?>"
