@@ -217,6 +217,8 @@ function filter_forwarding_rates() {
             $terms = get_the_terms($post->ID, 'country');
             $forwarding_rates_options = get_field('forwarding_rates_options', $post->ID);
             $prefix = $forwarding_rates_options['prefix'];
+            $per_minute_rate = $forwarding_rates_options['per_minute_rate'];
+            $clean_per_minute_rate = str_replace('$', '', $per_minute_rate);
             if (!empty($terms)) {
                 $country_name = $terms[0]->name == $current_country ? '' : $terms[0]->name;
                 $current_country = $terms[0]->name;
@@ -225,7 +227,7 @@ function filter_forwarding_rates() {
             <tr>
                 <td class="destination_сountry"><?php echo $country_name; ?></td>
                 <td class="prefix"><?php echo $prefix; ?></td>
-                <td class="per_minute_rate">$<?php echo$forwarding_rates_options['per_minute_rate']; ?></td>
+                <td class="per_minute_rate">$<?php echo $clean_per_minute_rate ?></td>
                 <td class="per_minute_rate"><?php echo esc_html__('Free', 'sendmycall'); ?></td>
             </tr>
             <?php
