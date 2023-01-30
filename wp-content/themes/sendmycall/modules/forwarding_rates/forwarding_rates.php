@@ -56,7 +56,7 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                 <form action="" id="form_select">
                     <div id="selectors">
                         <select id="sel_country" name="country">
-                            <option value="">Select country for filter</option>
+                            <option value=""><?php echo esc_html__('Select country for filter', 'sendmycall'); ?></option>
                             <?php
                             $countries = get_terms( array(
                                 'taxonomy' => 'country',
@@ -75,10 +75,10 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Country</th>
-                                <th>Network</th>
-                                <th>Prefix</th>
-                                <th>Per Minute Rate</th>
+                                <th><?php echo esc_html__('Country', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Network', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Prefix', 'sendmycall'); ?></th>
+                                <th><?php echo esc_html__('Per Minute Rate', 'sendmycall'); ?></th>
                             </tr>
                             </thead>
                             <tbody id="countries">
@@ -126,7 +126,7 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                             ?>
                         </div>
                         <div class="limit_holder">
-                            <span>Display # </span>
+                            <span><?php echo esc_html__('Display # ', 'sendmycall'); ?></span>
                             <div class="limit_select">
                                 <select id="limit" name="posts_per_page">
                                     <?php foreach ($posts_per_page_options as $key => $val) : ?>
@@ -136,7 +136,7 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                             </div>
                         </div>
                         <div class="counter">
-                            Page <?php echo $paged; ?> of <?php echo $total_pages ; ?>
+                            <?php echo esc_html__('Page', 'sendmycall'); echo $paged; echo esc_html__('of', 'sendmycall'); echo $total_pages ; ?>
                         </div>
                     </div>
                     <input type="hidden" value="1" name="page">
