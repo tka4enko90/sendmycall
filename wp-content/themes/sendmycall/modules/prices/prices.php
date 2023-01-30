@@ -274,4 +274,5 @@ if ( ! empty( $prices ) ) : ?>
         </div>
     </div>
 </section>
+<?php wp_reset_postdata(); ?>
 <?php endif; ?>
