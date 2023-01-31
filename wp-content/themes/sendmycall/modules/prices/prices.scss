@@ -81,9 +81,6 @@
       }
       &-wrap {
         margin-bottom: 37px;
-        @include media-breakpoint-down(sm) {
-          overflow: auto;
-        }
       }
       &-info {
         display: flex;
@@ -132,7 +129,6 @@
             right: 10px;
             transform: rotate(90deg);
             color: #f0f0f0;
-
           }
         }
       }
@@ -161,6 +157,7 @@
           padding-left: 8px;
           padding-right: 20px;
           font-size: 16px;
+          background-color: $white;
         }
         .select2-container {
           @include media-breakpoint-down(sm) {
