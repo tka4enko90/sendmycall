@@ -228,7 +228,7 @@ function filter_forwarding_rates() {
                 <td class="destination_сountry"><?php echo $country_name; ?></td>
                 <td class="prefix"><?php echo $prefix; ?></td>
                 <td class="per_minute_rate">$<?php echo $clean_per_minute_rate ?></td>
-                <td class="per_minute_rate"><?php echo esc_html__('Free', 'sendmycall'); ?></td>
+                <td class="voip"><?php echo esc_html__('Free', 'sendmycall'); ?></td>
             </tr>
             <?php
         }

@@ -121,7 +121,7 @@ if ( ! empty( $prices ) ) : ?>
                                 <td class="destination_сountry">-</td>
                                 <td class="prefix">-</td>
                                 <td class="per_minute_rate">-</td>
-                                <td><?php echo esc_html__('Free', 'sendmycall'); ?></td>
+                                <td class="voip">-</td>
                             </tr>
                         </tbody>
                     </table>

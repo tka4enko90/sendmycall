@@ -10,6 +10,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    @include media-breakpoint-down(sm) {
+      top: 40%;
+      object-position: 73% 0;
+    }
   }
   &-prices {
     padding-top: 70px;
@@ -24,8 +28,19 @@
         }
       }
     }
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+      &:hover {
+        color: $text-color;
+      }
+    }
     &-content {
       max-width: 750px;
+      h2 {
+        margin-bottom: 16px;
+      }
     }
     &-notification {
       background: rgba(69, 161, 240, 0.1);
@@ -49,6 +64,7 @@
       }
     }
     &-table {
+      margin-top: 24px;
       &-holder {
         display: flex;
         margin-bottom: 30px;
@@ -58,6 +74,9 @@
         }
         @include media-breakpoint-up(xxl) {
           justify-content: space-between;
+        }
+        select {
+          -webkit-appearance: none
         }
       }
       &-wrap {
@@ -128,9 +147,20 @@
         @include media-breakpoint-down(sm) {
           margin-bottom: 18px;
           max-width: 100%;
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
         select {
           width: 100%;
+          border: 1px solid $primary-color;
+          height: 50px;
+          line-height: 50px;
+          border-radius: 8px;
+          color: $primary-color;
+          padding-left: 8px;
+          padding-right: 20px;
+          font-size: 16px;
         }
         .select2-container {
           @include media-breakpoint-down(sm) {
@@ -140,6 +170,7 @@
             border: 1px solid $primary-color;
             height: 50px;
             line-height: 50px;
+            border-radius: 8px;
           }
           .select2-selection__rendered {
             color: $primary-color;
@@ -176,6 +207,7 @@
         border-right: 1px solid $border-color;
         width: 100%;
         margin: 0 auto;
+        color: $heading-color;
         th, td {
           padding: 8px;
           line-height: 20px;
@@ -187,7 +219,7 @@
           width: 20%;
         }
         th {
-          background-color: $bg-light-grey;
+          background-color: $white;
           border-top: 1px solid $border-color;
         }
       }
@@ -196,6 +228,9 @@
       position: relative;
       padding: 70px 0;
       display: none;
+      @include media-breakpoint-down(sm) {
+        overflow: hidden;
+      }
       &_plans {
         border: 1px solid $border-color;
         border-radius: 10px;
@@ -232,6 +267,9 @@
             .section-prices-subscription_plans-item-economy {
               display: none;
             }
+          }
+          &-prices {
+            color: $heading-color;
           }
           &-sale {
             font-size: 16px;
@@ -279,6 +317,9 @@
         }
         @include media-breakpoint-down(sm) {
           min-height: 334px;
+        }
+        @include media-breakpoint-down(xs) {
+          min-height: 260px;
         }
         &-wrap {
           width: 100%;
