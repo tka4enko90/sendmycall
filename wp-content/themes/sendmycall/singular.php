@@ -53,7 +53,10 @@ get_header();
                                 </h2>
                             <?php endif; ?>
                             <div class="section-singular-text">
-                                <?php if ( !empty( $single_description ) ) { echo wp_kses_post( $single_description ); } ?>
+                                <?php if ( !empty( $single_description ) ) {
+                                    $replace_single_description = str_replace('{{country_variable}}', $parent_post_title, $single_description);
+                                    echo wp_kses_post( $replace_single_description );
+                                } ?>
                             </div>
                             <?php the_content(); ?>
                         </div>
