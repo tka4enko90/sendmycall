@@ -16,6 +16,7 @@ $price_region       = get_field('price_options', $post->ID);
 $price_country      = get_field('price_options', $post->post_parent);
 $title              = get_field( 'virtual_number_single_page_title', 'options' );
 $btn_buy_link       = get_field( 'btn_buy_link', 'options' );
+$single_description = get_field('single_description', 'options');
 
 get_header();
 ?>
@@ -48,9 +49,15 @@ get_header();
                                         echo esc_html__('Toll-free numbers for', 'sendmycall');
                                     }
                                     echo "&nbsp";
-                                    echo $parent_post_title?>
+                                    echo $parent_post_title;?>
                                 </h2>
                             <?php endif; ?>
+                            <div class="section-singular-text">
+                                <?php if ( !empty( $single_description ) ) {
+                                    $replace_single_description = str_replace('{{country_variable}}', $parent_post_title, $single_description);
+                                    echo wp_kses_post( $replace_single_description );
+                                } ?>
+                            </div>
                             <?php the_content(); ?>
                         </div>
                         <div class="section-singular-col">
@@ -91,7 +98,11 @@ get_header();
                                             target="<?php echo $btn_buy_link['target']; ?>"
                                         <?php endif;?>
                                        class="btn btn-primary">
-                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/buy_icon.png' ?>" >
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="#fff">
+                                            <path d="M12 29c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
+                                            <path d="M32 29c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
+                                            <path d="M32 16v-12h-24c0-1.105-0.895-2-2-2h-6v2h4l1.502 12.877c-0.915 0.733-1.502 1.859-1.502 3.123 0 2.209 1.791 4 4 4h24v-2h-24c-1.105 0-2-0.895-2-2 0-0.007 0-0.014 0-0.020l26-3.98z"></path>
+                                        </svg>
                                         <?php echo $btn_buy_link['title']; ?>
                                     </a>
                                 <?php endif; ?>
@@ -99,6 +110,21 @@ get_header();
                         </div>
                     </div>
                 </div>
+            </section>
+            <section class="section-singular-flexible">
+                <?php
+                if ( have_rows( 'modules', get_the_ID() ) ) {
+                    while ( have_rows( 'modules', get_the_ID() ) ) {
+                        the_row();
+                        $layout = get_row_layout();
+                        $template = get_template_directory() . '/modules/' . $layout . '/' . $layout . '.php';
+
+                        if (file_exists($template)) {
+                            get_template_part('modules/' . $layout . '/' . $layout);
+                        }
+                    }
+                }
+                ?>
             </section>
         <?php
         }
