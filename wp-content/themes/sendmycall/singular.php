@@ -65,13 +65,13 @@ get_header();
                                 <?php if ( !empty( $post_title && $parent_post_title ) ) : ?>
                                     <h3 class="section-singular-holder-title">
                                         <?php
-                                        echo esc_html__('BUY', 'sendmycall');
+                                        echo esc_html__('BUY ', 'sendmycall');
                                         if ($post->post_type == 'virtual_number') {
                                             echo "virtual number";
                                         } else {
                                             echo $post_title;
                                         }
-                                        echo esc_html__('IN', 'sendmycall');
+                                        echo esc_html__(' IN ', 'sendmycall');
                                         echo $parent_post_title;
                                         ?>
                                     </h3>
