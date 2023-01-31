@@ -70,7 +70,7 @@ get_header();
                                     </h3>
                                 <?php endif;?>
                                 <?php if ( !empty( $prefix_child && $prefix_parent ) ) : ?>
-                                    <p><?php echo esc_html__('Setup price:', 'sendmycall'); ?>Prefix: <?php echo $prefix_parent;?>-<?php echo $prefix_child;?></p>
+                                    <p><?php echo esc_html__('Prefix:', 'sendmycall'); ?> <?php echo $prefix_parent;?>-<?php echo $prefix_child;?></p>
                                 <?php endif;?>
                                 <?php
                                 $setup_price = !empty($price_region['setup_price']) ? $price_region['setup_price'] : $price_country['setup_price'];
