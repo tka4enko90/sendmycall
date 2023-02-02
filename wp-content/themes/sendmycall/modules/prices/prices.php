@@ -49,23 +49,13 @@ if ( ! empty( $prices ) ) : ?>
                         </select>
                     </div>
                     <div class="section-prices-table-item">
-                        <select value="" name="type" id="type">
-                            <option value=""><?php echo esc_html__('Number Type', 'sendmycall'); ?></option>
-                            <option value="global"><?php echo esc_html__('Global', 'sendmycall'); ?></option>
-                            <option value="local"><?php echo esc_html__('Local', 'sendmycall'); ?></option>
-                            <option value="mobile"><?php echo esc_html__('Mobile', 'sendmycall'); ?></option>
-                            <option value="national"><?php echo esc_html__('National', 'sendmycall'); ?></option>
-                            <option value="toll_free"><?php echo esc_html__('Toll Free', 'sendmycall'); ?></option>
-                        </select>
-                    </div>
-                    <div class="section-prices-table-item">
                         <select name="cities" id="cities">
                             <option value=""><?php echo esc_html__('City\State', 'sendmycall'); ?></option>
                         </select>
                     </div>
                     <div class="section-prices-table-item">
                         <select name="destination" id="destination">
-                            <option value=""><?php echo esc_html__('Forwarding Destination Country', 'sendmycall'); ?></option>
+                            <option value=""><?php echo esc_html__('Select Destination Country', 'sendmycall'); ?></option>
                             <?php
                             $countries = get_terms( array(
                                 'taxonomy' => 'country',
@@ -86,6 +76,7 @@ if ( ! empty( $prices ) ) : ?>
                     </div>
                 </div>
                 <div class="section-prices-table-wrap">
+                    <h3><?php if ( !empty( $prices['table_title'] ) ) { echo wp_kses_post( $prices['table_title'] ); } ?></h3>
                     <table class="table" id="response">
                         <thead>
                             <tr>
@@ -121,7 +112,7 @@ if ( ! empty( $prices ) ) : ?>
                                 <td class="destination_сountry">-</td>
                                 <td class="prefix">-</td>
                                 <td class="per_minute_rate">-</td>
-                                <td class="voip">-</td>
+                                <td class="voip"><?php echo esc_html__('Free', 'sendmycall'); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -160,7 +151,7 @@ if ( ! empty( $prices ) ) : ?>
                                     <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('3 month', 'sendmycall'); ?></div>
                                     <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_3"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
-                                <div class="section-prices-subscription_plans-item-sale">-10%</div>
+                                <div class="section-prices-subscription_plans-item-sale_3"></div>
                                 <div class="section-prices-subscription_plans-item-economy">
                                     $<span class="subscription_economy_3"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
@@ -171,7 +162,7 @@ if ( ! empty( $prices ) ) : ?>
                                     <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('6 month', 'sendmycall'); ?></div>
                                     <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_6"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
-                                <div class="section-prices-subscription_plans-item-sale">-15%</div>
+                                <div class="section-prices-subscription_plans-item-sale_6"></div>
                                 <div class="section-prices-subscription_plans-item-economy">
                                     $<span class="subscription_economy_6"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
@@ -182,7 +173,7 @@ if ( ! empty( $prices ) ) : ?>
                                     <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('12 month', 'sendmycall'); ?></div>
                                     <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_12"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
-                                <div class="section-prices-subscription_plans-item-sale">-25%</div>
+                                <div class="section-prices-subscription_plans-item-sale_12"></div>
                                 <div class="section-prices-subscription_plans-item-economy">
                                     $<span class="subscription_economy_12"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>

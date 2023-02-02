@@ -19,9 +19,7 @@ $posts_per_page_options = [
     '100' => '100',
     'All' => '-1'
 ];
-if (!empty($posts_per_page_options[0])) {
-    $posts_per_page = (isset($_GET['posts_per_page'])) ? $_GET['posts_per_page'] : $posts_per_page_options[0];
-}
+$posts_per_page = (isset($_GET['posts_per_page'])) ? $_GET['posts_per_page'] : 5;
 $args = array(
     'post_type'      => 'forwarding_rates',
     'posts_per_page' => $posts_per_page,
@@ -66,7 +64,12 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                             if (!empty($countries)) :
                                 foreach( $countries as $country ) : ?>
                                     <option value="<?php echo $country->slug; ?>"
-                                        <?php selected($_GET['country'],$country->slug ) ?> ><?php echo $country->name; ?>
+                                        <?php
+                                        $get_country = esc_html__('Select country for filter', 'sendmycall');
+                                        if( isset($_GET['country']) ) {
+                                            $get_country = $_GET['country'];
+                                        }
+                                        selected($get_country, $country->slug ) ?> ><?php echo $country->name; ?>
                                     </option>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -132,10 +135,7 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                                 <select id="limit" name="posts_per_page">
                                     <?php foreach ($posts_per_page_options as $key => $val) : ?>
                                         <option value="<?php echo $val; ?>"
-                                            <?php
-                                            if (!empty($posts_per_page_options[0])) {
-                                                selected(isset($_GET['posts_per_page']) ? $_GET['posts_per_page'] : $posts_per_page_options[0], $val) ;
-                                            }?>>
+                                            <?php selected($posts_per_page , $val); ?>>
                                             <?php echo $key; ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -143,7 +143,7 @@ if ( ! empty( $forwarding_rates ) ) : ?>
                             </div>
                         </div>
                         <div class="counter">
-                            <?php echo esc_html__('Page', 'sendmycall'); echo $paged; echo esc_html__('of', 'sendmycall'); echo $total_pages ; ?>
+                            <?php echo esc_html__('Page ', 'sendmycall'); echo $paged; echo esc_html__(' of ', 'sendmycall'); echo $total_pages ; ?>
                         </div>
                     </div>
                     <input type="hidden" value="1" name="page">
