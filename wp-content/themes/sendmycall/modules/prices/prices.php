@@ -82,7 +82,6 @@ if ( ! empty( $prices ) ) : ?>
                             <tr>
                                 <th><?php echo esc_html__('Destination Country', 'sendmycall'); ?></th>
                                 <th><?php echo esc_html__('Prefix', 'sendmycall'); ?></th>
-                                <th><?php echo esc_html__('Per Minute Rate', 'sendmycall'); ?></th>
                                 <th>
                                     <div class="section-prices-table-info">
                                         <?php echo esc_html__('VoIP', 'sendmycall'); ?>
@@ -105,14 +104,15 @@ if ( ! empty( $prices ) ) : ?>
                                         </div>
                                     </div>
                                 </th>
+                                <th><?php echo esc_html__('Per Minute Rate', 'sendmycall'); ?></th>
                             </tr>
                         </thead>
                         <tbody id="countries">
                             <tr>
                                 <td class="destination_сountry">-</td>
                                 <td class="prefix">-</td>
-                                <td class="per_minute_rate">-</td>
                                 <td class="voip"><?php echo esc_html__('Free', 'sendmycall'); ?></td>
+                                <td class="per_minute_rate">-</td>
                             </tr>
                         </tbody>
                     </table>
@@ -142,40 +142,40 @@ if ( ! empty( $prices ) ) : ?>
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
                                     <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('1 month', 'sendmycall'); ?></div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price">9.95/</span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
                             </div>
 
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
                                     <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('3 month', 'sendmycall'); ?></div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_3"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_3">8.96/</span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
-                                <div class="section-prices-subscription_plans-item-sale_3"></div>
+                                <div class="section-prices-subscription_plans-item-sale_3">-10%</div>
                                 <div class="section-prices-subscription_plans-item-economy">
-                                    $<span class="subscription_economy_3"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
+                                    $<span class="subscription_economy_3">2.98</span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
                             </div>
 
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
                                     <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('6 month', 'sendmycall'); ?></div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_6"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_6">8.46/</span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
-                                <div class="section-prices-subscription_plans-item-sale_6"></div>
+                                <div class="section-prices-subscription_plans-item-sale_6">-15%</div>
                                 <div class="section-prices-subscription_plans-item-economy">
-                                    $<span class="subscription_economy_6"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
+                                    $<span class="subscription_economy_6">8.96</span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
                             </div>
 
                             <div class="section-prices-subscription_plans-item">
                                 <div class="section-prices-subscription_plans-item-prices">
                                     <div class="section-prices-subscription_plans-item-text"><?php echo esc_html__('12 month', 'sendmycall'); ?></div>
-                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_12"></span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
+                                    <div class="section-prices-subscription_plans-item-price">$<span class="subscription_price_12">7.46/</span><span><?php echo esc_html__('monthly', 'sendmycall'); ?></span></div>
                                 </div>
-                                <div class="section-prices-subscription_plans-item-sale_12"></div>
+                                <div class="section-prices-subscription_plans-item-sale_12">-25%</div>
                                 <div class="section-prices-subscription_plans-item-economy">
-                                    $<span class="subscription_economy_12"></span> <?php echo esc_html__('economy', 'sendmycall'); ?>
+                                    $<span class="subscription_economy_12">29.85</span> <?php echo esc_html__('economy', 'sendmycall'); ?>
                                 </div>
                             </div>
                         </div>
