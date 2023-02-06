@@ -22,7 +22,8 @@ function child_row (  $prefix_parent, $prefix_child, $country_name, $network, $p
     ?>
     <tr class="<?php echo $country_name; ?>">
         <?php if ($show_title) : ?>
-            <td rowspan="<?php echo $tolls_count;?>"><?php echo $country_name; ?>&nbsp;<?php echo $monthly_price; ?></td>
+            <?php $clean_monthly_price = str_replace('$', '', $monthly_price); ?>
+            <td rowspan="<?php echo $tolls_count;?>"><?php echo $country_name; ?>&nbsp;<?php echo '$' . $clean_monthly_price; ?></td>
         <?php endif; ?>
         <td>
             <?php echo $prefix_parent . "-" . $prefix_child; ?>
@@ -31,7 +32,8 @@ function child_row (  $prefix_parent, $prefix_child, $country_name, $network, $p
             <?php echo $network; ?>
         </td>
         <td>
-            <?php echo $price; ?>
+            <?php $clean_price = str_replace('$', '', $price); ?>
+            $<?php echo $clean_price; ?>
         </td>
     </tr>
     <?php

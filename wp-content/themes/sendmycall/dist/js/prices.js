@@ -99,7 +99,15 @@
     var destination = $('#destination').select2();
     var country_from = $('#country_from').select2();
     var prices_notification = $('.section-prices-notification-holder');
-    var prices_subscription = $('.section-prices-subscription');
+    $('select').on('select2:open', function (e) {
+      var select_id = e.target.id;
+      $(".select2-search__field[aria-controls='select2-" + select_id + "-results']").each(function (key, value) {
+        value.focus();
+      });
+    });
+    $("select").on("select2:open", function () {
+      $(".select2-search--dropdown .select2-search__field").attr("placeholder", "Search...");
+    });
     function clear_content() {
       $('#countries td:not(.voip)').html('-');
       $('#countries tr:not(:first)').remove();
@@ -126,7 +134,6 @@
         cities.prop('disabled', false);
         destination.prop('disabled', true);
         destination.val(null).trigger('change');
-        prices_subscription.hide();
         $("#countries td:not(.voip)").html('-');
         $('#countries tr:not(:first)').remove();
         var post_id = $(this).val();
@@ -164,7 +171,6 @@
         var slug = $('#country_from').find(":selected").data("slug-country-from");
         var toll_free_price = $('.section-prices-notification-rate');
         if (price === '') {
-          $('.section-prices-subscription').hide();
           return;
         }
         var sale_array = [{
@@ -215,11 +221,6 @@
       });
       cities.on('change', function () {
         destination.prop('disabled', false);
-        if ($(this).val() === '') {
-          prices_subscription.hide();
-        } else {
-          prices_subscription.show();
-        }
       });
     }
     if (destination.length) {
