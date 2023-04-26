@@ -99,11 +99,13 @@ jQuery(document).ready(function ($) {
    */
   $(document).on('click', '.scroll-to', function (e) {
     e.preventDefault();
+    var hash = $(this).attr('href').split('#')[1];
     var $scrollTo = $('.scroll-to');
     if ($scrollTo.length) {
       $('html, body').animate({
         scrollTop: $($.attr(this, 'href')).offset().top - 100
       }, 500);
+      window.location.hash = hash;
     }
   });
 });

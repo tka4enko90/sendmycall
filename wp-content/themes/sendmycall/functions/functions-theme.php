@@ -14,6 +14,12 @@ add_image_size( 'sidebar_img', 250, 250 );
 add_image_size( 'price_img', 420, 548 );
 
 /**
+ * Post thumbnails
+ */
+
+add_theme_support( 'post-thumbnails' );
+
+/**
  * Disable gutenberg
  */
 
@@ -164,17 +170,28 @@ function filter_cities() {
         'post_parent' => intval($country_post_id)
     ]);
 
-    $price_country = get_field('price_options', $country_post_id);
-    $response = [];
+    $price_country  = get_field('price_options', intval($country_post_id));
+    $prefix_country = get_field('prefix', intval($country_post_id));
+
+    $response       = [];
+    $show_toll_free = 0;
+
     if (!empty($virtual_number)) {
         foreach ($virtual_number as $city) {
-            $price_region = get_field('price_options', $city->ID);
+            $prefix_city    = get_field('prefix', $city->ID);
+            $price_region  = get_field('price_options', $city->ID);
+
             $monthly_price = !empty($price_region['monthly_price']) ? $price_region['monthly_price'] : $price_country['monthly_price'];
-            $clean_price = str_replace('$', '', $monthly_price);
+            $clean_price   = str_replace('$', '', $monthly_price);
+            
+            if ( $city->post_title === "Toll-free" ) {
+                $show_toll_free = 1;
+            }
             $response[] = array(
                 'id' => $city->ID,
-                'text' => $city->post_title,
-                'monthly_price' => $clean_price
+                'text' => $city->post_title . " (" . $prefix_country . "-" .  $prefix_city . ")",
+                'monthly_price' => $clean_price,
+                'show_toll_free' => $show_toll_free
             );
         }
     }
@@ -304,3 +321,9 @@ function filter_toll_free() {
 }
 add_action('wp_ajax_filter_toll_free', 'filter_toll_free');
 add_action('wp_ajax_nopriv_filter_toll_free', 'filter_toll_free');
+
+/**
+ * Remove p tag from Contact Form 7 form
+ */
+
+add_filter( 'wpcf7_autop_or_not', '__return_false' );

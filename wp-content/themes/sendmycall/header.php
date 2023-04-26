@@ -3,19 +3,44 @@
  * @package WordPress
  * @subpackage Sendmycall
  */
-
+global $post;
 $logo  = get_field( 'logo', 'options' );
 $tel_1 = get_field( 'top_bar_tel', 'options' );
 $tel_2 = get_field( 'top_bar_tel_2', 'options' );
 $email = get_field( 'top_bar_email', 'options' );
 $buy_now = get_field( 'header_buy_now', 'options' );
+
+$post_id        = get_the_ID();
+$prefix_city    = get_field('prefix', $post_id);
+$prefix_country = get_field('prefix', $post->post_parent);
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title><?php the_title(); ?></title>
+    <title>
+        <?php
+        if ( ( get_post_type($post_id) === 'virtual_number' && $post->post_parent === 0) || ( get_post_type($post_id) === 'toll_free' && $post->post_parent === 0 ) ) {
+            echo get_the_title() . " Virtual Numbers" .  " | " . get_the_title() . " Toll-Free numbers" . " | " . get_bloginfo( 'name' );
+        } elseif ( ( get_post_type($post_id) === 'virtual_number' && $post->post_parent !== 0) || ( get_post_type($post_id) === 'toll_free' && $post->post_parent !== 0 ) ) {
+            echo get_the_title() . " " . $prefix_country . "-" . $prefix_city .  " | " . get_the_title() . " Virtual numbers" . " | " . get_bloginfo( 'name' );
+        } elseif (is_page("toll-free")) {
+            echo "SendMyCall | Toll-Free | Coverage: Local, Mobile, National and Toll-Free numbers with Free PBX";
+        } elseif (is_page("virtual-numbers")) {
+            echo "SendMyCall | Virtual Numbers | Coverage: Local, Mobile, National and Toll-Free numbers with Free PBX";
+        } elseif ( is_page() ) {
+            echo get_the_title() .  " | " . get_bloginfo( 'name' );
+        } elseif ( is_home() ) {
+            echo "Blog" .  " | " . get_bloginfo( 'name' );
+        } elseif ( is_single() ) {
+            echo get_the_title() .  " | " . get_bloginfo( 'name' );
+        } elseif ( is_404() ) {
+            echo "404 Error" .  " | " . get_bloginfo( 'name' );
+        }
+
+        ?>
+    </title>
 	<?php wp_head(); ?>
 </head>
 
