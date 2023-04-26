@@ -79,7 +79,7 @@
             cities.prop('disabled', true);
             cities.on('select2:select', function (e) {
                 let price = e.params.data.monthly_price;
-                let title = e.params.data.text;
+                let show_toll_free = e.params.data.show_toll_free;
                 const $form = $('#filter');
                 const slug = $('#country_from').find(":selected").data("slug-country-from");
                 let toll_free_price = $('.section-prices-notification-rate');
@@ -114,7 +114,7 @@
                     $('.subscription_price').html(price + '/');
                 }
 
-                if (title === 'Toll-free') {
+                if (show_toll_free === 1) {
                     $.ajax({
                         url: $form.attr('action'),
                         data: {

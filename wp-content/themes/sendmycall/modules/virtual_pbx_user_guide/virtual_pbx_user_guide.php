@@ -34,18 +34,22 @@ get_header();
                                 echo wp_kses_post($virtual_pbx_user_guide_item['description']);
                             } ?>
                             <a class="scroll-to" href="#Top"><?php echo esc_html__('Back to the top', 'sendmycall'); ?></a>
-                            <?php foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
-                                <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
-                                    <div id="<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
-                                        <h4><?php echo wp_kses_post( $sub_virtual_pbx_user_guide_item['title'] ); ?></h4>
-                                    </div>
+                            <?php
+                                if (!empty( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'])) :
+                                foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
+                                    <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
+                                        <div id="<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
+                                            <h4><?php echo wp_kses_post( $sub_virtual_pbx_user_guide_item['title'] ); ?></h4>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['description'] ) ) {
+                                        echo wp_kses_post($sub_virtual_pbx_user_guide_item['description']);
+                                    } ?>
+                                    <a class="scroll-to" href="#Top"><?php echo esc_html__('Back to the top', 'sendmycall'); ?></a>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
-                                <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['description'] ) ) {
-                                    echo wp_kses_post($sub_virtual_pbx_user_guide_item['description']);
-                                } ?>
-                                <a class="scroll-to" href="#Top"><?php echo esc_html__('Back to the top', 'sendmycall'); ?></a>
-                            <?php endforeach; ?>
                         <?php endforeach; ?>
+
                     <?php endif; ?>
                 </div>
             </div>
@@ -66,15 +70,18 @@ get_header();
                                     </li>
                                     <?php endif; ?>
                                     <ul>
-                                        <?php foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
-                                            <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
-                                            <li>
-                                                <a class="scroll-to" href="#<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
-                                                    <?php echo $sub_virtual_pbx_user_guide_item['title'] ; ?>
-                                                </a>
-                                            </li>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
+                                        <?php
+                                        if(!empty($virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'])) :
+                                            foreach ( $virtual_pbx_user_guide_item['sub_virtual_pbx_user_guide'] as $sub_virtual_pbx_user_guide_item ) : ?>
+                                                <?php if ( ! empty( $sub_virtual_pbx_user_guide_item['title'] ) ) : ?>
+                                                <li>
+                                                    <a class="scroll-to" href="#<?php echo clean($sub_virtual_pbx_user_guide_item['title']); ?>">
+                                                        <?php echo $sub_virtual_pbx_user_guide_item['title'] ; ?>
+                                                    </a>
+                                                </li>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </ul>
                                 <?php endforeach; ?>
                             </ul>

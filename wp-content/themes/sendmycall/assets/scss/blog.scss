@@ -1,0 +1,9 @@
+@import "../../assets/scss/grid/mixins/breakpoints";
+@import "../../assets/scss/vars";
+
+.post {
+  width: 30%;
+  float: left;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
