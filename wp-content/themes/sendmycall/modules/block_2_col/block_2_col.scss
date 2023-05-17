@@ -1,0 +1,27 @@
+@import "../../assets/scss/vars";
+@import "../../assets/scss/grid/mixins/breakpoints";
+
+.section {
+  &-block_2_col {
+    .order {
+      @include media-breakpoint-up(md) {
+        order: 1;
+      }
+    }
+    .row {
+      margin: 40px 0;
+      align-items: center;
+    }
+    .col-6 {
+      @include media-breakpoint-down(sm) {
+        padding: 0;
+      }
+    }
+    &_image {
+      text-align: center;
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
