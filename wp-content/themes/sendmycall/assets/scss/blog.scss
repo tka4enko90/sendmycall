@@ -1,9 +1,52 @@
 @import "../../assets/scss/grid/mixins/breakpoints";
 @import "../../assets/scss/vars";
 
-.post {
-  width: 30%;
-  float: left;
-  margin-bottom: 20px;
-  margin-right: 20px;
+.blog {
+  &_title {
+    margin: 30px 0;
+    @include media-breakpoint-up(xxl) {
+      margin: 50px 0;
+    }
+  }
+  &_posts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &_post {
+    width: 100%;
+    @include media-breakpoint-up(md) {
+      width: 49%;
+      &:nth-child(odd) {
+        margin-right: 15px;
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      width: 31%;
+      &:nth-child(even) {
+        margin-right: 15px;
+      }
+    }
+    @include media-breakpoint-up(xxl) {
+      width: 32%;
+      margin-right: 15px;
+    }
+    &_title {
+      margin-top: 10px;
+    }
+    &_meta {
+      &_date {
+        font-weight: 600;
+      }
+    }
+  }
+  &_image {
+    text-align: center;
+    img {
+      @include media-breakpoint-up(md) {
+        object-fit: cover;
+        height: 270px;
+        width: 100%;
+      }
+    }
+  }
 }

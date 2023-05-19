@@ -1,0 +1,24 @@
+@import "../../assets/scss/grid/mixins/breakpoints";
+@import "../../assets/scss/vars";
+
+.post {
+  &_holder {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  &_content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  &_title {
+    margin: 50px 0;
+  }
+  &_image {
+    img {
+      @include media-breakpoint-up(md) {
+        height: 400px;
+        object-fit: cover;
+      }
+    }
+  }
+}
