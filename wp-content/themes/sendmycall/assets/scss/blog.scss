@@ -49,4 +49,22 @@
       }
     }
   }
+  &_pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    a, span {
+      padding: 8px;
+      background-color: $bg-light-grey;
+      margin: 4px;
+      min-width: 40px;
+      text-align: center;
+      color: $primary-color;
+    }
+    span {
+      color: $text-color;
+    }
+  }
 }
